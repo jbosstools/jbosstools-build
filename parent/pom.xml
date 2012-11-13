@@ -16,7 +16,7 @@
 		<JBT_VERSION>4.0.0</JBT_VERSION>
 		<JBDS_VERSION>6.0.0</JBDS_VERSION>
 		<BUILD_ALIAS>Beta2</BUILD_ALIAS>
-		<TARGET_PLATFORM_VERSION>${JBT_VERSION}.${BUILD_ALIAS}-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>${JBT_VERSION}.JunoSR0c-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<targetEclipseVersion>4.2</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
@@ -411,7 +411,7 @@
 		<profile>
 			<id>jbosstools-staging-aggregate</id>
 			<activation>
-				<property><name>!nostaging-aggregate</name></property>
+				<activeByDefault>true</activeByDefault>
 			</activation>
 			<repositories>
 				<repository>
@@ -443,6 +443,9 @@
 			available (to improve network lag) -->
 		<profile>
 			<id>local.composite</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
 			<repositories>
 				<repository>
 					<id>local.composite</id>
@@ -462,6 +465,9 @@
 			sites from which the JBDS Extras site is created. -->
 		<profile>
 			<id>jboss-requirements-composite-extras-mirror</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
 			<repositories>
 				<repository>
 					<id>jboss-requirements-composite-extras-mirror</id>
