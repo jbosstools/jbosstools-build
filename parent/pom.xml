@@ -16,7 +16,6 @@
 		<JBT_VERSION>4.0.0</JBT_VERSION>
 		<JBDS_VERSION>6.0.0</JBDS_VERSION>
 		<BUILD_ALIAS>Beta2</BUILD_ALIAS>
-		<TARGET_PLATFORM_VERSION>${JBT_VERSION}.JunoSR0c-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<targetEclipseVersion>4.2</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
@@ -85,6 +84,11 @@
 
 		<!-- JBDS-2290, JBIDE-12294, JBIDE-12629 latest stable build of m2e, m2e-wtp, and m2e-apt for use with JBDS product builds -->
 		<m2e>http://download.jboss.org/jbosstools/updates/requirements/m2eclipse/20120926-1337/</m2e>
+
+		<!-- In case no profile fits your requested TP version, directly override this property -->
+		<TARGET_PLATFORM_VERSION>${JBT_VERSION}.JunoSR0c-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<!-- default value for the "maximum" profiles -->
+		<TARGET_PLATFORM_VERSION-maximum>${JBT_VERSION}.JunoSR1a-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
 
 	</properties>
 
@@ -552,7 +556,7 @@
 								<artifact>
 									<groupId>org.jboss.tools.target-platforms.${targetPlatformGroup-maximum}</groupId>
  									<artifactId>unified</artifactId>
-									<version>${TARGET_PLATFORM_VERSION}</version>
+									<version>${TARGET_PLATFORM_VERSION-maximum}</version>
 									<classifier>unified</classifier>
 								</artifact>
 							</target>
@@ -605,7 +609,7 @@
 								<artifact>
 									<groupId>org.jboss.tools.target-platforms.${targetPlatformGroup-maximum}</groupId>
  									<artifactId>jenkins</artifactId>
-									<version>${TARGET_PLATFORM_VERSION}</version>
+									<version>${TARGET_PLATFORM_VERSION-maximum}</version>
 									<classifier>jenkins</classifier>
 								</artifact>
 							</target>
