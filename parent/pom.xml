@@ -582,7 +582,7 @@
 						<configuration>
 							<target>
 								<artifact>
-									<groupId>org.jboss.tools.target-platforms.${targetPlatformGroup-maximum}</groupId>
+									<groupId>org.jboss.tools.target-platforms.${targetPlatformGroup}</groupId>
 									<artifactId>jenkins</artifactId>
 									<version>${TARGET_PLATFORM_VERSION}</version>
 									<classifier>jenkins</classifier>
