@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.jboss.tools.target-platforms.jbosstools-JunoSR1a</groupId>
 		<artifactId>all</artifactId>
-		<version>4.0.0.CR1-SNAPSHOT</version>
+		<version>4.1.0.Alpha1-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.target-platforms.jbosstools-JunoSR1a</groupId>
 	<artifactId>unified</artifactId>
 	<name>jbosstools-JunoSR1a Unified (Aggregate) Target Platform</name>
 	<packaging>pom</packaging>
-	<version>4.0.0.JunoSR1a-SNAPSHOT</version>
+	<version>4.1.0.JunoSR1a-SNAPSHOT</version>
 
 	<build>
 		<plugins>

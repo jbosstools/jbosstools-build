@@ -5,13 +5,13 @@
 	<parent>
 		<groupId>org.jboss.tools.target-platforms.jbdevstudio-JunoSR0c</groupId>
 		<artifactId>all</artifactId>
-		<version>4.0.0.CR1-SNAPSHOT</version>
+		<version>4.1.0.Alpha1-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.target-platforms.jbdevstudio-JunoSR0c</groupId>
 	<artifactId>multiple</artifactId>
 	<name>jbdevstudio-JunoSR0c Multiple (Composite) Target Platform</name>
 	<packaging>pom</packaging>
-	<version>6.0.0.JunoSR0c-SNAPSHOT</version>
+	<version>6.1.0.JunoSR0c-SNAPSHOT</version>
 
 	<build>
 		<plugins>
@@ -61,4 +61,31 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>multiple2repo</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=389052  -->
+						<groupId>org.jboss.tools.tycho-plugins</groupId>
+						<artifactId>target-platform-utils</artifactId>
+						<version>0.0.1-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>mirror-target-to-repo</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 </project>
