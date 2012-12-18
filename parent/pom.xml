@@ -560,6 +560,52 @@
 			</build>
 		</profile>
 
+		<profile>
+			<id>pack200</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>tycho-pack200b-plugin</artifactId>
+					<version>${tychoExtrasVersion}</version>
+					<executions>
+						<execution>
+							<id>pack200-pack</id>
+							<goals>
+								<goal>pack</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<executions>
+						<execution>	
+							<id>p2-metadata</id>
+							<goals>
+								<goal>p2-metadata</goal>
+							</goals>
+							<phase>package</phase>
+						</execution>
+					</executions>
+					<configuration>
+						<defaultP2Metadata>false</defaultP2Metadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+
 		<!-- Multiple triggers to disable tests that depends on private requirements
 			These profiles are workaround for Maven to support minimal operations
 			http://jira.codehaus.org/browse/MNG-5347 -->
