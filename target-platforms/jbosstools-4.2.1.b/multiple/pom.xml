@@ -5,37 +5,15 @@
 	<parent>
 		<groupId>org.jboss.tools.target-platforms.jbosstools</groupId>
 		<artifactId>all</artifactId>
-		<version>4.2.0.c-SNAPSHOT</version>
+		<version>4.2.1.b-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.target-platforms.jbosstools</groupId>
-	<artifactId>unified</artifactId>
-	<name>jbosstools Unified (Aggregate) Target Platform 4.2.0.c</name>
+	<artifactId>multiple</artifactId>
+	<name>jbosstools Multiple (Composite) Target Platform 4.2.1.b</name>
 	<packaging>pom</packaging>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.jboss.tools.tycho-plugins</groupId>
-				<artifactId>target-platform-utils</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-				<executions>
-					<execution>
-						<id>create-target</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>flatten-target</goal>
-						</goals>
-						<configuration>
-							<sourceTargetArtifact>
-								<groupId>${project.groupId}</groupId>
-								<artifactId>multiple</artifactId>
-								<version>${project.version}</version>
-							</sourceTargetArtifact>
-							<targetRepositoryUrl>http://download.jboss.org/jbosstools/updates/juno/SR0c/REPO/</targetRepositoryUrl>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>target-platform-validation-plugin</artifactId>
@@ -48,7 +26,7 @@
 						</goals>
 						<configuration>
 							<targetFiles>
-								<param>${project.build.directory}/${project.artifactId}.target</param>
+								<param>multiple.target</param>
 							</targetFiles>
 							<failOnError>true</failOnError>
 						</configuration>
@@ -68,8 +46,9 @@
 						</goals>
 						<configuration>
 							<artifacts>
+								<!-- add more artifacts if want more target platforms -->
 								<artifact>
-									<file>${project.build.directory}/${project.artifactId}.target</file>
+									<file>multiple.target</file>
 									<type>target</type>
 									<classifier>${project.artifactId}</classifier>
 								</artifact>
@@ -80,4 +59,32 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>multiple2repo</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=389052  -->
+						<groupId>org.jboss.tools.tycho-plugins</groupId>
+						<artifactId>target-platform-utils</artifactId>
+						<version>0.0.1-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>mirror-target-to-repo</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
