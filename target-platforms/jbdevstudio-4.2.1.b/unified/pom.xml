@@ -5,11 +5,11 @@
 		<parent>
 		<groupId>org.jboss.tools.target-platforms.jbdevstudio</groupId>
 		<artifactId>all</artifactId>
-		<version>4.2.1.a-SNAPSHOT</version>
+		<version>4.2.1.b-SNAPSHOT</version>
 	</parent>
 	<groupId>org.jboss.tools.target-platforms.jbdevstudio</groupId>
 	<artifactId>unified</artifactId>
-	<name>jbdevstudio Unified (Aggregate) Target Platform 4.2.1.a</name>
+	<name>jbdevstudio Unified (Aggregate) Target Platform 4.2.1.b</name>
 	<packaging>pom</packaging>
 
 	<build>
