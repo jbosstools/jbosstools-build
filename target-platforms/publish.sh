@@ -23,42 +23,42 @@ while [ "$#" -gt 0 ]; do
 		'-include') include="$2"; shift 2;;
 		'-exclude') exclude="$2"; shift 2;;
 
-		'-jbosstools-4.2.1.a')
+		'-jbosstools-4.2.1.b')
 			# defaults for JBT (trunk)
 			targetZipFile=e421-wtp341.target
-			repoDir=/home/hudson/static_build_env/jbds/tools/sources/REPO_4.0.juno.SR1a
-			destinationPath=/home/hudson/static_build_env/jbds/target-platform_4.0.juno.SR1a
-			DESTINATION=tools@filemgmt.jboss.org:/downloads_htdocs/tools/updates/juno/SR1a
+			repoDir=/home/hudson/static_build_env/jbds/tools/sources/REPO_4.0.juno.SR1b
+			destinationPath=/home/hudson/static_build_env/jbds/target-platform_4.0.juno.SR1b
+			DESTINATION=tools@filemgmt.jboss.org:/downloads_htdocs/tools/updates/juno/SR1b
 			include="*"
 			exclude="--exclude '.blobstore'" # exclude the .blobstore
 			shift 1;;
 
-		'-jbdevstudio-4.2.1.a')
+		'-jbdevstudio-4.2.1.b')
 			# defaults for JBDS (trunk)
 			targetZipFile=jbds600-e421-wtp341.target
-			repoDir=/home/hudson/static_build_env/jbds/tools/sources/JBDS-REPO_4.0.juno.SR1a
-			destinationPath=/home/hudson/static_build_env/jbds/jbds-target-platform_4.0.juno.SR1a
-			DESTINATION=/qa/services/http/binaries/RHDS/updates/jbds-target-platform_4.0.juno.SR1a
+			repoDir=/home/hudson/static_build_env/jbds/tools/sources/JBDS-REPO_4.0.juno.SR1b
+			destinationPath=/home/hudson/static_build_env/jbds/jbds-target-platform_4.0.juno.SR1b
+			DESTINATION=/qa/services/http/binaries/RHDS/updates/jbds-target-platform_4.0.juno.SR1b
 			include="*"
 			exclude="--exclude '.blobstore'" # exclude the .blobstore
 			shift 1;;
 
-		'-jbosstools-4.2.0.c')
+		'-jbosstools-4.2.0.d')
 			# defaults for JBT (trunk)
 			targetZipFile=e420-wtp340.target
-			repoDir=/home/hudson/static_build_env/jbds/tools/sources/REPO_4.0.juno.SR0c
-			destinationPath=/home/hudson/static_build_env/jbds/target-platform_4.0.juno.SR0c
-			DESTINATION=tools@filemgmt.jboss.org:/downloads_htdocs/tools/updates/juno/SR0c
+			repoDir=/home/hudson/static_build_env/jbds/tools/sources/REPO_4.0.juno.SR0d
+			destinationPath=/home/hudson/static_build_env/jbds/target-platform_4.0.juno.SR0d
+			DESTINATION=tools@filemgmt.jboss.org:/downloads_htdocs/tools/updates/juno/SR0d
 			include="*"
 			exclude="--exclude '.blobstore'" # exclude the .blobstore
 			shift 1;;
 
-		'-jbdevstudio-4.2.0.c')
+		'-jbdevstudio-4.2.0.d')
 			# defaults for JBDS (trunk)
 			targetZipFile=jbds600-e420-wtp340.target
-			repoDir=/home/hudson/static_build_env/jbds/tools/sources/JBDS-REPO_4.0.juno.SR0c
-			destinationPath=/home/hudson/static_build_env/jbds/jbds-target-platform_4.0.juno.SR0c
-			DESTINATION=/qa/services/http/binaries/RHDS/updates/jbds-target-platform_4.0.juno.SR0c
+			repoDir=/home/hudson/static_build_env/jbds/tools/sources/JBDS-REPO_4.0.juno.SR0d
+			destinationPath=/home/hudson/static_build_env/jbds/jbds-target-platform_4.0.juno.SR0d
+			DESTINATION=/qa/services/http/binaries/RHDS/updates/jbds-target-platform_4.0.juno.SR0d
 			include="*"
 			exclude="--exclude '.blobstore'" # exclude the .blobstore
 			shift 1;;
@@ -79,7 +79,7 @@ if [[ -d ${repoDir} ]]; then
 
 	# JBDS-2380 massage content.jar to remove all external 3rd party references: target platform site should be self contained
 	wget --no-check-certificate https://raw.github.com/jbosstools/jbosstools-download.jboss.org/master/jbosstools/updates/requirements/remove.references.xml
-	ant -f remove.references.xml -DworkDir=`pwd` 
+	ant -f remove.references.xml -DworkDir=`pwd`
 	rm -f remove.references.xml
 
 	# copy/update into central place for reuse by local downstream build jobs
