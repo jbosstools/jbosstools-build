@@ -98,9 +98,9 @@
 		<tpc.targetKind>unified</tpc.targetKind>
 
 		<!-- In case no profile fits your requested TP version, directly override this property -->
-		<TARGET_PLATFORM_VERSION>4.2.0.c-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.20.5.Final-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profiles -->
-		<TARGET_PLATFORM_VERSION-maximum>4.3.0.M4-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
+		<TARGET_PLATFORM_VERSION-maximum>4.30.0.Alpha1-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
 
 	</properties>
 
@@ -472,10 +472,10 @@
 						<configuration>
 							<target>
 								<artifact>
-									<groupId>org.jboss.tools.target-platforms.${tpc.group}</groupId>
-									<artifactId>${tpc.targetKind}</artifactId>
+									<groupId>org.jboss.tools.targetplatforms</groupId>
+									<artifactId>${tpc.group}-${tpc.targetKind}</artifactId>
 									<version>${TARGET_PLATFORM_VERSION}</version>
-									<classifier>${tpc.targetKind}</classifier>
+									<classifier>${tpc.group}-${tpc.targetKind}</classifier>
 								</artifact>
 							</target>
 						</configuration>
