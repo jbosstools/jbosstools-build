@@ -654,6 +654,22 @@
 			<id>sonatype-public-repository</id>
 			<url>https://oss.sonatype.org/content/groups/public</url>
 		</pluginRepository>
+ 		<pluginRepository>
+                        <id>jboss-releases</id>
+                        <name>JBoss Releases Maven Repository</name>
+                        <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+                        <releases>
+                                <enabled>true</enabled>
+                        </releases>
+                </pluginRepository>
+                <pluginRepository>
+                        <id>jboss-snapshots-repository</id>
+                        <name>JBoss Snapshots Repository</name>
+                        <url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+                        <snapshots>
+                                <enabled>true</enabled>
+                        </snapshots>
+                </pluginRepository>
 	</pluginRepositories>
 
 	<!-- To deploy parent to Nexus -->
