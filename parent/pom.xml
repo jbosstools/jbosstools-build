@@ -83,10 +83,8 @@
 
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
-		<targetPlatformGroup>jbosstools-JunoSR0c</targetPlatformGroup>
-		<!-- building/testing aggregate sites & installers, use maximum TP -->
-		<!-- TODO: don't forget to update this in ../aggregate/*/associate.properties too (5 files)! -->
-		<targetPlatformGroup-maximum>jbosstools-JunoSR1a</targetPlatformGroup-maximum>
+		<!-- This must be overriden when using other groups for TP, such as jbdevstudio -->
+		<targetPlatformGroup>jbosstools</targetPlatformGroup>
 
 		<!-- ***************************************************************** -->
 		<!-- Use *target* profiles to select other values for those properties -->
@@ -97,9 +95,9 @@
 		<tpc.targetKind>unified</tpc.targetKind>
 
 		<!-- In case no profile fits your requested TP version, directly override this property -->
-		<TARGET_PLATFORM_VERSION>4.0.0.JunoSR0c-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.20.6.Final-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profiles -->
-		<TARGET_PLATFORM_VERSION-maximum>4.0.0.JunoSR1a-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
+		<TARGET_PLATFORM_VERSION-maximum>4.21.4.Final-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
 
 	</properties>
 
@@ -475,10 +473,10 @@
 						<configuration>
 							<target>
 								<artifact>
-									<groupId>org.jboss.tools.target-platforms.${tpc.group}</groupId>
-									<artifactId>${tpc.targetKind}</artifactId>
+									<groupId>org.jboss.tools.targetplatforms</groupId>
+									<artifactId>${tpc.group}-${tpc.targetKind}</artifactId>
 									<version>${TARGET_PLATFORM_VERSION}</version>
-									<classifier>${tpc.targetKind}</classifier>
+									<classifier>${tpc.group}-${tpc.targetKind}</classifier>
 								</artifact>
 							</target>
 						</configuration>
@@ -508,7 +506,6 @@
 		<profile>
 			<id>maximum</id>
 			<properties>
-				<tpc.group>${targetPlatformGroup-maximum}</tpc.group>
 				<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION-maximum}</TARGET_PLATFORM_VERSION>
 			</properties>
 		</profile>
@@ -564,6 +561,52 @@
 			</build>
 		</profile>
 
+		<profile>
+			<id>pack200</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>tycho-pack200b-plugin</artifactId>
+					<version>${tychoExtrasVersion}</version>
+					<executions>
+						<execution>
+							<id>pack200-pack</id>
+							<goals>
+								<goal>pack</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<executions>
+						<execution>	
+							<id>p2-metadata</id>
+							<goals>
+								<goal>p2-metadata</goal>
+							</goals>
+							<phase>package</phase>
+						</execution>
+					</executions>
+					<configuration>
+						<defaultP2Metadata>false</defaultP2Metadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+
 		<!-- Multiple triggers to disable tests that depends on private requirements
 			These profiles are workaround for Maven to support minimal operations
 			http://jira.codehaus.org/browse/MNG-5347 -->
@@ -612,6 +655,22 @@
 			<id>sonatype-public-repository</id>
 			<url>https://oss.sonatype.org/content/groups/public</url>
 		</pluginRepository>
+ 		<pluginRepository>
+                        <id>jboss-releases</id>
+                        <name>JBoss Releases Maven Repository</name>
+                        <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+                        <releases>
+                                <enabled>true</enabled>
+                        </releases>
+                </pluginRepository>
+                <pluginRepository>
+                        <id>jboss-snapshots-repository</id>
+                        <name>JBoss Snapshots Repository</name>
+                        <url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+                        <snapshots>
+                                <enabled>true</enabled>
+                        </snapshots>
+                </pluginRepository>
 	</pluginRepositories>
 
 	<!-- To deploy parent to Nexus -->
