@@ -98,9 +98,9 @@
 		<tpc.targetKind>unified</tpc.targetKind>
 
 		<!-- In case no profile fits your requested TP version, directly override this property -->
-		<TARGET_PLATFORM_VERSION>4.30.2.Alpha1-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.30.3.Alpha1-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile: TODO: switch to M6 bits (4.30.3.Alpha1) -->
-		<TARGET_PLATFORM_VERSION-maximum>4.30.2.Alpha1-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
+		<TARGET_PLATFORM_VERSION-maximum>4.30.3.Alpha1-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
 
 	</properties>
 
@@ -655,21 +655,21 @@
 			<url>https://oss.sonatype.org/content/groups/public</url>
 		</pluginRepository>
  		<pluginRepository>
-                        <id>jboss-releases</id>
-                        <name>JBoss Releases Maven Repository</name>
-                        <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
-                        <releases>
-                                <enabled>true</enabled>
-                        </releases>
-                </pluginRepository>
-                <pluginRepository>
-                        <id>jboss-snapshots-repository</id>
-                        <name>JBoss Snapshots Repository</name>
-                        <url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
-                        <snapshots>
-                                <enabled>true</enabled>
-                        </snapshots>
-                </pluginRepository>
+			<id>jboss-releases</id>
+			<name>JBoss Releases Maven Repository</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-snapshots-repository</id>
+			<name>JBoss Snapshots Repository</name>
+			<url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
 
 	<!-- To deploy parent to Nexus -->
