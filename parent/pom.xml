@@ -15,7 +15,6 @@
 		<!-- to build w/ latest 0.15.0-SNAPSHOT, run `mvn install -DtychoVersion=0.15.0-SNAPSHOT` -->
 		<tychoVersion>0.16.0</tychoVersion>
 		<tychoExtrasVersion>0.16.0</tychoExtrasVersion>
-		<scmBranch>trunk</scmBranch>
 		<JBT_VERSION>4.1.0</JBT_VERSION>
 		<JBDS_VERSION>6.1.0</JBDS_VERSION>
 		<BUILD_ALIAS>Alpha2</BUILD_ALIAS>
@@ -52,7 +51,7 @@
 		<!-- ======================== -->
 
 		<!-- URL of latest JBT nightly staging composite site (all the componentsin once place) -->
-		<!-- for trunk use _composite_/trunk; for 4.0_stable_branch, use _composite_/4.0.juno -->
+		<!-- for master/trunk use _composite_/trunk; for _41, use _composite_/4.1.kepler -->
 		<jbosstools-nightly-staging-composite>http://download.jboss.org/jbosstools/builds/staging/_composite_/core/trunk/</jbosstools-nightly-staging-composite>
 		<!-- this site is not enabled by default as SOA Tooling is a downstream project (sorta). -->
 		<jbosstools-nightly-staging-composite-soa-tooling>http://download.jboss.org/jbosstools/builds/staging/_composite_/soa-tooling/trunk/</jbosstools-nightly-staging-composite-soa-tooling>
@@ -60,7 +59,7 @@
 		<!-- URL of latest JBT SOA requirements composite mirror -->
 		<!-- TODO: JBIDE-11121 - remove this when we have a SOA TP site instead -->
 		<!-- TODO: don't forget to update this in ../aggregate/soa*/associate.properties too (2 files)! -->
-		<jboss-requirements-composite-soa-tooling-mirror>http://download.jboss.org/jbosstools/updates/juno/soa-tooling/</jboss-requirements-composite-soa-tooling-mirror>
+		<jboss-requirements-composite-soa-tooling-mirror>http://download.jboss.org/jbosstools/updates/kepler/soa-tooling/</jboss-requirements-composite-soa-tooling-mirror>
 
 		<!-- published aggregate update sites go here, for consumption by QE and downstream JBDS builds -->
 		<jbosstools-nightly>http://download.jboss.org/jbosstools/updates/nightly/core/trunk/</jbosstools-nightly>
@@ -71,7 +70,7 @@
 
 		<!-- 5. extra requirements (for 3rd party "Extras" site) -->
 		<!-- TODO: shouln't those move to another (JBDS?) pom -->
-		<jboss-requirements-composite-extras-mirror>http://download.jboss.org/jbosstools/updates/juno/extras/</jboss-requirements-composite-extras-mirror>
+		<jboss-requirements-composite-extras-mirror>http://download.jboss.org/jbosstools/updates/kepler/extras/</jboss-requirements-composite-extras-mirror>
 
 		<!-- ********************************************************************* -->
 		<!-- Use jbosstools-* profiles to select other values for those properties -->
