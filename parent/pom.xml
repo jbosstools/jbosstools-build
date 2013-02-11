@@ -63,11 +63,21 @@
 
 		<!-- published aggregate update sites go here, for consumption by QE and downstream JBDS builds -->
 		<jbosstools-nightly>http://download.jboss.org/jbosstools/updates/nightly/core/trunk/</jbosstools-nightly>
-		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/trunk/</jbosstools-nightly-tests>
+		<!-- JBIDE-12974 
+			Trying to old coretests and soatests sites in favour of a site w/ integration tests AND unit tests on it 
+			Note: 4.1.kepler branch does not exist yet for coretests or for integrationtests so only need trunk URL
+		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/trunk/</jbosstools-nightly-tests> 
+		-->
+		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/integrationtests/trunk/</<jbosstools-nightly-tests>
 		<!-- these sites are not enabled by default as SOA Tooling is a downstream project (sorta). -->
 		<jbosstools-nightly-soa-tooling>http://download.jboss.org/jbosstools/updates/nightly/soa-tooling/trunk/</jbosstools-nightly-soa-tooling>
+		<!-- JBIDE-12974 
+			Trying to old coretests and soatests sites in favour of a site w/ integration tests AND unit tests on it 
+			Note: 4.1.kepler branch does not exist yet for coretests or for integrationtests so only need trunk URL
 		<jbosstools-nightly-soa-tooling-tests>http://download.jboss.org/jbosstools/updates/nightly/soatests/trunk/</jbosstools-nightly-soa-tooling-tests>
-
+		-->
+		<jbosstools-nightly-soa-tooling-tests>http://download.jboss.org/jbosstools/updates/nightly/integrationtests/trunk/</jbosstools-nightly-soa-tooling-tests>
+		
 		<!-- 5. extra requirements (for 3rd party "Extras" site) -->
 		<!-- TODO: shouln't those move to another (JBDS?) pom -->
 		<jboss-requirements-composite-extras-mirror>http://download.jboss.org/jbosstools/updates/kepler/extras/</jboss-requirements-composite-extras-mirror>
