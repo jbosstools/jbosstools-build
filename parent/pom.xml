@@ -16,7 +16,6 @@
 		<tychoVersion>0.16.0</tychoVersion>
 		<tychoExtrasVersion>0.16.0</tychoExtrasVersion>
 		<JBT_VERSION>4.1.0</JBT_VERSION>
-		<JBDS_VERSION>6.1.0</JBDS_VERSION>
 		<BUILD_ALIAS>Alpha2</BUILD_ALIAS>
 		<targetEclipseVersion>4.2</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
@@ -59,7 +58,7 @@
 		<!-- URL of latest JBT SOA requirements composite mirror -->
 		<!-- TODO: JBIDE-11121 - remove this when we have a SOA TP site instead -->
 		<!-- TODO: don't forget to update this in ../aggregate/soa*/associate.properties too (2 files)! -->
-		<jboss-requirements-composite-soa-tooling-mirror>http://download.jboss.org/jbosstools/updates/kepler/soa-tooling/</jboss-requirements-composite-soa-tooling-mirror>
+		<jboss-requirements-composite-soa-tooling-mirror>http://download.jboss.org/jbosstools/updates/kepler/integration-stack/</jboss-requirements-composite-soa-tooling-mirror>
 
 		<!-- published aggregate update sites go here, for consumption by QE and downstream JBDS builds -->
 		<jbosstools-nightly>http://download.jboss.org/jbosstools/updates/nightly/core/trunk/</jbosstools-nightly>
