@@ -97,7 +97,7 @@
 		<!-- In case no profile fits your requested TP version, directly override this property -->
 		<TARGET_PLATFORM_VERSION>4.20.6.Final-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profiles -->
-		<TARGET_PLATFORM_VERSION-maximum>4.22.0.Final-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
+		<TARGET_PLATFORM_VERSION-maximum>4.22.1.Final</TARGET_PLATFORM_VERSION-maximum>
 
 	</properties>
 
