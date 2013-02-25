@@ -691,9 +691,9 @@
 		</snapshotRepository>
 		<repository>
 			<id>jboss-staging-repository</id>
-			<name>JBoss Staging Repository</name>
+			<name>JBoss Staging Service</name>
 			<uniqueVersion>false</uniqueVersion>
-			<url>https://repository.jboss.org/nexus/content/groups/staging/</url>
+			<urlhttps://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
 </project>
