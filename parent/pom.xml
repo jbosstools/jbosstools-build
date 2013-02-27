@@ -122,12 +122,12 @@
 				<version>${tychoVersion}</version>
 				<dependencies>
 					<dependency>
-					  <groupId>org.eclipse.tycho.extras</groupId>
-					  <artifactId>tycho-buildtimestamp-jgit</artifactId>
-					  <version>${tychoExtrasVersion}</version>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-buildtimestamp-jgit</artifactId>
+						<version>${tychoExtrasVersion}</version>
 					</dependency>
 				</dependencies>
-          		<configuration>
+				<configuration>
 					<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
 					<strictBinIncludes>false</strictBinIncludes>
 					<archiveSite>true</archiveSite>
