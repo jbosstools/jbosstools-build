@@ -593,7 +593,7 @@
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-packaging-plugin</artifactId>
 						<version>${tychoVersion}</version>
-		          		<configuration>
+						<configuration>
 							<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
 						</configuration>
 					</plugin>
