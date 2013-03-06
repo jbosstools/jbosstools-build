@@ -583,9 +583,18 @@
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-packaging-plugin</artifactId>
 						<version>${tychoVersion}</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.eclipse.tycho.extras</groupId>
+								<artifactId>tycho-buildtimestamp-jgit</artifactId>
+								<version>${tychoExtrasVersion}</version>
+							</dependency>
+						</dependencies>
 						<configuration>
-							<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
-							<archiveSite>true</archiveSite>
+							<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-CI'</format>
+							<strictBinIncludes>false</strictBinIncludes>
+							<timestampProvider>jgit</timestampProvider>
+							<jgit.ignore></jgit.ignore>
 						</configuration>
 					</plugin>
 				</plugins>
