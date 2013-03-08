@@ -27,7 +27,9 @@
 		<!-- Default coverage filter, to be overriden when necessary -->
 		<coverage.filter>org.jboss.tools.*</coverage.filter>
 		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
-		<update.site.description>This is an Eclipse update-site/p2 repository which contains build artifact for component ${project.artifactId}</update.site.description>
+		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
+		     you can override this value to be Nightly Build, Development Milestone, or Stable Release, or leave blank -->
+		<update.site.description>&nbsp;</update.site.description>
 
 		<!-- ===================================================== -->
 		<!-- SWITCHES can be overriden by command-line -Dkey=value -->
