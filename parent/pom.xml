@@ -108,9 +108,9 @@
 		<tpc.targetKind>unified</tpc.targetKind>
 
 		<!-- In case no profile fits your requested TP version, directly override this property -->
-		<TARGET_PLATFORM_VERSION>4.30.5.Alpha-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.30.5.Alpha</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION-maximum>4.30.5.Alpha-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
+		<TARGET_PLATFORM_VERSION-maximum>4.30.5.Alpha</TARGET_PLATFORM_VERSION-maximum>
 
 	</properties>
 
