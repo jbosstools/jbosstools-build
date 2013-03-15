@@ -17,7 +17,7 @@
 		<tychoExtrasVersion>0.16.0</tychoExtrasVersion>
 		<JBT_VERSION>4.1.0</JBT_VERSION>
 		<BUILD_ALIAS>Alpha2</BUILD_ALIAS>
-		<targetEclipseVersion>4.3</targetEclipseVersion>
+		<targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -317,10 +317,14 @@
 							<goal>generate-repository-facade</goal>
 						</goals>
 						<configuration>
+              <associateSites>
+                <site>http://download.jboss.org/jbosstools/updates/kepler/</site>
+                <site>http://download.jboss.org/jbosstools/updates/development/kepler/</site>
+              </associateSites>
 							<symbols>
 								<update.site.name>${update.site.name}</update.site.name>
 								<update.site.description>${update.site.description}</update.site.description>
-								<update.site.version>${JBT_VERSION} ${buildQualifier}</update.site.version>
+								<update.site.version>${project.version} (${buildQualifier})</update.site.version>
 								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
 							</symbols>
 						</configuration>
