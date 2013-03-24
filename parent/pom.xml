@@ -15,7 +15,6 @@
 		<!-- to build w/ latest 0.15.0-SNAPSHOT, run `mvn install -DtychoVersion=0.15.0-SNAPSHOT` -->
 		<tychoVersion>0.17.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<JBT_VERSION>4.1.0</JBT_VERSION>
 		<BUILD_ALIAS>Alpha2</BUILD_ALIAS>
 		<targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
@@ -104,8 +103,6 @@
 		<TARGET_PLATFORM_VERSION>4.30.5.Alpha</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
 		<TARGET_PLATFORM_VERSION_MAXIMUM>4.30.5.Alpha2-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
-		<!-- TODO: remove/rename all references to this older variable as it doesn't work consistently w/ Ant and Bash scripts -->
-		<TARGET_PLATFORM_VERSION-maximum>4.30.5.Alpha2-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
 
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
