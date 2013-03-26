@@ -87,8 +87,6 @@
 		<!-- default value for the "minimum" profile -->
 		<TARGET_PLATFORM_VERSION>4.20.6.Final-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION-maximum>4.22.2.Final-SNAPSHOT</TARGET_PLATFORM_VERSION-maximum>
-		<!-- TODO: remove/rename all references to this older variable as it doesn't work consistently w/ Ant and Bash scripts -->
 		<TARGET_PLATFORM_VERSION_MAXIMUM>4.22.2.Final-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
 
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
