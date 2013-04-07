@@ -70,7 +70,7 @@
 			Note: 4.1.kepler branch does not exist yet for coretests or for integrationtests so only need trunk URL
 		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/trunk/</jbosstools-nightly-tests> 
 		-->
-		<jboss	tools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/integrationtests/trunk/</jbosstools-nightly-tests>
+		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/integrationtests/trunk/</jbosstools-nightly-tests>
 		<!-- these sites are not enabled by default as SOA Tooling is a downstream project (sorta). -->
 		<jbosstools-nightly-soa-tooling>http://download.jboss.org/jbosstools/updates/nightly/soa-tooling/trunk/</jbosstools-nightly-soa-tooling>
 		<!-- JBIDE-12974 
