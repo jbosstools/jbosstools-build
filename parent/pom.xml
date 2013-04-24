@@ -313,7 +313,7 @@
 			<plugin>
 				<groupId>org.jboss.tools.tycho-plugins</groupId>
 				<artifactId>repository-utils</artifactId>
-				<version>0.16.0.CR1</version>
+				<version>0.16.0-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<id>generate-facade</id>
@@ -322,13 +322,13 @@
 							<goal>generate-repository-facade</goal>
 						</goals>
 						<configuration>
-              
 							<symbols>
 								<update.site.name>${update.site.name}</update.site.name>
 								<update.site.description>${update.site.description}</update.site.description>
 								<update.site.version>${project.version} (${buildQualifier})</update.site.version>
 								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
 							</symbols>
+							<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
 						</configuration>
 					</execution>
 				</executions>
