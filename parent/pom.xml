@@ -666,13 +666,16 @@
             <groupId>org.codehaus.mojo</groupId>
             <executions>
               <execution>
-                <id>rpm-sign</id>
+                <id>jarsign</id>
                 <phase>package</phase>
                 <goals>
                   <goal>exec</goal>
                 </goals>
                 <configuration>
                   <executable>/home/hudson/bin/jarsign.sh</executable>
+                  <arguments>
+                    <argument>${project.basedir}</argument>
+                  </arguments>
                 </configuration>
               </execution>
             </executions>
@@ -732,13 +735,16 @@
             <groupId>org.codehaus.mojo</groupId>
             <executions>
               <execution>
-                <id>rpm-sign</id>
+                <id>jarsign</id>
                 <phase>package</phase>
                 <goals>
                   <goal>exec</goal>
                 </goals>
                 <configuration>
                   <executable>/home/hudson/bin/jarsign.sh</executable>
+                  <arguments>
+                    <argument>${project.basedir}</argument>
+                  </arguments>
                 </configuration>
               </execution>
             </executions>
