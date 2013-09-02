@@ -129,6 +129,9 @@
 				<version>${tychoVersion}</version>
 				<configuration>
 					<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
+					<sourceReferences>
+						<generate>true</generate>
+					</sourceReferences>
 					<archiveSite>true</archiveSite>
 					<environments>
 						<environment>
@@ -163,6 +166,13 @@
 						</environment>
 					</environments>
 				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-sourceref-jgit</artifactId>
+						<version>${tychoExtrasVersion}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 
 			<plugin>
