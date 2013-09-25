@@ -231,28 +231,6 @@
 					<!-- set useUIThread=true for regular ui tests -->
 					<!-- set useUIThread=false for swtbot tests -->
 
-					<!-- TODO: add new profile to permit running against JBDS product/application
-						for JBDS tests, against Eclipse SDK for JBT -->
-					<product>org.eclipse.platform.ide</product>
-					<application>org.eclipse.ui.ide.workbench</application>
-					<dependencies>
-						<dependency>
-							<type>p2-installable-unit</type>
-							<artifactId>org.eclipse.platform</artifactId>
-							<version>0.0.0</version>
-						</dependency>
-						<!-- http://www.jmock.org/maven.html -->
-						<dependency>
-							<groupId>org.jmock</groupId>
-							<artifactId>jmock-legacy</artifactId>
-							<version>2.5.1</version>
-						</dependency>
-						<dependency>
-							<groupId>org.jmock</groupId>
-							<artifactId>jmock-junit4</artifactId>
-							<version>2.5.1</version>
-						</dependency>
-					</dependencies>
 					<includes>
 						<include>**/AllTests.class</include>
 						<include>**/*AllTests*.class</include>
