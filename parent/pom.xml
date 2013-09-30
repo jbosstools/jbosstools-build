@@ -102,7 +102,7 @@
 		<!-- default value for the "minimum" profile -->
 		<TARGET_PLATFORM_VERSION>4.30.5.Final</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION_MAXIMUM>4.31.0.Alpha1</TARGET_PLATFORM_VERSION_MAXIMUM>
+		<TARGET_PLATFORM_VERSION_MAXIMUM>4.31.0.Alpha2</TARGET_PLATFORM_VERSION_MAXIMUM>
 
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
