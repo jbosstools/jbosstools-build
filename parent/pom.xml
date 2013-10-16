@@ -74,9 +74,8 @@
 		<!-- TODO: find out from pleacu, mmalina if this is still relevant or should just be removed entirely. -->
 		<jbosstools-nightly-soa-tooling-tests>http://download.jboss.org/jbosstools/updates/nightly/soatests/trunk/</jbosstools-nightly-soa-tooling-tests>
 		
-		<!-- 5. extra requirements (for 3rd party "Extras" site) -->
-		<!-- TODO: shouln't those move to another (JBDS?) pom -->
-		<jboss-requirements-composite-extras-mirror>http://download.jboss.org/jbosstools/updates/kepler/extras/</jboss-requirements-composite-extras-mirror>
+		<!-- 5. 3rd party Central requirements (JBDS-2623) -->
+		<jboss-central-target-platform-site>http://download.jboss.org/jbosstools/targetplatforms/jbtcentraltarget/kepler/</jboss-central-target-platform-site>
 
 		<!-- ********************************************************************* -->
 		<!-- Use jbosstools-* profiles to select other values for those properties -->
@@ -492,15 +491,13 @@
 			</repositories>
 		</profile>
 
-
-		<!-- Contains all the Third Party Extras deps. This is the superset of
-			sites from which the JBDS Extras site is created. -->
+		<!-- JBDS-2623 JBoss Central TP site -->
 		<profile>
-			<id>jboss-requirements-composite-extras-mirror</id>
+			<id>jboss-central-target-platform-site</id>
 			<repositories>
 				<repository>
-					<id>jboss-requirements-composite-extras-mirror</id>
-					<url>${jboss-requirements-composite-extras-mirror}</url>
+					<id>jboss-central-target-platform-site</id>
+					<url>${jboss-central-target-platform-site}</url>
 					<layout>p2</layout>
 					<snapshots>
 						<enabled>true</enabled>
