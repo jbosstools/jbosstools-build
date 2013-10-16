@@ -62,18 +62,6 @@
 		<!-- JBIDE-12974, JBTIS-104, JBIDE-13790 Must switch back to using coretests as integrationtests site no longer includes o.j.t.test -->
 		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/trunk/</jbosstools-nightly-tests>
 
-		<!-- TODO: remove this as no used anymore by JBTIS -->
-		<jbosstools-nightly-staging-composite-soa-tooling>http://download.jboss.org/jbosstools/builds/staging/_composite_/soa-tooling/trunk/</jbosstools-nightly-staging-composite-soa-tooling>
-
-		<!-- TODO: remove this as JBTIS doesn't use it? URL of latest JBT IS target platform -->
-		<jboss-requirements-composite-soa-tooling-mirror>http://download.jboss.org/jbosstools/targetplatforms/jbtistarget/kepler/</jboss-requirements-composite-soa-tooling-mirror>
-
-		<!-- TODO: remove this? These sites are not enabled by default as Integration Stack is a downstream project. -->
-		<jbosstools-nightly-soa-tooling>http://download.jboss.org/jbosstools/updates/nightly/integration-stack/4.1.kepler/</jbosstools-nightly-soa-tooling>
-
-		<!-- TODO: find out from pleacu, mmalina if this is still relevant or should just be removed entirely. -->
-		<jbosstools-nightly-soa-tooling-tests>http://download.jboss.org/jbosstools/updates/nightly/soatests/trunk/</jbosstools-nightly-soa-tooling-tests>
-		
 		<!-- 5. 3rd party Central requirements (JBDS-2623) -->
 		<jboss-central-target-platform-site>http://download.jboss.org/jbosstools/targetplatforms/jbtcentraltarget/kepler/</jboss-central-target-platform-site>
 
@@ -466,29 +454,6 @@
 				<jbosstools-site>${jbosstools-nightly}</jbosstools-site>
 				<jbosstools-tests-site>${jbosstools-nightly-tests}</jbosstools-tests-site>
 			</properties>
-		</profile>
-
-		<!-- TODO: remove this? Do JBTIS projects even use this? -->
-		<profile>
-			<id>jbosstools-nightly-staging-composite-soa-tooling</id>
-			<properties>
-				<!-- TODO: This SOA profile should be based on usage of a SOA-specific TP made of unified + JBT -->
-				<jbosstools-site>${jbosstools-nightly}</jbosstools-site>
-				<jbosstools-tests-site>${jbosstools-nightly-tests}</jbosstools-tests-site>
-			</properties>
-			<repositories>
-				<repository>
-					<id>jbosstools-nightly-staging-composite-soa-tooling-</id>
-					<url>${jbosstools-nightly-staging-composite-soa-tooling}</url>
-					<layout>p2</layout>
-				</repository>
-				<!-- TODO JBIDE-11121: this repo should be in an SOA TP -->
-				<repository>
-					<id>jboss-requirements-composite-soa-tooling-mirror</id>
-					<url>${jboss-requirements-composite-soa-tooling-mirror}</url>
-					<layout>p2</layout>
-				</repository>
-			</repositories>
 		</profile>
 
 		<!-- JBDS-2623 JBoss Central TP site -->
