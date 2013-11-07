@@ -26,7 +26,7 @@
 		<!-- Default coverage filter, to be overriden when necessary -->
 		<coverage.filter>org.jboss.tools.*</coverage.filter>
 		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
-		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils) 
+		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
 		     you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
 		<update.site.description>&amp;shy;</update.site.description>
 
@@ -39,6 +39,7 @@
 		<!-- Skip downloading private stuff, to be propagated to tests to skip executing test based on private stuff -->
 		<!-- See JBIDE-12420 -->
 		<skipPrivateRequirements>true</skipPrivateRequirements>
+		<skipSigning>true</skipSigning>
 		<requirementsDirectory>${project.build.directory}/requirements</requirementsDirectory>
 		<skipTestsWithPrivateRequirements>${skipPrivateRequirements}</skipTestsWithPrivateRequirements>
 		<!-- Tests Timeout in seconds -->
@@ -570,111 +571,22 @@
 			</build>
 		</profile>
 
-    <!-- this will ONLY pack200, but will not sign or normalize -->
-		<profile>
-      <id>pack200</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <includePackedArtifacts>true</includePackedArtifacts>
-            </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tychoExtrasVersion}</version>
-            <executions>
-              <execution>
-                <id>pack200-pack</id>
-                <goals>
-                  <goal>pack</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-p2-plugin</artifactId>
-            <version>${tychoVersion}</version>
-            <executions>
-              <execution> 
-                <id>p2-metadata</id>
-                <goals>
-                  <goal>p2-metadata</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-            <configuration>
-              <defaultP2Metadata>false</defaultP2Metadata>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <!-- this will ONLY sign, but will not normalize or pack200 -->
     <profile>
       <id>sign</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <includePackedArtifacts>true</includePackedArtifacts>
-            </configuration>
-          </plugin>
-          <plugin>
-            <artifactId>exec-maven-plugin</artifactId>
-            <groupId>org.codehaus.mojo</groupId>
-            <version>1.2.1</version>
-            <executions>
-              <execution>
-                <id>jarsign</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <executable>/home/hudson/bin/jarsign.sh</executable>
-                  <arguments>
-                    <argument>${project.basedir}</argument>
-                  </arguments>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>        
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-p2-plugin</artifactId>
-            <version>${tychoVersion}</version>
-            <executions>
-              <execution> 
-                <id>p2-metadata</id>
-                <goals>
-                  <goal>p2-metadata</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-            <configuration>
-              <defaultP2Metadata>false</defaultP2Metadata>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
+      <!--  guarantee that -Psign <=> -DskipSigning=false -->
+      <activation>
+      	<property>
+      		<name>skipSigning</name>
+      		<value>false</value>
+      	</property>
+      </activation>
+      <properties>
+      	<skipSigning>false</skipSigning>
+      </properties>
     </profile>
 
-    <!-- this will ONLY normalize, sign, then pack200. If signing and packing, MUST use this profile instead of using both sign and pack200 individual profiles -->
     <profile>
-      <id>signAndPack200</id>
+      <id>pack200</id>
       <build>
         <plugins>
           <plugin>
@@ -717,10 +629,11 @@
                   <arguments>
                     <argument>${project.basedir}</argument>
                   </arguments>
+                  <skip>${skipSigning}</skip>
                 </configuration>
               </execution>
             </executions>
-          </plugin>        
+          </plugin>
           <!-- then we pack -->
           <plugin>
             <groupId>org.eclipse.tycho.extras</groupId>
@@ -741,7 +654,7 @@
             <artifactId>tycho-p2-plugin</artifactId>
             <version>${tychoVersion}</version>
             <executions>
-              <execution> 
+              <execution>
                 <id>p2-metadata</id>
                 <goals>
                   <goal>p2-metadata</goal>
