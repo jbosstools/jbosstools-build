@@ -16,7 +16,7 @@
 		<tychoVersion>0.19.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<BUILD_ALIAS>Alpha1</BUILD_ALIAS>
-		<targetEclipseVersion>4.3 (Kepler)</targetEclipseVersion>
+		<targetEclipseVersion>4.4 (Luna)</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -53,14 +53,14 @@
 		<!-- ======================== -->
 
 		<!-- URL of latest JBT nightly staging composite site (all the componentsin once place) -->
-		<!-- for master/trunk use _composite_/trunk; for _41, use _composite_/4.1.kepler -->
-		<jbosstools-nightly-staging-composite>http://download.jboss.org/jbosstools/builds/staging/_composite_/core/trunk/</jbosstools-nightly-staging-composite>
+		<!-- for master use _composite_/master; for _42, use _composite_/4.2.luna -->
+		<jbosstools-nightly-staging-composite>http://download.jboss.org/jbosstools/builds/staging/_composite_/core/master/</jbosstools-nightly-staging-composite>
 
 		<!-- published aggregate update sites go here, for consumption by QE and downstream JBDS builds -->
-		<jbosstools-nightly>http://download.jboss.org/jbosstools/updates/nightly/core/trunk/</jbosstools-nightly>
+		<jbosstools-nightly>http://download.jboss.org/jbosstools/updates/nightly/core/master/</jbosstools-nightly>
 
 		<!-- JBIDE-12974, JBTIS-104, JBIDE-13790 Must switch back to using coretests as integrationtests site no longer includes o.j.t.test -->
-		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/trunk/</jbosstools-nightly-tests>
+		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/master/</jbosstools-nightly-tests>
 
 		<!-- ********************************************************************* -->
 		<!-- Use jbosstools-* profiles to select other values for those properties -->
