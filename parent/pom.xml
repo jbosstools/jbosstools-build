@@ -53,23 +53,32 @@
 		<!-- JBOSS TOOLS DEPENDENCIES -->
 		<!-- ======================== -->
 
-		<jbosstools-site-stream>master</jbosstools-site-stream>
-		<!-- URL of latest JBT nightly staging composite site (all the componentsin once place) -->
-		<!-- for master use _composite_/master; for _42, use _composite_/4.2.luna -->
-		<jbosstools-nightly-staging-composite>http://download.jboss.org/jbosstools/builds/staging/_composite_/core/${jbosstools-site-stream}/</jbosstools-nightly-staging-composite>
+		<jbosstools-site-stream>master</jbosstools-site-stream> <!-- or 4.2.luna for example -->
+		<jbosstools-build-type>builds/staging</jbosstools-build-type> <!-- other values can be updates/nightly/luna/core/, updates/integration/luna/core/ ...  -->
+		<jbosstools-site-baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools-site-baseurl> 
+		<jbosstools-site-suffix>all/repo</jbosstools-site-suffix>
+		<!-- Sites with mutable content (eg snapshot builds) -->
+		<jbosstools-base-site>${jbosstools-site-baseurl}/jbosstools-base_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-base-site>
+		<jbosstools-server-site>${jbosstools-site-baseurl}/jbosstools-server_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-server-site>
+		<openshift-java-client-site>${jbosstools-site-baseurl}/openshift-java-client-${jbosstools-site-stream}/${jbosstools-site-suffix}</openshift-java-client-site>
+		<jbosstools-openshift-site>${jbosstools-site-baseurl}/jbosstools-openshift_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-openshift-site>
+		<jbosstools-jst-site>${jbosstools-site-baseurl}/jbosstools-jst_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-jst-site>
+		<jbosstools-aerogear-site>${jbosstools-site-baseurl}/jbosstools-aerogear_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-aerogear-site>
+		<jbosstools-hibernate-site>${jbosstools-site-baseurl}/jbosstools-hibernate_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-hibernate-site>
+		<jbosstools-javaee-site>${jbosstools-site-baseurl}/jbosstools-javaee_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-javaee-site>
+		<jbosstools-webservices-site>${jbosstools-site-baseurl}/jbosstools-webservices_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-webservices-site>
+		<jbosstools-portlet-site>${jbosstools-site-baseurl}/jbosstools-portlet_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-portlet-site>
+		<jbosstools-vpe-site>${jbosstools-site-baseurl}/jbosstools-vpe_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-vpe-site>
+		<jbosstools-arquillian-site>${jbosstools-site-baseurl}/jbosstools-arquillian_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-arquillian-site>
+		<jbosstools-forge-site>${jbosstools-site-baseurl}/jbosstools-forge_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-forge-site>
+		<jbosstools-livereload-site>${jbosstools-site-baseurl}/jbosstools-livereload_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-livereload-site>
+		<jbosstools-central-site>${jbosstools-site-baseurl}/jbosstools-central_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-central-site>
+		<!-- Static sites (should be moved into TP?) -->
+		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
+		<jbosstools-gwt-site>http://download.jboss.org/jbosstools/updates/stable/juno/core/gwt/</jbosstools-gwt-site>
+		<jbosstools-freemarker-site>http://download.jboss.org/jbosstools/updates/stable/kepler/core/freemarker/</jbosstools-freemarker-site>
+		<jbosstools-birt-site>http://download.jboss.org/jbosstools/updates/stable/kepler/core/birt/</jbosstools-birt-site>
 
-		<!-- published aggregate update sites go here, for consumption by QE and downstream JBDS builds -->
-		<jbosstools-nightly>http://download.jboss.org/jbosstools/updates/nightly/core/${jbosstools-site-stream}/</jbosstools-nightly>
-
-		<!-- JBIDE-12974, JBTIS-104, JBIDE-13790 Must switch back to using coretests as integrationtests site no longer includes o.j.t.test -->
-		<jbosstools-nightly-tests>http://download.jboss.org/jbosstools/updates/nightly/coretests/${jbosstools-site-stream}/</jbosstools-nightly-tests>
-
-		<!-- ********************************************************************* -->
-		<!-- Use jbosstools-* profiles to select other values for those properties -->
-		<!-- ********************************************************************* -->
-		<!-- Default values copied from jbosstools-staging-aggregate< -->
-		<jbosstools-site>${jbosstools-nightly}</jbosstools-site>
-		<jbosstools-tests-site>${jbosstools-nightly-tests}</jbosstools-tests-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
@@ -417,51 +426,6 @@
 	</issueManagement>
 
 	<profiles>
-		<!-- ********************************************* -->
-		<!-- Profiles to manage dependencies on jbosstools -->
-		<!-- ********************************************* -->
-
-		<profile>
-			<id>jbosstools-site</id>
-			<activation>
-				<property>
-					<name>!no-jbosstools-site</name>
-				</property>
-			</activation>
-			<repositories>
-				<repository>
-					<id>jbosstools-site</id>
-					<url>${jbosstools-site}</url>
-					<layout>p2</layout>
-				</repository>
-				<repository>
-					<id>jbosstools-tests-site</id>
-					<url>${jbosstools-tests-site}</url>
-					<layout>p2</layout>
-				</repository>
-			</repositories>
-		</profile>
-		<!-- Latest JBT work-in-progress component builds (CI builds), not yet
-			pushed to the above nightly update site -->
-		<!-- disabled by default because it causes local compilation problems -->
-		<profile>
-			<id>jbosstools-nightly-staging-composite</id>
-			<properties>
-				<jbosstools-site>${jbosstools-nightly-staging-composite}</jbosstools-site>
-				<jbosstools-tests-site>${jbosstools-nightly-staging-composite}</jbosstools-tests-site>
-			</properties>
-		</profile>
-		<!-- Profiles to resolve deps on other JBT components against latest aggregate site
-			Recommanded for local builds, see https://issues.jboss.org/browse/JBIDE-11516 and
-			https://community.jboss.org/wiki/HowToBuildJBossToolsWithMaven3#Build_a_component_resolving_to_a_recent_aggregation_build_for_other_JBT_dependencies_Recommanded -->
-		<profile>
-			<id>jbosstools-staging-aggregate</id>
-			<properties>
-				<jbosstools-site>${jbosstools-nightly}</jbosstools-site>
-				<jbosstools-tests-site>${jbosstools-nightly-tests}</jbosstools-tests-site>
-			</properties>
-		</profile>
-
 		<!-- ************************************************************ -->
 		<!-- Profiles to manage target-platform and 3rd pary dependencies -->
 		<!-- ************************************************************ -->
