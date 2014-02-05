@@ -89,12 +89,12 @@
 		     In case no profile fits your requested TP version, directly override these next two properties -->
 
 		<!-- default value for the "minimum" profile -->
-		<TARGET_PLATFORM_VERSION>4.40.0.Alpha2-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.40.0.Alpha2</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION_MAXIMUM>4.40.0.Alpha2-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
-
+		<TARGET_PLATFORM_VERSION_MAXIMUM>4.40.0.Alpha2</TARGET_PLATFORM_VERSION_MAXIMUM>
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
+
 		<!-- This must be overriden when using other groups for TP, such as jbdevstudio -->
 		<targetPlatformGroup>jbosstools</targetPlatformGroup>
 
@@ -236,6 +236,7 @@
 						<include>**/*AllBotTests*.class</include>
 						<include>**/*TestSuite*.class</include>
 					</includes>
+					<!-- Workaround for JBIDE-16161/Eclipse bug 424104 -->
 					<dependencies>
 					    <dependency>
 							<type>eclipse-feature</type>
