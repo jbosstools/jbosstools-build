@@ -78,7 +78,7 @@
 		<jbosstools-gwt-site>http://download.jboss.org/jbosstools/updates/stable/juno/core/gwt/</jbosstools-gwt-site>
 		<jbosstools-freemarker-site>http://download.jboss.org/jbosstools/updates/stable/kepler/core/freemarker/</jbosstools-freemarker-site>
 		<jbosstools-birt-site>http://download.jboss.org/jbosstools/updates/stable/kepler/core/birt/</jbosstools-birt-site>
-
+		<jbosstools-sim-site>${jbosstools-site-baseurl}/jbosstools-sim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-sim-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
