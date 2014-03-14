@@ -726,15 +726,6 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</pluginRepository>
-
-    <pluginRepository>
-      <id>tycho-staged</id>
-      <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1007/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-
 	</pluginRepositories>
 
 	<!-- To deploy parent to Nexus -->
