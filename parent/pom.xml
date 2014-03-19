@@ -64,7 +64,6 @@
 		<jbosstools-openshift-site>${jbosstools-site-baseurl}/jbosstools-openshift_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-openshift-site>
 		<jbosstools-jst-site>${jbosstools-site-baseurl}/jbosstools-jst_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-jst-site>
 		<jbosstools-aerogear-site>${jbosstools-site-baseurl}/jbosstools-aerogear_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-aerogear-site>
-		<jbosstools-sim-site>${jbosstools-site-baseurl}/jbosstools-sim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-sim-site>
 		<jbosstools-hibernate-site>${jbosstools-site-baseurl}/jbosstools-hibernate_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-hibernate-site>
 		<jbosstools-javaee-site>${jbosstools-site-baseurl}/jbosstools-javaee_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-javaee-site>
 		<jbosstools-webservices-site>${jbosstools-site-baseurl}/jbosstools-webservices_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-webservices-site>
