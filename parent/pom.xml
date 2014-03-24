@@ -73,12 +73,12 @@
 		<jbosstools-forge-site>${jbosstools-site-baseurl}/jbosstools-forge_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-forge-site>
 		<jbosstools-livereload-site>${jbosstools-site-baseurl}/jbosstools-livereload_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-livereload-site>
 		<jbosstools-central-site>${jbosstools-site-baseurl}/jbosstools-central_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-central-site>
+		<jbosstools-birt-site>${jbosstools-site-baseurl}/jbosstools-birt_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-birt-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-gwt-site>http://download.jboss.org/jbosstools/updates/stable/juno/core/gwt/</jbosstools-gwt-site>
 		<jbosstools-freemarker-site>http://download.jboss.org/jbosstools/updates/stable/kepler/core/freemarker/</jbosstools-freemarker-site>
-		<jbosstools-birt-site>http://download.jboss.org/jbosstools/updates/stable/kepler/core/birt/</jbosstools-birt-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
