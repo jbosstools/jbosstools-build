@@ -110,222 +110,203 @@
 		<tpc.targetKind>unified</tpc.targetKind>
 		<tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
 	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-packaging-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<configuration>
-					<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
-					<sourceReferences>
-						<generate>true</generate>
-					</sourceReferences>
-					<archiveSite>true</archiveSite>
-					<environments>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-sourceref-jgit</artifactId>
-						<version>${tychoExtrasVersion}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
-
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<extensions>true</extensions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
-				<version>${tychoVersion}</version>
-				<configuration>
-					<resolver>p2</resolver>
-					<ignoreTychoRepositories>true</ignoreTychoRepositories>
-					<environments>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
 			</plugin>
-
 			<!-- to skip running tests (compile only) use commandline flag: -Dmaven.test.skip
 				To allow all tests in a pom to pass/fail, use commandline flag: -fae (fail
 				at end) -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<configuration>
-					<useUIHarness>true</useUIHarness>
-					<useUIThread>true</useUIThread>
-					<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
-					<!-- tycho.testArgLine repeated to keep jacoco configuration for jacoco-maven-plugin -->
-					<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
-					<!-- https://docs.sonatype.org/display/TYCHO/How+to+run+SWTBot+tests+with+Tycho -->
-					<!-- set useUIThread=true for regular ui tests -->
-					<!-- set useUIThread=false for swtbot tests -->
-
-					<includes>
-						<include>**/AllTests.class</include>
-						<include>**/*AllTests*.class</include>
-						<include>**/*AllBotTests*.class</include>
-						<include>**/*TestSuite*.class</include>
-					</includes>
-					<!-- Workaround for JBIDE-16161/Eclipse bug 424104 -->
-					<dependencies>
-					    <dependency>
-							<type>eclipse-feature</type>
-							<artifactId>org.eclipse.e4.rcp</artifactId>
-							<version>0.0.0</version>
-						</dependency>
-					</dependencies>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-compiler-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
 			</plugin>
 			<!-- source for bundles -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-source-plugin</artifactId>
-				<version>${tychoVersion}</version>
-				<executions>
-					<execution>
-						<id>plugin-source</id>
-						<goals>
-							<goal>plugin-source</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.4.1</version>
-				<configuration>
-					<encoding>ISO-8859-1</encoding>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.6.4.201312101107</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-						<configuration>
-							<includes>
-								<include>${coverage.filter}</include>
-							</includes>
-							<!-- Merge reports from all executions -->
-							<append>true</append>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.jboss.tools.tycho-plugins</groupId>
 				<artifactId>repository-utils</artifactId>
-				<version>0.19.0-SNAPSHOT</version>
-				<executions>
-					<execution>
-						<id>generate-facade</id>
-						<phase>package</phase>
-						<goals>
-							<goal>generate-repository-facade</goal>
-						</goals>
-						<configuration>
-							<symbols>
-								<update.site.name>${update.site.name}</update.site.name>
-								<update.site.description>${update.site.description}</update.site.description>
-								<update.site.version>${project.version} (${buildQualifier})</update.site.version>
-								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
-							</symbols>
-							<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tychoVersion}</version>
+					<configuration>
+						<resolver>p2</resolver>
+						<ignoreTychoRepositories>true</ignoreTychoRepositories>
+						<environments>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+						</environments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-packaging-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<configuration>
+						<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
+						<sourceReferences>
+							<generate>true</generate>
+						</sourceReferences>
+						<archiveSite>true</archiveSite>
+						<environments>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+						</environments>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.tycho.extras</groupId>
+							<artifactId>tycho-sourceref-jgit</artifactId>
+							<version>${tychoExtrasVersion}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-surefire-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<configuration>
+						<useUIHarness>true</useUIHarness>
+						<useUIThread>true</useUIThread>
+						<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
+						<!-- tycho.testArgLine repeated to keep jacoco configuration for jacoco-maven-plugin -->
+						<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
+						<!-- https://docs.sonatype.org/display/TYCHO/How+to+run+SWTBot+tests+with+Tycho -->
+						<!-- set useUIThread=true for regular ui tests -->
+						<!-- set useUIThread=false for swtbot tests -->
+						<includes>
+							<include>**/AllTests.class</include>
+							<include>**/*AllTests*.class</include>
+							<include>**/*AllBotTests*.class</include>
+							<include>**/*TestSuite*.class</include>
+						</includes>
+						<!-- Workaround for JBIDE-16161/Eclipse bug 424104 -->
+						<dependencies>
+							<dependency>
+								<type>eclipse-feature</type>
+								<artifactId>org.eclipse.e4.rcp</artifactId>
+								<version>0.0.0</version>
+							</dependency>
+						</dependencies>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<extensions>true</extensions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<executions>
+						<execution>
+							<id>plugin-source</id>
+							<goals>
+								<goal>plugin-source</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings only.
-                    It has no influence on the Maven build itself.-->
-                <!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
+				    It has no influence on the Maven build itself.-->
+				<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -344,10 +325,10 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-                                        <!-- m2e doesn't know what to do with jacoco,
-                                            let's ignore it or annoying error markers appear
-                                            see http://wiki.eclipse.org/M2E_plugin_execution_not_covered
-                                         -->
+										<!-- m2e doesn't know what to do with jacoco,
+										     let's ignore it or annoying error markers appear
+										     see http://wiki.eclipse.org/M2E_plugin_execution_not_covered
+										-->
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
@@ -417,6 +398,56 @@
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>2.4.1</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.4.1</version>
+					<configuration>
+						<encoding>ISO-8859-1</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.6.4.201312101107</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+							<configuration>
+								<includes>
+									<include>${coverage.filter}</include>
+								</includes>
+								<!-- Merge reports from all executions -->
+								<append>true</append>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.jboss.tools.tycho-plugins</groupId>
+					<artifactId>repository-utils</artifactId>
+					<version>0.19.0-SNAPSHOT</version>
+					<executions>
+						<execution>
+							<id>generate-facade</id>
+							<phase>package</phase>
+							<goals>
+								<goal>generate-repository-facade</goal>
+							</goals>
+							<configuration>
+								<symbols>
+									<update.site.name>${update.site.name}</update.site.name>
+									<update.site.description>${update.site.description}</update.site.description>
+									<update.site.version>${project.version} (${buildQualifier})</update.site.version>
+									<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
+								</symbols>
+								<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -450,7 +481,6 @@
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>target-platform-configuration</artifactId>
-						<version>${tychoVersion}</version>
 						<configuration>
 							<target>
 								<artifact>
@@ -532,7 +562,6 @@
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-packaging-plugin</artifactId>
-						<version>${tychoVersion}</version>
 						<configuration>
 							<format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
 							<archiveSite>true</archiveSite>
@@ -542,105 +571,104 @@
 			</build>
 		</profile>
 
-    <profile>
-      <id>sign</id>
-      <!--  guarantee that -Psign <=> -DskipSigning=false -->
-      <activation>
-      	<property>
-      		<name>skipSigning</name>
-      		<value>false</value>
-      	</property>
-      </activation>
-      <properties>
-      	<skipSigning>false</skipSigning>
-      </properties>
-    </profile>
-
-    <profile>
-      <id>pack200</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <includePackedArtifacts>true</includePackedArtifacts>
-            </configuration>
-          </plugin>
-          <!-- first we normalize -->
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${tychoExtrasVersion}</version>
-            <executions>
-              <execution>
-                <id>pack200-normalize</id>
-                <goals>
-                  <goal>normalize</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- then we sign -->
-          <plugin>
-            <artifactId>exec-maven-plugin</artifactId>
-            <groupId>org.codehaus.mojo</groupId>
-            <version>1.2.1</version>
-            <executions>
-              <execution>
-                <id>jarsign</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <executable>/home/hudson/bin/jarsign.sh</executable>
-                  <arguments>
-                    <argument>${project.basedir}</argument>
-                  </arguments>
-                  <skip>${skipSigning}</skip>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- then we pack -->
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tychoExtrasVersion}</version>
-            <executions>
-              <execution>
-                <id>pack200-pack</id>
-                <goals>
-                  <goal>pack</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-p2-plugin</artifactId>
-            <version>${tychoVersion}</version>
-            <executions>
-              <execution>
-                <id>p2-metadata</id>
-                <goals>
-                  <goal>p2-metadata</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-            <configuration>
-              <defaultP2Metadata>false</defaultP2Metadata>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
+		<profile>
+			<id>sign</id>
+			<!-- guarantee that -Psign <=> -DskipSigning=false -->
+			<activation>
+				<property>
+					<name>skipSigning</name>
+					<value>false</value>
+				</property>
+			</activation>
+			<properties>
+				<skipSigning>false</skipSigning>
+			</properties>
+		</profile>
+	
+		<profile>
+			<id>pack200</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<!-- first we normalize -->
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<version>${tychoExtrasVersion}</version>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- then we sign -->
+					<plugin>
+						<artifactId>exec-maven-plugin</artifactId>
+						<groupId>org.codehaus.mojo</groupId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<id>jarsign</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>/home/hudson/bin/jarsign.sh</executable>
+									<arguments>
+										<argument>${project.basedir}</argument>
+									</arguments>
+									<skip>${skipSigning}</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- then we pack -->
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<version>${tychoExtrasVersion}</version>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<version>${tychoVersion}</version>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
 		<!-- Multiple triggers to disable tests that depends on private requirements
 			These profiles are workaround for Maven to support minimal operations
 			http://jira.codehaus.org/browse/MNG-5347 -->
