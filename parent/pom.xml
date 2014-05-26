@@ -364,12 +364,10 @@
 						<outputDirectory>${requirementsDirectory}</outputDirectory>
 					</configuration>
 				</plugin>
-				<!-- download-maven-plugin is the future name of maven-download-plugin
-				starting from version 1.2.0-SNAPSHOT -->
 				<plugin>
 					<groupId>com.googlecode.maven-download-plugin</groupId>
 					<artifactId>download-maven-plugin</artifactId>
-					<version>1.2.0-SNAPSHOT</version>
+					<version>1.2.0</version>
 					<configuration>
 						<skip>${skipRequirements}</skip>
 						<outputDirectory>${requirementsDirectory}</outputDirectory>
