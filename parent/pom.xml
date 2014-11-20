@@ -110,6 +110,9 @@
 		<!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
 		<tpc.targetKind>unified</tpc.targetKind>
 		<tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
+		<!-- discovery.tpc.version usually is usually set to ${tpc.version} but it
+		can happen that they need to have different values, hence 2 properties -->
+		<discovery.tpc.version>${tpc.version}</discovery.tpc.version>
 	</properties>
 
 	<build>
