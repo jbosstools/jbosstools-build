@@ -78,6 +78,7 @@
 		<jbosstools-central-site>${jbosstools-site-baseurl}/jbosstools-central_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-central-site>
 		<jbosstools-birt-site>${jbosstools-site-baseurl}/jbosstools-birt_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-birt-site>
 		<jbosstools-browsersim-site>${jbosstools-site-baseurl}/jbosstools-browsersim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-browsersim-site>
+		<jbosstools-webservices-site>${jbosstools-site-baseurl}/jbosstools-webservices_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-webservices-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
@@ -85,7 +86,6 @@
 		<jbosstools-freemarker-site>${jbosstools-stable-baseurl}/jbosstools-freemarker/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-freemarker-site>
 		<jbosstools-hibernate-site>${jbosstools-stable-baseurl}/jbosstools-hibernate/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-hibernate-site>
 		<jbosstools-livereload-site>${jbosstools-stable-baseurl}/jbosstools-livereload/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-livereload-site>
-		<jbosstools-webservices-site>${jbosstools-stable-baseurl}/jbosstools-webservices/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-webservices-site>
 		
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
