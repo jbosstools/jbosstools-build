@@ -10,13 +10,19 @@
 
 	<properties>
 		<!-- ==================================================== -->
+		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
+		<!-- ==================================================== -->
+		<BUILD_ALIAS>Final</BUILD_ALIAS>
+		<jbosstools.version>4.2.1.${BUILD_ALIAS}</jbosstools.version>
+		<devstudio.version>8.0.1.${BUILD_ALIAS}</devstudio.version>
+		<targetEclipseVersion>4.4 (Luna)</targetEclipseVersion>
+
+		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
 		<!-- to build w/ latest 0.15.0-SNAPSHOT, run `mvn install -DtychoVersion=0.15.0-SNAPSHOT` -->
 		<tychoVersion>0.21.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<targetEclipseVersion>4.4 (Luna)</targetEclipseVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -47,7 +53,6 @@
 		<!-- Where to put jacoco coverage report, basically in the target/ folder at the top-level for each component -->
 		<!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
 		<jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
-
 
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
