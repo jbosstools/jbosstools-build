@@ -66,6 +66,7 @@
 		<jbosstools-site-suffix>all/repo</jbosstools-site-suffix>
 		<!-- Sites with mutable content (eg snapshot builds) -->
 		<jbosstools-base-site>${jbosstools-site-baseurl}/jbosstools-base_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-base-site>
+		<jbosstools-freemarker-site>${jbosstools-site-baseurl}/jbosstools-freemarker_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-freemarker-site>
 		<jbosstools-server-site>${jbosstools-site-baseurl}/jbosstools-server_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-server-site>
 		<openshift-java-client-site>${jbosstools-site-baseurl}/openshift-java-client-${jbosstools-site-stream}/${jbosstools-site-suffix}</openshift-java-client-site>
 		<jbosstools-openshift-site>${jbosstools-site-baseurl}/jbosstools-openshift_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-openshift-site>
@@ -83,7 +84,6 @@
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-aerogear-site>${jbosstools-stable-baseurl}/jbosstools-aerogear/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-aerogear-site>
-		<jbosstools-freemarker-site>${jbosstools-stable-baseurl}/jbosstools-freemarker/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-freemarker-site>
 		<jbosstools-hibernate-site>${jbosstools-stable-baseurl}/jbosstools-hibernate/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-hibernate-site>
 		<jbosstools-livereload-site>${jbosstools-stable-baseurl}/jbosstools-livereload/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-livereload-site>
 		
