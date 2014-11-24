@@ -48,11 +48,21 @@
 		<skipSigning>true</skipSigning>
 		<requirementsDirectory>${project.build.directory}/requirements</requirementsDirectory>
 		<skipTestsWithPrivateRequirements>${skipPrivateRequirements}</skipTestsWithPrivateRequirements>
-		<!-- Tests Timeout in seconds -->
+		<!-- if you have integration tests, you can skip them using this -->
+		<skipITests>false</skipITests>
+		<!-- Unit Test and Integration Test timeouts in seconds -->
 		<surefire.timeout>2400</surefire.timeout>
+		<surefire.itests.timeout>${surefire.timeout}</surefire.itests.timeout>
 		<!-- Where to put jacoco coverage report, basically in the target/ folder at the top-level for each component -->
 		<!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
 		<jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
+		<!-- Default properties for Java runtimes to be used and set during testing, eg., /qa/tools/opt/jdk1.8.0_last/ or /opt/jdk1.7.0_17/
+		     These properties will be set when running in Jenkins, but you can set them in your settings.xml too. 
+		     Not recommended that you set default values in your root or test poms as they are machine specific. -->
+		<jbosstools.test.jre.5></jbosstools.test.jre.5>
+		<jbosstools.test.jre.6></jbosstools.test.jre.6>
+		<jbosstools.test.jre.7></jbosstools.test.jre.7>
+		<jbosstools.test.jre.8></jbosstools.test.jre.8>
 
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
