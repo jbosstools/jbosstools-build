@@ -13,8 +13,6 @@
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<jbosstools.version>4.2.1.${BUILD_ALIAS}</jbosstools.version>
-		<devstudio.version>8.0.1.${BUILD_ALIAS}</devstudio.version>
 		<targetEclipseVersion>4.4 (Luna)</targetEclipseVersion>
 
 		<!-- ==================================================== -->
