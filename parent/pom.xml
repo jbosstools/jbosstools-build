@@ -13,8 +13,6 @@
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Alpha1</BUILD_ALIAS>
-		<jbosstools.version>4.3.0.${BUILD_ALIAS}</jbosstools.version>
-		<devstudio.version>9.0.0.${BUILD_ALIAS}</devstudio.version>
 		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
 
 		<!-- ==================================================== -->
