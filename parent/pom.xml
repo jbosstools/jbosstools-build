@@ -72,6 +72,7 @@
 		<jbosstools-javaee-site>${jbosstools-site-baseurl}/jbosstools-javaee_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-javaee-site>
 		<jbosstools-portlet-site>${jbosstools-site-baseurl}/jbosstools-portlet_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-portlet-site>
 		<jbosstools-vpe-site>${jbosstools-site-baseurl}/jbosstools-vpe_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-vpe-site>
+		<jbosstools-aerogear-site>${jbosstools-site-baseurl}/jbosstools-aerogear_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-aerogear-site>
 		<jbosstools-arquillian-site>${jbosstools-site-baseurl}/jbosstools-arquillian_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-arquillian-site>
 		<jbosstools-forge-site>${jbosstools-site-baseurl}/jbosstools-forge_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-forge-site>
 		<jbosstools-central-site>${jbosstools-site-baseurl}/jbosstools-central_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-central-site>
@@ -81,7 +82,6 @@
 
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
-		<jbosstools-aerogear-site>${jbosstools-stable-baseurl}/jbosstools-aerogear/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-aerogear-site>
 		<jbosstools-hibernate-site>${jbosstools-stable-baseurl}/jbosstools-hibernate/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-hibernate-site>
 		<jbosstools-livereload-site>${jbosstools-stable-baseurl}/jbosstools-livereload/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-livereload-site>
 		
