@@ -90,7 +90,7 @@
 		<jbosstools-browsersim-site>${jbosstools-site-baseurl}/jbosstools-browsersim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-browsersim-site>
 		<!-- JBIDE-18869: specific release? specific mirrored release? or just use the latest at eclipse? -->
 		<!-- <eclipse-thym-site>http://download.eclipse.org/thym/snapshots/</eclipse-thym-site> -->
-		<eclipse-thym-site>http://downloads.jboss.org/jbosstools/updates/requirements/thym/0.1.0-SNAPSHOT-201411202306/</eclipse-thym-site>
+		<eclipse-thym-site>http://downloads.jboss.org/jbosstools/updates/requirements/thym/0.1.0-SNAPSHOT-201412031506/</eclipse-thym-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
