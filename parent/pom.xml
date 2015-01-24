@@ -90,6 +90,7 @@
 		<jbosstools-birt-site>${jbosstools-site-baseurl}/jbosstools-birt_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-birt-site>
 		<jbosstools-browsersim-site>${jbosstools-site-baseurl}/jbosstools-browsersim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-browsersim-site>
 		<!-- JBIDE-18869: use specific releases composited together from latest at eclipse, mirroned onto dl.jb.org -->
+		<!-- TODO: when changing this URL, be sure to ALSO change the URL in download.jboss.org/jbosstools/builds/staging/_composite_/core/* -->
 		<eclipse-thym-site>http://downloads.jboss.org/jbosstools/updates/integration/luna/core/thym/</eclipse-thym-site>
 
 		<!-- Static sites (should be moved into TP?) -->
