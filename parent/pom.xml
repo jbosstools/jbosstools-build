@@ -21,7 +21,7 @@
 		<!-- to build w/ latest 0.15.0-SNAPSHOT, run `mvn install -DtychoVersion=0.15.0-SNAPSHOT` -->
 		<tychoVersion>0.22.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<JBossTychoPluginsVersion>0.22.0</JBossTychoPluginsVersion>
+		<jbossTychoVersion>${tychoVersion}</jbossTychoVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -310,7 +310,7 @@
 			<plugin>
 				<groupId>org.jboss.tools.tycho-plugins</groupId>
 				<artifactId>repository-utils</artifactId>
-				<version>${JBossTychoPluginsVersion}</version>
+				<version>${jbossTychoVersion}</version>
 				<executions>
 					<execution>
 						<id>generate-facade</id>
