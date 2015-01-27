@@ -310,37 +310,43 @@
 			<plugin>
 				<groupId>org.jboss.tools.tycho-plugins</groupId>
 				<artifactId>repository-utils</artifactId>
-				<version>${jbossTychoPluginsVersion}</version>
-				<executions>
-					<execution>
-						<id>generate-facade</id>
-						<phase>package</phase>
-						<goals>
-							<goal>generate-repository-facade</goal>
-						</goals>
-						<configuration>
-							<symbols>
-								<update.site.name>${update.site.name}</update.site.name>
-								<update.site.description>${update.site.description}</update.site.description>
-								<update.site.version>${project.version} (${buildQualifier})</update.site.version>
-								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
-							</symbols>
-							<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
-						</configuration>
-					</execution>
-					<execution>
-						<id>generate-full-site</id>
-						<phase>package</phase>
-						<goals>
-							<goal>create-full-site</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 
 		<pluginManagement>
 			<plugins>
+
+				<plugin>
+					<groupId>org.jboss.tools.tycho-plugins</groupId>
+					<artifactId>repository-utils</artifactId>
+					<version>${jbossTychoPluginsVersion}</version>
+					<executions>
+						<execution>
+							<id>generate-facade</id>
+							<phase>package</phase>
+							<goals>
+								<goal>generate-repository-facade</goal>
+							</goals>
+							<configuration>
+								<symbols>
+									<update.site.name>${update.site.name}</update.site.name>
+									<update.site.description>${update.site.description}</update.site.description>
+									<update.site.version>${project.version} (${buildQualifier})</update.site.version>
+									<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
+								</symbols>
+								<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
+							</configuration>
+						</execution>
+						<execution>
+							<id>generate-full-site</id>
+							<phase>package</phase>
+							<goals>
+								<goal>create-full-site</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
 				<!--This plugin's configuration is used to store Eclipse m2e settings only.
                     It has no influence on the Maven build itself.-->
                 <!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
