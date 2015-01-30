@@ -80,6 +80,9 @@
 		<jbosstools-browsersim-site>${jbosstools-site-baseurl}/jbosstools-browsersim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-browsersim-site>
 		<jbosstools-webservices-site>${jbosstools-site-baseurl}/jbosstools-webservices_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-webservices-site>
 
+		<!-- JBIDE-18869: use specific releases composited together from latest at eclipse, mirroned onto dl.jb.org -->
+		<eclipse-thym-site>http://downloads.jboss.org/jbosstools/updates/integration/luna/core/thym/</eclipse-thym-site>
+
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-hibernate-site>${jbosstools-stable-baseurl}/jbosstools-hibernate/4.2.0.Final/${jbosstools-site-suffix}</jbosstools-hibernate-site>
