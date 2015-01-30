@@ -328,13 +328,13 @@
 							<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
 						</configuration>
 					</execution>
-					<execution>
+					<!--<execution>
 						<id>generate-full-site</id>
 						<phase>package</phase>
 						<goals>
 							<goal>create-full-site</goal>
 						</goals>
-					</execution>
+					</execution>-->
 				</executions>
 			</plugin>
 		</plugins>
