@@ -337,7 +337,6 @@
 							<goal>create-full-site</goal>
 						</goals>
 					</execution>-->
-					</execution>
 					<execution>
 						<goals>
 							<goal>compare-version-with-baselines</goal>
