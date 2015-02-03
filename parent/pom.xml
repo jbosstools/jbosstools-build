@@ -80,8 +80,12 @@
 		<jbosstools-browsersim-site>${jbosstools-site-baseurl}/jbosstools-browsersim_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-browsersim-site>
 		<jbosstools-webservices-site>${jbosstools-site-baseurl}/jbosstools-webservices_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-webservices-site>
 
+		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
 		<!-- JBIDE-18869: use specific releases composited together from latest at eclipse, mirroned onto dl.jb.org -->
-		<eclipse-thym-site>http://downloads.jboss.org/jbosstools/updates/integration/luna/core/thym/</eclipse-thym-site>
+		<eclipse-thym-site>http://downloads.jboss.org/jbosstools/updates/stable/luna/core/thym/</eclipse-thym-site>
+		<!-- JBIDE-19045 support Tern & Angular 0.7 while keeping 0.6 in the target platforms -->
+		<eclipse-tern-site>http://downloads.jboss.org/jbosstools/updates/stable/luna/core/tern/</eclipse-tern-site>
+		<eclipse-angularjs-site>http://downloads.jboss.org/jbosstools/updates/stable/luna/core/angularjs/</eclipse-angularjs-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
