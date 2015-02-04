@@ -14,13 +14,15 @@
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Beta1</BUILD_ALIAS>
 		<targetEclipseVersion>4.4 (Luna)</targetEclipseVersion>
+		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
 		<!-- to build w/ latest 0.15.0-SNAPSHOT, run `mvn install -DtychoVersion=0.15.0-SNAPSHOT` -->
-		<tychoVersion>0.21.0</tychoVersion>
+		<tychoVersion>0.22.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
+		<jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -306,7 +308,7 @@
 			<plugin>
 				<groupId>org.jboss.tools.tycho-plugins</groupId>
 				<artifactId>repository-utils</artifactId>
-				<version>0.21.0</version>
+				<version>${jbossTychoPluginsVersion}</version>
 				<executions>
 					<execution>
 						<id>generate-facade</id>
@@ -322,6 +324,24 @@
 								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
 							</symbols>
 							<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
+						</configuration>
+					</execution>
+					<!--<execution>
+						<id>generate-full-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>create-full-site</goal>
+						</goals>
+					</execution>-->
+					<execution>
+						<goals>
+							<goal>compare-version-with-baselines</goal>
+						</goals>
+						<phase>verify</phase>
+						<configuration>
+							<baselines>
+								<repo>${lastStableRepository}</repo>
+							</baselines>
 						</configuration>
 					</execution>
 				</executions>
