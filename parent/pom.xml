@@ -68,7 +68,7 @@
 		<!-- JBOSS TOOLS DEPENDENCIES -->
 		<!-- ======================== -->
 
-		<jbosstools-site-stream>master</jbosstools-site-stream> <!-- or 4.2.luna for example -->
+		<jbosstools-site-stream>4.3.mars</jbosstools-site-stream> <!-- or 4.2.luna for example -->
 		<jbosstools-build-type>builds/staging</jbosstools-build-type> <!-- other values can be updates/nightly/luna/core/, updates/integration/luna/core/ ...  -->
 		<jbosstools-site-baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools-site-baseurl> 
 		<jbosstools-site-suffix>all/repo</jbosstools-site-suffix>
