@@ -83,7 +83,6 @@
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-birt-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/birt/</jbosstools-birt-site>
 		<jbosstools-freemarker-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/freemarker/</jbosstools-freemarker-site>
-		<jbosstools-hibernate-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/hibernate/</jbosstools-hibernate-site>
 		<jbosstools-livereload-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/livereload/</jbosstools-livereload-site>
 		<jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
 		
