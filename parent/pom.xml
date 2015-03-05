@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.2.3.Beta1-SNAPSHOT</version>
+	<version>4.2.3.CR1-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -12,7 +12,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Beta1</BUILD_ALIAS>
+		<BUILD_ALIAS>CR1</BUILD_ALIAS>
 		<targetEclipseVersion>4.4 (Luna)</targetEclipseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
 
