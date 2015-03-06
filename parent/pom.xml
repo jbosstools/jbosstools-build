@@ -73,7 +73,7 @@
 		<jbosstools-site-baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools-site-baseurl> 
 		<jbosstools-site-suffix>all/repo</jbosstools-site-suffix>
 		<!-- Sites with mutable content (eg snapshot builds) -->
-		<jbosstools-base-site>${jbosstools-site-baseurl}/jbosstools-base_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-base-site>
+		<jbosstools-base-site>http://download.jboss.org/jbosstools/mars/snapshots/builds/jbosstools-base_${jbosstools-site-stream}/</jbosstools-base-site>
 		<jbosstools-server-site>${jbosstools-site-baseurl}/jbosstools-server_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-server-site>
 		<jbosstools-openshift-site>${jbosstools-site-baseurl}/jbosstools-openshift_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-openshift-site>
 		<jbosstools-jst-site>${jbosstools-site-baseurl}/jbosstools-jst_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-jst-site>
