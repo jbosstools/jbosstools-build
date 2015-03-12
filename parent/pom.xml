@@ -71,7 +71,7 @@
 		<jbosstools-site-stream>master</jbosstools-site-stream> <!-- or 4.3.mars for example -->
 		<jbosstools-build-type>mars/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools-site-baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools-site-baseurl> 
-		<jbosstools-site-suffix></jbosstools-site-suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use ""/>
+		<jbosstools-site-suffix></jbosstools-site-suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
 		<!-- Sites with mutable content (eg snapshot builds) -->
 		<jbosstools-base-site>${jbosstools-site-baseurl}/jbosstools-base_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-base-site>
 		<jbosstools-server-site>${jbosstools-site-baseurl}/jbosstools-server_${jbosstools-site-stream}/${jbosstools-site-suffix}</jbosstools-server-site>
