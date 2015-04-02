@@ -96,7 +96,6 @@
 
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
-		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-freemarker-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/freemarker/</jbosstools-freemarker-site>
 		<jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
 
@@ -516,21 +515,6 @@
 			<id>maximum</id>
 			<properties>
 				<tpc.version>${TARGET_PLATFORM_VERSION_MAXIMUM}</tpc.version>
-			</properties>
-		</profile>
-
-
-		<profile>
-			<!-- JBIDE-12455 , necessary because of XulRunner doesn't support 64bits OSX -->
-			<id>applejdk</id>
-			<activation>
-				<property>
-					<name>java.vendor.url</name>
-					<value>http://www.apple.com/</value>
-				</property>
-			</activation>
-			<properties>
-				<applejdkProperties> -d32 -Dosgi.arch=x86 </applejdkProperties>
 			</properties>
 		</profile>
 
