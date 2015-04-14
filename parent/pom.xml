@@ -93,6 +93,7 @@
 		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-central-site>
 		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
 		<jbosstools-birt-site>${jbosstools_site_baseurl}/jbosstools-birt_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-birt-site>
+		<jbosstools-playground-site>${jbosstools_site_baseurl}/jbosstools-playground_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-playground-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
