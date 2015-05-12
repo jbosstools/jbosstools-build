@@ -700,6 +700,9 @@
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>1.3.2</version>
+						<configuration>
+							<executable>${project.build.directory}/releng-scripts/publish/rsync.sh</executable>
+						</configuration>
 						<executions>
 							<execution>
 								<goals>
@@ -707,7 +710,6 @@
 								</goals>
 								<phase>deploy</phase>
 								<configuration>
-									<executable>${project.build.directory}/releng-scripts/publish/rsync.sh</executable>
 									<arguments>
 										<arg>-s</arg>
 										<arg>${project.build.directory}/repository</arg>
