@@ -33,7 +33,7 @@
 		<coverage.filter>org.jboss.tools.*</coverage.filter>
 		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
 		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
-		     you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
+				 you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
 		<update.site.description>&amp;shy;</update.site.description>
 
 		<!-- ===================================================== -->
@@ -57,8 +57,8 @@
 		<!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
 		<jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
 		<!-- Default properties for Java runtimes to be used and set during testing, eg., /qa/tools/opt/jdk1.8.0_last/ or /opt/jdk1.7.0_17/
-		     These properties will be set when running in Jenkins, but you can set them in your settings.xml too. 
-		     Not recommended that you set default values in your root or test poms as they are machine specific. -->
+				 These properties will be set when running in Jenkins, but you can set them in your settings.xml too. 
+				 Not recommended that you set default values in your root or test poms as they are machine specific. -->
 		<jbosstools.test.jre.5></jbosstools.test.jre.5>
 		<jbosstools.test.jre.6></jbosstools.test.jre.6>
 		<jbosstools.test.jre.7></jbosstools.test.jre.7>
@@ -106,8 +106,8 @@
 		<!-- ================ -->
 
 		<!-- JBoss Tools target platforms are versioned: <eclipseMajor>.<eclipseMinorAndMicro>.<revision>.<qualifier>
-		     Default version is the minimum API / Eclipse target used for the project
-		     In case no profile fits your requested TP version, directly override these next two properties -->
+				 Default version is the minimum API / Eclipse target used for the project
+				 In case no profile fits your requested TP version, directly override these next two properties -->
 
 		<!-- default value for the "minimum" profile -->
 		<TARGET_PLATFORM_VERSION>4.50.0.Beta1-SNAPSHOT</TARGET_PLATFORM_VERSION>
@@ -252,7 +252,7 @@
 					</includes>
 					<!-- Workaround for JBIDE-16161/Eclipse bug 424104 -->
 					<dependencies>
-					    <dependency>
+							<dependency>
 							<type>eclipse-feature</type>
 							<artifactId>org.eclipse.e4.rcp</artifactId>
 							<version>0.0.0</version>
@@ -355,8 +355,8 @@
 		<pluginManagement>
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings only.
-                    It has no influence on the Maven build itself.-->
-                <!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
+										It has no influence on the Maven build itself.-->
+								<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -375,15 +375,43 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-                                        <!-- m2e doesn't know what to do with jacoco,
-                                            let's ignore it or annoying error markers appear
-                                            see http://wiki.eclipse.org/M2E_plugin_execution_not_covered
-                                         -->
+																				<!-- m2e doesn't know what to do with jacoco,
+																						let's ignore it or annoying error markers appear
+																						see http://wiki.eclipse.org/M2E_plugin_execution_not_covered
+																				 -->
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>net.ju-n.maven.plugins</groupId>
+					<artifactId>checksum-maven-plugin</artifactId>
+					<version>1.2</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>files</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<quiet>true</quiet>
+						<csvSummary>false</csvSummary>
+						<algorithms>
+							<algorithm>SHA-1</algorithm>
+						</algorithms>
+						<fileSets>
+							<fileSet>
+								<directory>${project.build.directory}</directory>
+								<includes>
+									<include>**/*.zip</include>
+									<include>**/*-installer-*.jar</include>
+								</includes>
+							</fileSet>
+						</fileSets>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -571,104 +599,104 @@
 			</build>
 		</profile>
 
-    <profile>
-      <id>sign</id>
-      <!--  guarantee that -Psign <=> -DskipSigning=false -->
-      <activation>
-      	<property>
-      		<name>skipSigning</name>
-      		<value>false</value>
-      	</property>
-      </activation>
-      <properties>
-      	<skipSigning>false</skipSigning>
-      </properties>
-    </profile>
+		<profile>
+			<id>sign</id>
+			<!--	guarantee that -Psign <=> -DskipSigning=false -->
+			<activation>
+				<property>
+					<name>skipSigning</name>
+					<value>false</value>
+				</property>
+			</activation>
+			<properties>
+				<skipSigning>false</skipSigning>
+			</properties>
+		</profile>
 
-    <profile>
-      <id>pack200</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>target-platform-configuration</artifactId>
-            <version>${tychoVersion}</version>
-            <configuration>
-              <includePackedArtifacts>true</includePackedArtifacts>
-            </configuration>
-          </plugin>
-          <!-- first we normalize -->
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${tychoExtrasVersion}</version>
-            <executions>
-              <execution>
-                <id>pack200-normalize</id>
-                <goals>
-                  <goal>normalize</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- then we sign -->
-          <plugin>
-            <artifactId>exec-maven-plugin</artifactId>
-            <groupId>org.codehaus.mojo</groupId>
-            <version>1.2.1</version>
-            <executions>
-              <execution>
-                <id>jarsign</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>exec</goal>
-                </goals>
-                <configuration>
-                  <executable>/home/hudson/bin/jarsign.sh</executable>
-                  <arguments>
-                    <argument>${project.basedir}</argument>
-                  </arguments>
-                  <skip>${skipSigning}</skip>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- then we pack -->
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${tychoExtrasVersion}</version>
-            <executions>
-              <execution>
-                <id>pack200-pack</id>
-                <goals>
-                  <goal>pack</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.eclipse.tycho</groupId>
-            <artifactId>tycho-p2-plugin</artifactId>
-            <version>${tychoVersion}</version>
-            <executions>
-              <execution>
-                <id>p2-metadata</id>
-                <goals>
-                  <goal>p2-metadata</goal>
-                </goals>
-                <phase>package</phase>
-              </execution>
-            </executions>
-            <configuration>
-              <defaultP2Metadata>false</defaultP2Metadata>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
+		<profile>
+			<id>pack200</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<!-- first we normalize -->
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<version>${tychoExtrasVersion}</version>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- then we sign -->
+					<plugin>
+						<artifactId>exec-maven-plugin</artifactId>
+						<groupId>org.codehaus.mojo</groupId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<id>jarsign</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>/home/hudson/bin/jarsign.sh</executable>
+									<arguments>
+										<argument>${project.basedir}</argument>
+									</arguments>
+									<skip>${skipSigning}</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- then we pack -->
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<version>${tychoExtrasVersion}</version>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<version>${tychoVersion}</version>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 		<profile>
 			<id>deploy-to-jboss.org</id>
@@ -685,7 +713,7 @@
 								<configuration>	
 									<artifactItems>
 										<artifactItem>
-					          					<groupId>org.jboss.tools.releng</groupId>		
+															<groupId>org.jboss.tools.releng</groupId>		
 											<artifactId>jbosstools-releng-publish</artifactId>
 											<version>4.3.0.Alpha2-SNAPSHOT</version>
 											<type>tar.gz</type>
@@ -715,7 +743,7 @@
 										<arg>${project.build.directory}/repository</arg>
 										<arg>-t</arg>
 										<arg>${jbosstools-build-type}/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</arg>
-									</arguments>  
+									</arguments>	
 								</configuration>
 							</execution>
 						</executions>
@@ -818,7 +846,7 @@
 	</pluginRepositories>
 
 	<!-- To deploy parent to Nexus -->
-	<!--  Don't change "id" since it should match credentials entry in $M2_REPO/settings.xml -->
+	<!--	Don't change "id" since it should match credentials entry in $M2_REPO/settings.xml -->
 	<distributionManagement>
 		<snapshotRepository>
 			<id>jboss-snapshots-repository</id>
