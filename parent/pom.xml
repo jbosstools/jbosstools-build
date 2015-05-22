@@ -23,6 +23,7 @@
 		<tychoVersion>0.22.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbosstoolsRelengPublishVersion>4.3.0.Beta1-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -725,6 +726,7 @@
 						<artifactId>maven-dependency-plugin</artifactId>
 						<executions>
 							<execution>
+								<id>deploy-releng-scripts</id>
 								<goals>
 									<goal>unpack</goal>
 								</goals>
@@ -734,7 +736,7 @@
 										<artifactItem>
 											<groupId>org.jboss.tools.releng</groupId>		
 											<artifactId>jbosstools-releng-publish</artifactId>
-											<version>${project.version}</version>
+											<version>${jbosstoolsRelengPublishVersion}</version>
 											<type>tar.gz</type>
 											<outputDirectory>${project.build.directory}/releng-scripts</outputDirectory>	
 										</artifactItem>
