@@ -732,9 +732,9 @@
 								<configuration>	
 									<artifactItems>
 										<artifactItem>
-															<groupId>org.jboss.tools.releng</groupId>		
+											<groupId>org.jboss.tools.releng</groupId>		
 											<artifactId>jbosstools-releng-publish</artifactId>
-											<version>4.3.0.Alpha2-SNAPSHOT</version>
+											<version>${project.version}</version>
 											<type>tar.gz</type>
 											<outputDirectory>${project.build.directory}/releng-scripts</outputDirectory>	
 										</artifactItem>
@@ -752,6 +752,7 @@
 						</configuration>
 						<executions>
 							<execution>
+								<id>deploy-snapshot-build</id>
 								<goals>
 									<goal>exec</goal>
 								</goals>
