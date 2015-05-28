@@ -65,6 +65,8 @@
 		<jbosstools.test.jre.7></jbosstools.test.jre.7>
 		<jbosstools.test.jre.8></jbosstools.test.jre.8>
 
+
+
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
 		<!-- ======================== -->
@@ -351,6 +353,28 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>regex-property</id>
+						<goals>
+							<goal>regex-property</goal>
+						</goals>
+						<configuration>
+							<name>skipTestsOrITests</name>
+							<value>${skipTests}${skipITests}</value>
+							<regex>((..skipTests.)?(true)?((..skipITests.)|(null)|(true)|(false))?)</regex>
+							<replacement>$3</replacement>
+							<failIfNoMatch>false</failIfNoMatch>
+						</configuration>
+					</execution>
+        			</executions>
+      			</plugin>
+
 		</plugins>
 
 		<pluginManagement>
