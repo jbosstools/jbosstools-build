@@ -75,7 +75,7 @@
 			Don't use dashes & periods in variables which need to be used in shell (eg., Jenkins), as they cannot be declared.
 			Use underscores or mixedCase instead! ref: http://unix.stackexchange.com/questions/23659/can-shell-variable-include-character
 		-->
-		<jbosstools_site_stream>4.3.mars</jbosstools_site_stream> <!-- or 4.3.mars for example -->
+		<jbosstools_site_stream>master</jbosstools_site_stream> <!-- or 4.3.mars for example -->
 		<jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
 		<jbosstools-build-type>mars/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
