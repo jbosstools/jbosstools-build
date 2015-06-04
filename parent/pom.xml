@@ -775,6 +775,11 @@
 
 		<profile>
 			<id>deploy-to-jboss.org</id>
+			<properties>
+				<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
+				<deployDestinatio>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
+				<deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -816,10 +821,12 @@
 								<phase>deploy</phase>
 								<configuration>
 									<arguments>
+										<arg>-DESTINATION</arg>
+										<arg>${deployDestination}</arg>
 										<arg>-s</arg>
-										<arg>${project.build.directory}/repository</arg>
+										<arg>${deploySourceFolder}</arg>
 										<arg>-t</arg>
-										<arg>${jbosstools-build-type}/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</arg>
+										<arg>${deployTargetFolder}</arg>
 									</arguments>	
 								</configuration>
 							</execution>
