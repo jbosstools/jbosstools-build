@@ -47,6 +47,7 @@
 		<!-- See JBIDE-12420 -->
 		<skipPrivateRequirements>true</skipPrivateRequirements>
 		<skipSigning>true</skipSigning>
+		<skipBaselineComparison>false</skipBaselineComparison>
 		<requirementsDirectory>${project.build.directory}/requirements</requirementsDirectory>
 		<skipTestsWithPrivateRequirements>${skipPrivateRequirements}</skipTestsWithPrivateRequirements>
 		<!-- if you have integration tests, you can skip them using this -->
@@ -350,6 +351,7 @@
 						</goals>
 						<phase>verify</phase>
 						<configuration>
+							<skip>${skipBaselineComparison}</skip>
 							<baselines>
 								<repo>${lastStableRepository}</repo>
 							</baselines>
