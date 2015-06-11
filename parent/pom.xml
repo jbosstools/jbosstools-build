@@ -114,9 +114,9 @@
 				 In case no profile fits your requested TP version, directly override these next two properties -->
 
 		<!-- default value for the "minimum" profile -->
-		<TARGET_PLATFORM_VERSION>4.50.0.Beta1-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.50.0.Beta1</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION_MAXIMUM>4.50.0.Beta1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
+		<TARGET_PLATFORM_VERSION_MAXIMUM>4.50.0.Beta1</TARGET_PLATFORM_VERSION_MAXIMUM>
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
 
