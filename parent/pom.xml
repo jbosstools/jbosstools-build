@@ -65,7 +65,7 @@
 		<jbosstools.test.jre.6></jbosstools.test.jre.6>
 		<jbosstools.test.jre.7></jbosstools.test.jre.7>
 		<jbosstools.test.jre.8></jbosstools.test.jre.8>
-
+		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
 
 
 		<!-- ======================== -->
@@ -335,7 +335,7 @@
 								<update.site.version>${project.version} (${buildQualifier})</update.site.version>
 								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
 							</symbols>
-							<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.version}/${BUILD_ALIAS}/${JOB_NAME}/${buildQualifier}</p2StatsUrl>
+							<p2StatsUrl>${p2StatsUrl}</p2StatsUrl>
 						</configuration>
 					</execution>
 					<!--<execution>
