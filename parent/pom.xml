@@ -19,8 +19,7 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<!-- to build w/ latest 0.15.0-SNAPSHOT, run `mvn install -DtychoVersion=0.15.0-SNAPSHOT` -->
-		<tychoVersion>0.23.0</tychoVersion>
+		<tychoVersion>0.22.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.3.0.Beta1-SNAPSHOT</jbosstoolsRelengPublishVersion>
