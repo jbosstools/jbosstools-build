@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.3.0.Beta2-SNAPSHOT</version>
+	<version>4.3.0.CR1-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -12,7 +12,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Beta2</BUILD_ALIAS>
+		<BUILD_ALIAS>CR1</BUILD_ALIAS>
 		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
 
@@ -22,7 +22,7 @@
 		<tychoVersion>0.22.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
-		<jbosstoolsRelengPublishVersion>4.3.0.Beta2-SNAPSHOT</jbosstoolsRelengPublishVersion>
+		<jbosstoolsRelengPublishVersion>4.3.0.CR1-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -113,9 +113,9 @@
 				 In case no profile fits your requested TP version, directly override these next two properties -->
 
 		<!-- default value for the "minimum" profile -->
-		<TARGET_PLATFORM_VERSION>4.50.0.Beta2-SNAPSHOT</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.50.0.CR1-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION_MAXIMUM>4.50.0.Beta2-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
+		<TARGET_PLATFORM_VERSION_MAXIMUM>4.50.0.CR1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
 
