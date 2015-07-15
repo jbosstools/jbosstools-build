@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.3.0.Beta2-SNAPSHOT</version>
+	<version>4.3.0.CR1-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -12,17 +12,17 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Beta2</BUILD_ALIAS>
+		<BUILD_ALIAS>CR1</BUILD_ALIAS>
 		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>0.22.0</tychoVersion>
+		<tychoVersion>0.23.1</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
-		<jbosstoolsRelengPublishVersion>4.3.0.Beta2-SNAPSHOT</jbosstoolsRelengPublishVersion>
+		<jbosstoolsRelengPublishVersion>4.3.0.CR1-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
 		<systemProperties></systemProperties>
@@ -912,6 +912,11 @@
 	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
 	<!-- JBoss Nexus repos are also added, but in settings.xml -->
 	<pluginRepositories>
+		<!-- staging tycho 0.23.1 -->
+	 <pluginRepository>
+	  <id>tycho-staged</id>
+	  <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1022/</url>
+	 </pluginRepository>
 		<pluginRepository>
 			<id>sonatype-public-grid</id>
 			<url>https://repository.sonatype.org/content/groups/sonatype-public-grid</url>
