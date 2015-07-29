@@ -233,7 +233,8 @@
 				</configuration>
 			</plugin>
 
-			<!-- to skip running tests (compile only) use commandline flag: -Dmaven.test.skip
+			<!-- to skip running (and compiling) tests use commandline flag: -Dmaven.test.skip
+				To skip tests, but still compile them, use: -DskipTests
 				To allow all tests in a pom to pass/fail, use commandline flag: -fae (fail
 				at end) -->
 			<plugin>
