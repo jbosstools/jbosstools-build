@@ -21,7 +21,7 @@
 		<!-- ==================================================== -->
 		<tychoVersion>0.23.1</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>0.22.1-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>0.23.1-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.3.0.CR1-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
