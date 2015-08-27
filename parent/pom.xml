@@ -100,6 +100,9 @@
 		<jbosstools-playground-site>${jbosstools_site_baseurl}/jbosstools-playground_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-playground-site>
 		<jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
 
+		<!-- JBIDE-19903 when -DprojectNameForTestingDependencyResolution=javaee (or jst, base, server, etc.), we can resolve test dependencies within this project, without having to first build them locally -->
+		<jbosstools-this-site>${jbosstools_site_baseurl}/jbosstools-${projectNameForTestingDependencyResolution}_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-this-site>
+
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
@@ -884,6 +887,25 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+
+		<!-- JBIDE-19903 add this project's update site so that these tests can be run against upstream site, rather than expecting dependencies to have been built & resolved locally 
+		enabled only when -DprojectNameForTestingDependencyResolution=javaee (or base, server, jst, etc.)
+		-->
+		<profile>
+			<id>runTestsOnly</id>
+			<activation>
+				<property>
+					<name>projectNameForTestingDependencyResolution</name>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>jbosstools-this</id>
+					<layout>p2</layout>
+					<url>${jbosstools-this-site}</url>
+				</repository>
+			</repositories>
 		</profile>
 	</profiles>
 
