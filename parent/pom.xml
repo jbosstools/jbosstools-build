@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.3.0.CR1-SNAPSHOT</version>
+	<version>4.4.0.Alpha1-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -12,8 +12,8 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>CR1</BUILD_ALIAS>
-		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
+		<BUILD_ALIAS>Alpha1</BUILD_ALIAS>
+		<targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
 
 		<!-- ==================================================== -->
@@ -76,9 +76,9 @@
 			Don't use dashes & periods in variables which need to be used in shell (eg., Jenkins), as they cannot be declared.
 			Use underscores or mixedCase instead! ref: http://unix.stackexchange.com/questions/23659/can-shell-variable-include-character
 		-->
-		<jbosstools_site_stream>master</jbosstools_site_stream> <!-- or 4.3.mars for example -->
+		<jbosstools_site_stream>master</jbosstools_site_stream> <!-- or 4.4.neon for example -->
 		<jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
-		<jbosstools-build-type>mars/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
+		<jbosstools-build-type>neon/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
 		<jbosstools_site_suffix></jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
 		<!-- Sites with mutable content (eg snapshot builds) -->
