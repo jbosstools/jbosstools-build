@@ -80,7 +80,7 @@
 		<jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
 		<jbosstools-build-type>mars/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
-		<jbosstools_site_suffix></jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
+		<jbosstools_site_suffix>latest/all/repo</jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
 		<!-- Sites with mutable content (eg snapshot builds) -->
 		<jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-base-site>
 		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-server-site>
