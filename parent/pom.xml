@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Alpha1</BUILD_ALIAS>
 		<targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
-		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
+		<lastStableRepository>http://download.jboss.org/jbosstools/updates/development/mars</lastStableRepository>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
