@@ -352,18 +352,6 @@
 							<goal>create-full-site</goal>
 						</goals>
 					</execution>-->
-					<execution>
-						<goals>
-							<goal>compare-version-with-baselines</goal>
-						</goals>
-						<phase>verify</phase>
-						<configuration>
-							<skip>${skipBaselineComparison}</skip>
-							<baselines>
-								<repo>${lastStableRepository}</repo>
-							</baselines>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 
@@ -383,6 +371,26 @@
 							<regex>((..skipTests.)?(true)?((..skipITests.)|(null)|(true)|(false))?)</regex>
 							<replacement>$3</replacement>
 							<failIfNoMatch>false</failIfNoMatch>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compare-version-with-baselines</goal>
+						</goals>
+						<phase>verify</phase>
+						<configuration>
+							<skip>${skipBaselineComparison}</skip>
+							<baselines>
+								<repo>${lastStableRepository}</repo>
+							</baselines>
 						</configuration>
 					</execution>
 				</executions>
