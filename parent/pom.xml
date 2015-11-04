@@ -15,7 +15,7 @@
 		<BUILD_ALIAS>Alpha1</BUILD_ALIAS>
 		<eclipseReleaseName>neon</eclipseReleaseName>
 		<targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
-		<lastStableRepository>http://download.jboss.org/jbosstools/updates/development/mars</lastStableRepository>
+		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
