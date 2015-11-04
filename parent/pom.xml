@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Beta1</BUILD_ALIAS>
 		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
-		<lastStableRepository>http://download.jboss.org/jbosstools/updates/stable/luna</lastStableRepository>
+		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
