@@ -792,6 +792,8 @@
 				<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
 				<deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
 				<deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
+				<!-- https://issues.jboss.org/browse/JBIDE-21012 by default, don't push an update site zip to JBoss Nexus, only to download.jboss.org or devstudio.redhat.com -->
+				<maven.deploy.skip>true</maven.deploy.skip>
 			</properties>
 			<build>
 				<plugins>
