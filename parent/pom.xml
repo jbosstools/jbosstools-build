@@ -13,8 +13,9 @@
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Alpha1</BUILD_ALIAS>
-		<eclipseReleaseName>neon</eclipseReleaseName>
 		<targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
+		<eclipseReleaseName>neon</eclipseReleaseName>
+		<devstudioReleaseVersion>10.0</devstudioReleaseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
 
 		<!-- ==================================================== -->
