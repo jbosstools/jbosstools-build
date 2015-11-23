@@ -42,8 +42,10 @@
 		<!-- SWITCHES can be overriden by command-line -Dkey=value -->
 		<!-- ===================================================== -->
 		<swtbot.test.skip>true</swtbot.test.skip>
-		<!-- Used to install 3rd-party runtimes for testing -->
-		<skipRequirements>${skipTests}</skipRequirements>
+		<!-- Used to install 3rd-party runtimes, cascaded to download-maven-plugin and maven-dependency-plugin -->
+		<skipRequirements>false</skipRequirements>
+		<!-- Used to install 3rd-party runtimes for testing, cascaded to download-maven-plugin and maven-dependency-plugin -->
+		<skipTestRequirements>${skipTests}</skipTestRequirements>
 		<!-- Skip downloading private stuff, to be propagated to tests to skip executing test based on private stuff -->
 		<!-- See JBIDE-12420 -->
 		<skipPrivateRequirements>true</skipPrivateRequirements>
@@ -874,6 +876,7 @@
 			</activation>
 			<properties>
 				<maven.test.skip>true</maven.test.skip>
+				<skipTestRequirements>true</skipTestRequirements>
 				<skipTestsWithPrivateRequirements>true</skipTestsWithPrivateRequirements>
 			</properties>
 		</profile>
