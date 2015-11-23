@@ -14,6 +14,8 @@
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Beta1</BUILD_ALIAS>
 		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
+		<eclipseReleaseName>mars</eclipseReleaseName>
+		<devstudioReleaseVersion>9.0</devstudioReleaseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
 
 		<!-- ==================================================== -->
@@ -21,7 +23,7 @@
 		<!-- ==================================================== -->
 		<tychoVersion>0.24.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>0.23.1</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>0.23.3-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.3.0.Final</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
@@ -78,7 +80,7 @@
 		-->
 		<jbosstools_site_stream>4.3.mars</jbosstools_site_stream> <!-- or 4.3.mars for example -->
 		<jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
-		<jbosstools-build-type>mars/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
+		<jbosstools-build-type>${eclipseReleaseName}/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
 		<jbosstools_site_suffix>latest/all/repo</jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
 		<!-- Sites with mutable content (eg snapshot builds) -->
@@ -114,9 +116,9 @@
 				 In case no profile fits your requested TP version, directly override these next two properties -->
 
 		<!-- default value for the "minimum" profile -->
-		<TARGET_PLATFORM_VERSION>4.50.0.Final</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION>4.50.2.Beta1-SNAPSHOT</TARGET_PLATFORM_VERSION>
 		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION_MAXIMUM>4.51.0.Final</TARGET_PLATFORM_VERSION_MAXIMUM>
+		<TARGET_PLATFORM_VERSION_MAXIMUM>4.51.2.Beta1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
 		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
 		<!-- when building/testing components, use minumum TP -->
 
@@ -351,18 +353,6 @@
 							<goal>create-full-site</goal>
 						</goals>
 					</execution>-->
-					<execution>
-						<goals>
-							<goal>compare-version-with-baselines</goal>
-						</goals>
-						<phase>verify</phase>
-						<configuration>
-							<skip>${skipBaselineComparison}</skip>
-							<baselines>
-								<repo>${lastStableRepository}</repo>
-							</baselines>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 
@@ -382,6 +372,26 @@
 							<regex>((..skipTests.)?(true)?((..skipITests.)|(null)|(true)|(false))?)</regex>
 							<replacement>$3</replacement>
 							<failIfNoMatch>false</failIfNoMatch>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compare-version-with-baselines</goal>
+						</goals>
+						<phase>verify</phase>
+						<configuration>
+							<skip>${skipBaselineComparison}</skip>
+							<baselines>
+								<repo>${lastStableRepository}</repo>
+							</baselines>
 						</configuration>
 					</execution>
 				</executions>
