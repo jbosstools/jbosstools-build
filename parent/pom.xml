@@ -801,6 +801,8 @@
 				<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
 				<deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
 				<deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
+				<deployNumbuildstokeep>2</deployNumbuildstokeep>
+				<deployThreshholdwhendelete>2</deployThreshholdwhendelete>
 				<!-- https://issues.jboss.org/browse/JBIDE-21012 by default, don't push an update site zip to JBoss Nexus, only to download.jboss.org or devstudio.redhat.com -->
 				<maven.deploy.skip>true</maven.deploy.skip>
 			</properties>
@@ -851,6 +853,10 @@
 										<arg>${deploySourceFolder}</arg>
 										<arg>-t</arg>
 										<arg>${deployTargetFolder}</arg>
+										<arg>-k</arg>
+										<arg>${deployNumbuildstokeep>}</arg>
+										<arg>-a</arg>
+										<arg>${deployThreshholdwhendelete}</arg>
 									</arguments>	
 								</configuration>
 							</execution>
