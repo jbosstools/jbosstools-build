@@ -855,7 +855,7 @@
 										<arg>-t</arg>
 										<arg>${deployTargetFolder}</arg>
 										<arg>-k</arg>
-										<arg>${deployNumbuildstokeep>}</arg>
+										<arg>${deployNumbuildstokeep}</arg>
 										<arg>-a</arg>
 										<arg>${deployThreshholdwhendelete}</arg>
 									</arguments>	
