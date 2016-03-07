@@ -13,7 +13,7 @@
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>CR1</BUILD_ALIAS>
-		<targetEclipseVersion>4.5 (Mars)</targetEclipseVersion>
+		<targetEclipseVersion>4.5.2 (Mars.2)</targetEclipseVersion>
 		<eclipseReleaseName>mars</eclipseReleaseName>
 		<devstudioReleaseVersion>9.0</devstudioReleaseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
