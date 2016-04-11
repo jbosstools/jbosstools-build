@@ -943,11 +943,11 @@
 	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
 	<!-- JBoss Nexus repos are also added, but in settings.xml -->
 	<pluginRepositories>
-		<!-- staging tycho 0.23.1 -->
-	 <pluginRepository>
-	  <id>tycho-staged</id>
-	  <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1022/</url>
-	 </pluginRepository>
+		<!-- staging tycho 0.25.0 -->
+		<pluginRepository>
+			<id>tycho-0.25.0-staged</id>
+			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1035/</url>
+		</pluginRepository>
 		<pluginRepository>
 			<id>sonatype-public-grid</id>
 			<url>https://repository.sonatype.org/content/groups/sonatype-public-grid</url>
