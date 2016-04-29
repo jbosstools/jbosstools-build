@@ -18,6 +18,10 @@
 		<devstudioReleaseVersion>10.0</devstudioReleaseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
 
+		<!-- workaround for https://issues.jboss.org/browse/JBIDE-22248 and https://engineering.redhat.com/rt/Ticket/Display.html?id=401756 -->
+		<!-- <jbossNexus>repository.jboss.org</jbossNexus> -->
+		<jbossNexus>origin-repository.jboss.org</jbossNexus>
+
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
@@ -917,7 +921,7 @@
 		<repository>
 			<id>jboss-releases</id>
 			<name>JBoss Releases Maven Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+			<url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -925,7 +929,7 @@
 		<repository>
 			<id>jboss-snapshots-repository</id>
 			<name>JBoss Snapshots Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -959,7 +963,7 @@
  		<pluginRepository>
 			<id>jboss-releases</id>
 			<name>JBoss Releases Maven Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+			<url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -967,7 +971,7 @@
 		<pluginRepository>
 			<id>jboss-snapshots-repository</id>
 			<name>JBoss Snapshots Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -980,14 +984,14 @@
 		<snapshotRepository>
 			<id>jboss-snapshots-repository</id>
 			<name>JBoss Snapshots Repository</name>
-			<url>https://repository.jboss.org/nexus/content/repositories/snapshots/</url>
+			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 		<repository>
 			<id>jboss-staging-repository</id>
 			<name>JBoss Staging Service</name>
 			<uniqueVersion>false</uniqueVersion>
-			<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+			<url>https://${jbossNexus}/nexus/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
 </project>
