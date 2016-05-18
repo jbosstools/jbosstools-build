@@ -110,7 +110,6 @@
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
 		<jbosstools-birt-site>http://download.jboss.org/jbosstools/mars/stable/updates/core/birt/</jbosstools-birt-site>
-		<reddeer-site>http://download.jboss.org/jbosstools/mars/snapshots/builds/reddeer_master/</reddeer-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
