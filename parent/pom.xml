@@ -108,7 +108,6 @@
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
-		<reddeer-site>http://download.jboss.org/jbosstools/mars/snapshots/builds/reddeer_master/</reddeer-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
