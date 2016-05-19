@@ -18,9 +18,8 @@
 		<devstudioReleaseVersion>10.0</devstudioReleaseVersion>
 		<lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
 
-		<!-- workaround for https://issues.jboss.org/browse/JBIDE-22248 and https://engineering.redhat.com/rt/Ticket/Display.html?id=401756 -->
-		<!-- <jbossNexus>repository.jboss.org</jbossNexus> -->
-		<jbossNexus>origin-repository.jboss.org</jbossNexus>
+		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
+		<jbossNexus>repository.jboss.org</jbossNexus>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
