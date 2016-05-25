@@ -101,7 +101,6 @@
 		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-livereload-site>
 		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-central-site>
 		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
-		<jbosstools-playground-site>${jbosstools_site_baseurl}/jbosstools-playground_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-playground-site>
 		<jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
 
 		<!-- Static sites (should be moved into TP?) -->
