@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jboss.tools</groupId>
     <artifactId>parent</artifactId>
-    <version>4.4.0.Final-SNAPSHOT</version>
+    <version>4.4.1.Alpha1-SNAPSHOT</version>
     <name>JBoss Tools Parent</name>
     <packaging>pom</packaging>
 
@@ -16,7 +16,7 @@
         <targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
         <eclipseReleaseName>neon</eclipseReleaseName>
         <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
-        <lastStableRepository>http://download.jboss.org/jbosstools/mars/stable/updates/</lastStableRepository>
+        <lastStableRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</lastStableRepository>
 
         <!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
         <jbossNexus>repository.jboss.org</jbossNexus>
