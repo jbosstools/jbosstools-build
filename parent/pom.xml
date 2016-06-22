@@ -16,7 +16,7 @@
         <targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
         <eclipseReleaseName>neon</eclipseReleaseName>
         <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
-        <lastStableRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</lastStableRepository>
+        <lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
 
         <!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
         <jbossNexus>repository.jboss.org</jbossNexus>
@@ -148,7 +148,11 @@
                 <artifactId>tycho-packaging-plugin</artifactId>
                 <version>${tychoVersion}</version>
                 <configuration>
-                    <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm</format>
+                    <format>'v'yyyyMMdd-HHmm</format>
+                    <strictBinIncludes>false</strictBinIncludes>
+                    <timestampProvider>jgit</timestampProvider>
+                    <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+                    <jgit.ignore></jgit.ignore>
                     <sourceReferences>
                         <generate>true</generate>
                     </sourceReferences>
@@ -185,6 +189,11 @@
                     <dependency>
                         <groupId>org.eclipse.tycho.extras</groupId>
                         <artifactId>tycho-sourceref-jgit</artifactId>
+                        <version>${tychoExtrasVersion}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.eclipse.tycho.extras</groupId>
+                        <artifactId>tycho-buildtimestamp-jgit</artifactId>
                         <version>${tychoExtrasVersion}</version>
                     </dependency>
                 </dependencies>
@@ -688,8 +697,8 @@
                         <artifactId>tycho-packaging-plugin</artifactId>
                         <version>${tychoVersion}</version>
                         <configuration>
-                            <format>'${BUILD_ALIAS}-v'yyyyMMdd-HHmm'-B${BUILD_NUMBER}'</format>
-                            <archiveSite>true</archiveSite>
+                            <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
+                            <format>'v'yyyyMMdd-HHmm</format>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -820,14 +829,14 @@
                                     <goal>unpack</goal>
                                 </goals>
                                 <phase>deploy</phase>
-                                <configuration>    
+                                <configuration> 
                                     <artifactItems>
                                         <artifactItem>
-                                            <groupId>org.jboss.tools.releng</groupId>        
+                                            <groupId>org.jboss.tools.releng</groupId>       
                                             <artifactId>jbosstools-releng-publish</artifactId>
                                             <version>${jbosstoolsRelengPublishVersion}</version>
                                             <type>tar.gz</type>
-                                            <outputDirectory>${deployScriptDir}</outputDirectory>    
+                                            <outputDirectory>${deployScriptDir}</outputDirectory>
                                         </artifactItem>
                                     </artifactItems>
                                 </configuration>
@@ -1035,7 +1044,7 @@
             <id>sonatype-public-repository</id>
             <url>https://oss.sonatype.org/content/groups/public</url>
         </pluginRepository>
-         <pluginRepository>
+        <pluginRepository>
             <id>jboss-releases</id>
             <name>JBoss Releases Maven Repository</name>
             <url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
