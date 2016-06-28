@@ -12,7 +12,7 @@
         <!-- ==================================================== -->
         <!-- Build properties, to be updated with every milestone or new Eclipse release -->
         <!-- ==================================================== -->
-        <BUILD_ALIAS>Alpha1</BUILD_ALIAS>
+        <BUILD_ALIAS>AM1</BUILD_ALIAS>
         <targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
         <eclipseReleaseName>neon</eclipseReleaseName>
         <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
@@ -119,7 +119,7 @@
         <!-- default value for the "minimum" profile -->
         <TARGET_PLATFORM_VERSION>4.60.0.Final</TARGET_PLATFORM_VERSION>
         <!-- default value for the "maximum" profile -->
-        <TARGET_PLATFORM_VERSION_MAXIMUM>4.60.0.Final</TARGET_PLATFORM_VERSION_MAXIMUM>
+        <TARGET_PLATFORM_VERSION_MAXIMUM>4.60.1.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
         <!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
         <!-- when building/testing components, use minumum TP -->
 
