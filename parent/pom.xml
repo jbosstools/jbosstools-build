@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+	<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -17,6 +17,7 @@
         <eclipseReleaseName>neon</eclipseReleaseName>
         <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
         <lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
+        <!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
         <stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
 
         <!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
@@ -557,6 +558,7 @@
                     </executions>
                 </plugin>
 
+                <!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
                 <plugin>
                     <groupId>org.eclipse.tycho</groupId>
                     <artifactId>tycho-p2-plugin</artifactId>
