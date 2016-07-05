@@ -17,6 +17,7 @@
         <eclipseReleaseName>neon</eclipseReleaseName>
         <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
         <lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
+        <stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
 
         <!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
         <jbossNexus>repository.jboss.org</jbossNexus>
@@ -569,6 +570,11 @@
                             </goals>
                         </execution>
                     </executions>
+                    <configuration>
+                        <baselineRepositories>
+                            <url>${stagingBaselineRepository}</url>
+                        </baselineRepositories>
+                    </configuration>
                 </plugin>
 
                 <plugin>
