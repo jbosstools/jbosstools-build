@@ -572,7 +572,9 @@
                     </executions>
                     <configuration>
                         <baselineRepositories>
-                            <url>${stagingBaselineRepository}</url>
+                            <repository>
+                                <url>${stagingBaselineRepository}</url>
+                            </repository>
                         </baselineRepositories>
                     </configuration>
                 </plugin>
