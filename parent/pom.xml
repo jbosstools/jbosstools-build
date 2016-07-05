@@ -558,7 +558,6 @@
                     </executions>
                 </plugin>
 
-                <!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
                 <plugin>
                     <groupId>org.eclipse.tycho</groupId>
                     <artifactId>tycho-p2-plugin</artifactId>
@@ -572,13 +571,14 @@
                             </goals>
                         </execution>
                     </executions>
-                    <configuration>
+                    <!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
+<!--                     <configuration>
                         <baselineRepositories>
                             <repository>
                                 <url>${stagingBaselineRepository}</url>
                             </repository>
                         </baselineRepositories>
-                    </configuration>
+                    </configuration> -->
                 </plugin>
 
                 <plugin>
