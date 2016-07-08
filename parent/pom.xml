@@ -1042,9 +1042,13 @@
     <!-- JBoss Nexus repos are also added, but in settings.xml -->
     <pluginRepositories>
         <!-- staging tycho 0.25.0 -->
-        <pluginRepository>
+<!--         <pluginRepository>
             <id>tycho-0.25.0-staged</id>
             <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1036/</url>
+        </pluginRepository> -->
+        <pluginRepository>
+            <id>tycho-snapshots</id>
+            <url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
         </pluginRepository>
         <pluginRepository>
             <id>sonatype-public-grid</id>
@@ -1055,20 +1059,20 @@
             <url>https://oss.sonatype.org/content/groups/public</url>
         </pluginRepository>
         <pluginRepository>
-            <id>jboss-releases</id>
-            <name>JBoss Releases Maven Repository</name>
-            <url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-        <pluginRepository>
             <id>jboss-snapshots-repository</id>
             <name>JBoss Snapshots Repository</name>
             <url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-releases</id>
+            <name>JBoss Releases Maven Repository</name>
+            <url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </pluginRepository>
     </pluginRepositories>
 
