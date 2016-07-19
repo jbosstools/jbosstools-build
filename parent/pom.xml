@@ -40,6 +40,8 @@
         <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
                  you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
         <update.site.description>&amp;shy;</update.site.description>
+        <BUILD_TIMESTAMP>${maven.build.timestamp}</BUILD_TIMESTAMP>
+        <maven.build.timestamp.format>yyyy-MM-dd_HH-mm-ss</maven.build.timestamp.format>
 
         <!-- ===================================================== -->
         <!-- SWITCHES can be overriden by command-line -Dkey=value -->
@@ -802,7 +804,7 @@
                 <deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
                 <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
                 <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
-                <deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
+                <deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
                 <deployNumbuildstokeep>2</deployNumbuildstokeep>
                 <deployNumbuildstolink>2</deployNumbuildstolink>
                 <deployThreshholdwhendelete>2</deployThreshholdwhendelete>
@@ -878,7 +880,7 @@
             <deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
             <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
             <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
-            <deployTargetFolder>${eclipseReleaseName}/snapshots/pulls/${JOB_NAME}/${BUILD_ID}-B${BUILD_NUMBER}_PR${ghprbPullId}/all/repo/</deployTargetFolder>
+            <deployTargetFolder>${eclipseReleaseName}/snapshots/pulls/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}_PR${ghprbPullId}/all/repo/</deployTargetFolder>
             <deployNumbuildstokeep>7</deployNumbuildstokeep>
             <deployNumbuildstolink>1</deployNumbuildstolink>
             <deployThreshholdwhendelete>7</deployThreshholdwhendelete>
