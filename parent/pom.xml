@@ -883,6 +883,8 @@
                                         <arg>${deployNumbuildstolink}</arg>
                                         <arg>-a</arg>
                                         <arg>${deployThreshholdwhendelete}</arg>
+                                        <arg>-DBUILD_TIMESTAMP</arg>
+                                        <arg>${BUILD_TIMESTAMP}</arg>
                                     </arguments>    
                                 </configuration>
                             </execution>
