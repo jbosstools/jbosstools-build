@@ -29,7 +29,7 @@
         <tychoVersion>0.25.0</tychoVersion>
         <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
         <jbossTychoPluginsVersion>0.25.1-SNAPSHOT</jbossTychoPluginsVersion>
-        <jbosstoolsRelengPublishVersion>4.4.0.Final-SNAPSHOT</jbosstoolsRelengPublishVersion>
+        <jbosstoolsRelengPublishVersion>4.4.1.AM2-SNAPSHOT</jbosstoolsRelengPublishVersion>
         <memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
         <memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
         <systemProperties></systemProperties>
@@ -883,8 +883,6 @@
                                         <arg>${deployNumbuildstolink}</arg>
                                         <arg>-a</arg>
                                         <arg>${deployThreshholdwhendelete}</arg>
-                                        <arg>-DBUILD_TIMESTAMP</arg>
-                                        <arg>${BUILD_TIMESTAMP}</arg>
                                     </arguments>    
                                 </configuration>
                             </execution>
