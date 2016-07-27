@@ -12,7 +12,7 @@
         <!-- ==================================================== -->
         <!-- Build properties, to be updated with every milestone or new Eclipse release -->
         <!-- ==================================================== -->
-        <BUILD_ALIAS>AM2</BUILD_ALIAS>
+	<BUILD_ALIAS>AM3</BUILD_ALIAS>
         <targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
         <eclipseReleaseName>neon</eclipseReleaseName>
         <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
@@ -415,6 +415,37 @@
 
         <pluginManagement>
             <plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.4.1</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.jboss.tools.releng</groupId>
+							<artifactId>no-snapshots-allowed-rule</artifactId>
+							<version>${jbosstoolsRelengPublishVersion}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>enforce-no-snapshots</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<noSnapshotsAllowed implementation="org.jboss.tools.releng.NoSnapshotsAllowed">
+										<!-- properties to include when searching for SNAPSHOT versions, eg., openshift-restclient-java.version -->
+										<includePattern>.*</includePattern>
+										<!-- properties to exclude when searching for SNAPSHOT versions, eg.,  jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM -->
+										<excludePattern>p2StatsUrl|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM</excludePattern>
+									</noSnapshotsAllowed>
+								</rules>
+								<fail>true</fail>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
                 <!-- This plugin's configuration is used to store Eclipse m2e settings only. -->
                 <!-- It has no influence on the Maven build itself. -->
                 <!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
