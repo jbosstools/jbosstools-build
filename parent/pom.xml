@@ -1,1097 +1,1130 @@
 	<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>org.jboss.tools</groupId>
-    <artifactId>parent</artifactId>
-    <version>4.4.1.Alpha1-SNAPSHOT</version>
-    <name>JBoss Tools Parent</name>
-    <packaging>pom</packaging>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jboss.tools</groupId>
+	<artifactId>parent</artifactId>
+	<version>4.4.1.Alpha1-SNAPSHOT</version>
+	<name>JBoss Tools Parent</name>
+	<packaging>pom</packaging>
 
-    <properties>
-        <!-- ==================================================== -->
-        <!-- Build properties, to be updated with every milestone or new Eclipse release -->
-        <!-- ==================================================== -->
-        <BUILD_ALIAS>AM3</BUILD_ALIAS>
-        <targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
-        <eclipseReleaseName>neon</eclipseReleaseName>
-        <devstudioReleaseVersion>10.0</devstudioReleaseVersion>
-        <lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
-        <!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-        <stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
+	<properties>
+		<!-- ==================================================== -->
+		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
+		<!-- ==================================================== -->
+		<BUILD_ALIAS>AM3</BUILD_ALIAS>
+		<targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
+		<eclipseReleaseName>neon</eclipseReleaseName>
+		<devstudioReleaseVersion>10.0</devstudioReleaseVersion>
+		<lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
+		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
+		<stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
 
-        <!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
-        <jbossNexus>repository.jboss.org</jbossNexus>
+		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
+		<jbossNexus>repository.jboss.org</jbossNexus>
 
-        <!-- ==================================================== -->
-        <!-- General properties, not meant to be tweaked by users -->
-        <!-- ==================================================== -->
-        <tychoVersion>0.25.0</tychoVersion>
-        <tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-        <jbossTychoPluginsVersion>0.25.1-SNAPSHOT</jbossTychoPluginsVersion>
-        <jbosstoolsRelengPublishVersion>4.4.1.AM2-SNAPSHOT</jbosstoolsRelengPublishVersion>
-        <memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
-        <memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
-        <systemProperties></systemProperties>
-        <platformSystemProperties></platformSystemProperties>
-        <applejdkProperties></applejdkProperties>
-        <maven.antrun.plugin.version>1.3</maven.antrun.plugin.version>
-        <!-- Default coverage filter, to be overriden when necessary -->
-        <coverage.filter>org.jboss.tools.*</coverage.filter>
-        <update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
-        <!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
-                 you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
-        <update.site.description>&amp;shy;</update.site.description>
-        <BUILD_TIMESTAMP>${maven.build.timestamp}</BUILD_TIMESTAMP>
-        <maven.build.timestamp.format>yyyy-MM-dd_HH-mm-ss</maven.build.timestamp.format>
+		<!-- ==================================================== -->
+		<!-- General properties, not meant to be tweaked by users -->
+		<!-- ==================================================== -->
+		<tychoVersion>0.25.0</tychoVersion>
+		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
+		<jbossTychoPluginsVersion>0.25.1-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbosstoolsRelengPublishVersion>4.4.1.AM2-SNAPSHOT</jbosstoolsRelengPublishVersion>
+		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
+		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
+		<systemProperties></systemProperties>
+		<platformSystemProperties></platformSystemProperties>
+		<applejdkProperties></applejdkProperties>
+		<maven.antrun.plugin.version>1.3</maven.antrun.plugin.version>
+		<!-- Default coverage filter, to be overriden when necessary -->
+		<coverage.filter>org.jboss.tools.*</coverage.filter>
+		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
+		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
+				 you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
+		<update.site.description>&amp;shy;</update.site.description>
+		<BUILD_TIMESTAMP>${maven.build.timestamp}</BUILD_TIMESTAMP>
+		<maven.build.timestamp.format>yyyy-MM-dd_HH-mm-ss</maven.build.timestamp.format>
 
-        <!-- ===================================================== -->
-        <!-- SWITCHES can be overriden by command-line -Dkey=value -->
-        <!-- ===================================================== -->
-        <swtbot.test.skip>true</swtbot.test.skip>
-        <!-- Used to install 3rd-party runtimes for testing -->
-        <skipRequirements>${skipTests}</skipRequirements>
-        <!-- Skip downloading private stuff, to be propagated to tests to skip executing test based on private stuff -->
-        <!-- See JBIDE-12420 -->
-        <skipPrivateRequirements>true</skipPrivateRequirements>
-        <skipSigning>true</skipSigning>
-        <skipBaselineComparison>${skipTestsOrITests}</skipBaselineComparison>
-        <requirementsDirectory>${project.build.directory}/requirements</requirementsDirectory>
-        <skipTestsWithPrivateRequirements>${skipPrivateRequirements}</skipTestsWithPrivateRequirements>
-        <!-- if you have integration tests, you can skip them using this -->
-        <skipITests>false</skipITests>
-        <!-- Unit Test and Integration Test timeouts in seconds -->
-        <surefire.timeout>2400</surefire.timeout>
-        <surefire.itests.timeout>${surefire.timeout}</surefire.itests.timeout>
-        <!-- Where to put jacoco coverage report, basically in the target/ folder at the top-level for each component -->
-        <!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
-        <jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
-        <!-- Default properties for Java runtimes to be used and set during testing, eg., /qa/tools/opt/jdk1.8.0_last/ or /opt/jdk1.7.0_17/
-                 These properties will be set when running in Jenkins, but you can set them in your settings.xml too. 
-                 Not recommended that you set default values in your root or test poms as they are machine specific. -->
-        <jbosstools.test.jre.5></jbosstools.test.jre.5>
-        <jbosstools.test.jre.6></jbosstools.test.jre.6>
-        <jbosstools.test.jre.7></jbosstools.test.jre.7>
-        <jbosstools.test.jre.8></jbosstools.test.jre.8>
-        <!-- default when building locally; see hudson profile for when building in Jenkins CI -->
-        <p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
-
-
-        <!-- ======================== -->
-        <!-- JBOSS TOOLS DEPENDENCIES -->
-        <!-- ======================== -->
-
-        <!-- 
-            Don't use dashes & periods in variables which need to be used in shell (eg., Jenkins), as they cannot be declared.
-            Use underscores or mixedCase instead! ref: http://unix.stackexchange.com/questions/23659/can-shell-variable-include-character
-        -->
-        <jbosstools_site_stream>master</jbosstools_site_stream> <!-- or 4.4.neon for example -->
-        <jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
-        <jbosstools-build-type>${eclipseReleaseName}/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
-        <jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
-        <jbosstools_site_suffix></jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
-        <!-- Sites with mutable content (eg snapshot builds) -->
-        <jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-base-site>
-        <jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-server-site>
-        <jbosstools-openshift-site>${jbosstools_site_baseurl}/jbosstools-openshift_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-openshift-site>
-        <jbosstools-jst-site>${jbosstools_site_baseurl}/jbosstools-jst_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-jst-site>
-        <jbosstools-aerogear-site>${jbosstools_site_baseurl}/jbosstools-aerogear_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-aerogear-site>
-        <jbosstools-hibernate-site>${jbosstools_site_baseurl}/jbosstools-hibernate_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-hibernate-site>
-        <jbosstools-javaee-site>${jbosstools_site_baseurl}/jbosstools-javaee_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-javaee-site>
-        <jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-webservices-site>
-        <jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-vpe-site>
-        <jbosstools-arquillian-site>${jbosstools_site_baseurl}/jbosstools-arquillian_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-arquillian-site>
-        <jbosstools-forge-site>${jbosstools_site_baseurl}/jbosstools-forge_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-forge-site>
-        <jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-livereload-site>
-        <jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-central-site>
-        <jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
-        <jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
-
-        <!-- Static sites (should be moved into TP?) -->
-        <!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
-        <jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
-        <jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
-
-        <!-- ================ -->
-        <!-- TARGET-PLATFORMS -->
-        <!-- ================ -->
-
-        <!-- JBoss Tools target platforms are versioned: <eclipseMajor>.<eclipseMinorAndMicro>.<revision>.<qualifier>
-                 Default version is the minimum API / Eclipse target used for the project
-                 In case no profile fits your requested TP version, directly override these next two properties -->
-
-        <!-- default value for the "minimum" profile -->
-        <TARGET_PLATFORM_VERSION>4.60.0.Final</TARGET_PLATFORM_VERSION>
-        <!-- default value for the "maximum" profile -->
-        <TARGET_PLATFORM_VERSION_MAXIMUM>4.60.1.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
-        <!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
-        <!-- when building/testing components, use minumum TP -->
-
-        <!-- This must be overriden when using other groups for TP, such as jbdevstudio -->
-        <targetPlatformGroup>jbosstools</targetPlatformGroup>
-
-        <!-- ***************************************************************** -->
-        <!-- Use *target* profiles to select other values for those properties -->
-        <!-- ***************************************************************** -->
-        <!-- tpc.groupId is static but defined here to use a completely different target platform (i.e. for JBTIS) -->
-        <tpc.groupId>org.jboss.tools.targetplatforms</tpc.groupId>
-        <!-- tpc.group is one of ${targetPlatformGroup} or ${targetPlatformGroup-maximun} -->
-        <tpc.group>${targetPlatformGroup}</tpc.group>
-        <!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
-        <tpc.targetKind>unified</tpc.targetKind>
-        <tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
-        <!-- discovery.tpc.version usually is usually set to ${tpc.version} but it
-        can happen that they need to have different values, hence 2 properties -->
-        <discovery.tpc.version>${tpc.version}</discovery.tpc.version>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-packaging-plugin</artifactId>
-                <version>${tychoVersion}</version>
-                <configuration>
-                    <format>'v'yyyyMMdd-HHmm</format>
-                    <strictBinIncludes>false</strictBinIncludes>
-                    <timestampProvider>jgit</timestampProvider>
-                    <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
-                    <jgit.ignore>pom.xml</jgit.ignore>
-                    <sourceReferences>
-                        <generate>true</generate>
-                    </sourceReferences>
-                    <archiveSite>true</archiveSite>
-                    <environments>
-                        <environment>
-                            <os>macosx</os>
-                            <ws>cocoa</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86</arch>
-                        </environment>
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                        <environment>
-                            <os>linux</os>
-                            <ws>gtk</ws>
-                            <arch>x86</arch>
-                        </environment>
-                        <environment>
-                            <os>linux</os>
-                            <ws>gtk</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                    </environments>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.eclipse.tycho.extras</groupId>
-                        <artifactId>tycho-sourceref-jgit</artifactId>
-                        <version>${tychoExtrasVersion}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.eclipse.tycho.extras</groupId>
-                        <artifactId>tycho-buildtimestamp-jgit</artifactId>
-                        <version>${tychoExtrasVersion}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-maven-plugin</artifactId>
-                <version>${tychoVersion}</version>
-                <extensions>true</extensions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>target-platform-configuration</artifactId>
-                <version>${tychoVersion}</version>
-                <configuration>
-                    <resolver>p2</resolver>
-                    <ignoreTychoRepositories>true</ignoreTychoRepositories>
-                    <environments>
-                        <environment>
-                            <os>macosx</os>
-                            <ws>cocoa</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86</arch>
-                        </environment>
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                        <environment>
-                            <os>linux</os>
-                            <ws>gtk</ws>
-                            <arch>x86</arch>
-                        </environment>
-                        <environment>
-                            <os>linux</os>
-                            <ws>gtk</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                    </environments>
-                </configuration>
-            </plugin>
-
-            <!-- to skip running (and compiling) tests use commandline flag: -Dmaven.test.skip
-                To skip tests, but still compile them, use: -DskipTests
-                To allow all tests in a pom to pass/fail, use commandline flag: -fae (fail
-                at end) -->
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-surefire-plugin</artifactId>
-                <version>${tychoVersion}</version>
-                <configuration>
-                    <useUIHarness>true</useUIHarness>
-                    <useUIThread>true</useUIThread>
-                    <!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
-                    <!-- tycho.testArgLine repeated to keep jacoco configuration for jacoco-maven-plugin -->
-                    <argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
-                    <!-- https://docs.sonatype.org/display/TYCHO/How+to+run+SWTBot+tests+with+Tycho -->
-                    <!-- set useUIThread=true for regular ui tests -->
-                    <!-- set useUIThread=false for swtbot tests -->
-                    <includes>
-                        <include>**/AllTests.class</include>
-                        <include>**/*AllTests*.class</include>
-                        <include>**/*AllBotTests*.class</include>
-                        <include>**/*TestSuite*.class</include>
-                    </includes>
-                    <!-- Workaround for JBIDE-16161/Eclipse bug 424104 -->
-                    <dependencies>
-                        <dependency>
-                            <type>eclipse-feature</type>
-                            <artifactId>org.eclipse.e4.rcp</artifactId>
-                            <version>0.0.0</version>
-                        </dependency>
-                        <!-- This feature is required for correct Installed JRE initialization on Mac OS X -->
-                        <dependency>
-                            <type>eclipse-feature</type>
-                            <artifactId>org.eclipse.jdt</artifactId>
-                            <version>0.0.0</version>
-                        </dependency>
-                    </dependencies>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-compiler-plugin</artifactId>
-                <version>${tychoVersion}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-
-            <!-- source for bundles -->
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-source-plugin</artifactId>
-                <version>${tychoVersion}</version>
-                <executions>
-                    <execution>
-                        <id>plugin-source</id>
-                        <goals>
-                            <goal>plugin-source</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.4.1</version>
-                <configuration>
-                    <encoding>ISO-8859-1</encoding>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.1.201405082137</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                        <configuration>
-                            <includes>
-                                <include>${coverage.filter}</include>
-                            </includes>
-                            <!-- Merge reports from all executions -->
-                            <append>true</append>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.jboss.tools.tycho-plugins</groupId>
-                <artifactId>repository-utils</artifactId>
-                <version>${jbossTychoPluginsVersion}</version>
-                <executions>
-                    <execution>
-                        <id>generate-facade</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>generate-repository-facade</goal>
-                        </goals>
-                        <configuration>
-                            <symbols>
-                                <update.site.name>${update.site.name}</update.site.name>
-                                <update.site.description>${update.site.description}</update.site.description>
-                                <update.site.version>${project.version} (${buildQualifier})</update.site.version>
-                                <target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
-                            </symbols>
-                            <p2StatsUrl>${p2StatsUrl}</p2StatsUrl>
-                        </configuration>
-                    </execution>
-                    <!--<execution>
-                        <id>generate-full-site</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>create-full-site</goal>
-                        </goals>
-                    </execution>-->
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <id>regex-property</id>
-                        <goals>
-                            <goal>regex-property</goal>
-                        </goals>
-                        <configuration>
-                            <name>skipTestsOrITests</name>
-                            <value>${skipTests}${skipITests}</value>
-                            <regex>((..skipTests.)?(true)?((..skipITests.)|(null)|(true)|(false))?)</regex>
-                            <replacement>$3</replacement>
-                            <failIfNoMatch>false</failIfNoMatch>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.eclipse.tycho.extras</groupId>
-                <artifactId>tycho-p2-extras-plugin</artifactId>
-                <version>${tychoVersion}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compare-version-with-baselines</goal>
-                        </goals>
-                        <phase>verify</phase>
-                        <configuration>
-                            <skip>${skipBaselineComparison}</skip>
-                            <baselines>
-                                <repo>${lastStableRepository}</repo>
-                            </baselines>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-
-        <pluginManagement>
-            <plugins>
-                <!-- This plugin's configuration is used to store Eclipse m2e settings only. -->
-                <!-- It has no influence on the Maven build itself. -->
-                <!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
-                <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-                            <pluginExecutions>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>org.jacoco</groupId>
-                                        <artifactId>jacoco-maven-plugin</artifactId>
-                                        <versionRange>[0.5,)
-                                        </versionRange>
-                                        <goals>
-                                            <goal>prepare-agent</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <!-- m2e doesn't know what to do with jacoco, -->
-                                        <!-- let's ignore it or annoying error markers appear -->
-                                        <!-- see http://wiki.eclipse.org/M2E_plugin_execution_not_covered -->
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>
-                                            org.codehaus.mojo
-                                        </groupId>
-                                        <artifactId>
-                                            build-helper-maven-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [1.7,)
-                                        </versionRange>
-                                        <goals>
-                                            <goal>regex-property</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore></ignore>
-                                    </action>
-                                </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.5.4</version>
-                    <executions>
-                        <execution>
-                            <id>create-zip</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>single</goal>
-                            </goals>
-                            <configuration>
-                                <appendAssemblyId>false</appendAssemblyId>
-                                <!-- JBIDE-19800 to use this, must specify path to an assembly.xml file. Examples in jbosstools-discovery and jbosstools-target-platforms
-                                <descriptors><descriptor>publish-assembly.xml</descriptor></descriptors>
-                                -->
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <plugin>
-                    <groupId>net.ju-n.maven.plugins</groupId>
-                    <artifactId>checksum-maven-plugin</artifactId>
-                    <version>1.2</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>files</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <quiet>true</quiet>
-                        <csvSummary>false</csvSummary>
-                        <algorithms>
-                            <algorithm>SHA-256</algorithm>
-                        </algorithms>
-                        <fileSets>
-                            <fileSet>
-                                <directory>${project.build.directory}</directory>
-                                <includes>
-                                    <include>**/*.zip</include>
-                                    <include>**/*-installer-*.jar</include>
-                                </includes>
-                            </fileSet>
-                        </fileSets>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.googlecode.maven-download-plugin</groupId>
-                    <artifactId>maven-download-plugin</artifactId>
-                    <version>1.1.0</version>
-                    <configuration>
-                        <skip>${skipRequirements}</skip>
-                        <outputDirectory>${requirementsDirectory}</outputDirectory>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>com.googlecode.maven-download-plugin</groupId>
-                    <artifactId>download-maven-plugin</artifactId>
-                    <version>1.2.0</version>
-                    <configuration>
-                        <skip>${skipRequirements}</skip>
-                        <outputDirectory>${requirementsDirectory}</outputDirectory>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.7</version>
-                    <configuration>
-                        <skip>${skipRequirements}</skip>
-                        <outputDirectory>${requirementsDirectory}</outputDirectory>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.eclipse.tycho.extras</groupId>
-                    <artifactId>tycho-source-feature-plugin</artifactId>
-                    <version>${tychoExtrasVersion}</version>
-                    <executions>
-                        <execution>
-                            <id>source-feature</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>source-feature</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-                <plugin>
-                    <groupId>org.eclipse.tycho</groupId>
-                    <artifactId>tycho-p2-plugin</artifactId>
-                    <version>${tychoVersion}</version>
-                    <executions>
-                        <execution>
-                            <id>attached-p2-metadata</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>p2-metadata</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <baselineRepositories>
-                            <repository>
-                                <url>${stagingBaselineRepository}</url>
-                            </repository>
-                        </baselineRepositories>
-                    </configuration>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.6.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
-
-    <scm>
-        <connection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</connection>
-        <developerConnection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</developerConnection>
-        <url>http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</url>
-    </scm>
-
-    <issueManagement>
-        <system>jira</system>
-        <url>https://jira.jboss.org/jira/secure/</url>
-    </issueManagement>
-
-    <profiles>
-        <!-- ************************************************************ -->
-        <!-- Profiles to manage target-platform and 3rd pary dependencies -->
-        <!-- ************************************************************ -->
-
-        <!-- enable actual using a target platform, can simply be disable with -Dno-target-platform -->
-        <profile>
-            <id>target-platform</id>
-            <activation>
-                <property>
-                    <name>!no-target-platform</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.tycho</groupId>
-                        <artifactId>target-platform-configuration</artifactId>
-                        <version>${tychoVersion}</version>
-                        <configuration>
-                            <target>
-                                <artifact>
-                                    <groupId>${tpc.groupId}</groupId>
-                                    <artifactId>${tpc.group}-${tpc.targetKind}</artifactId>
-                                    <version>${tpc.version}</version>
-                                    <classifier>${tpc.group}-${tpc.targetKind}</classifier>
-                                </artifact>
-                            </target>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!-- Target platform file pointing at the composite target platform
-            AKA multiple.target -->
-        <profile>
-            <id>multiple.target</id>
-            <properties>
-                <tpc.targetKind>multiple</tpc.targetKind>
-            </properties>
-        </profile>
-        <!-- Target platform file pointing at a single update site from which to
-            resolve. See unified.site if you want to resolve against a site w/o using
-            the unified.target file -->
-        <profile>
-            <id>unified.target</id>
-            <properties>
-                <tpc.targetKind>unified</tpc.targetKind>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>maximum</id>
-            <properties>
-                <tpc.version>${TARGET_PLATFORM_VERSION_MAXIMUM}</tpc.version>
-            </properties>
-        </profile>
+		<!-- ===================================================== -->
+		<!-- SWITCHES can be overriden by command-line -Dkey=value -->
+		<!-- ===================================================== -->
+		<swtbot.test.skip>true</swtbot.test.skip>
+		<!-- Used to install 3rd-party runtimes for testing -->
+		<skipRequirements>${skipTests}</skipRequirements>
+		<!-- Skip downloading private stuff, to be propagated to tests to skip executing test based on private stuff -->
+		<!-- See JBIDE-12420 -->
+		<skipPrivateRequirements>true</skipPrivateRequirements>
+		<skipSigning>true</skipSigning>
+		<skipBaselineComparison>${skipTestsOrITests}</skipBaselineComparison>
+		<requirementsDirectory>${project.build.directory}/requirements</requirementsDirectory>
+		<skipTestsWithPrivateRequirements>${skipPrivateRequirements}</skipTestsWithPrivateRequirements>
+		<!-- if you have integration tests, you can skip them using this -->
+		<skipITests>false</skipITests>
+		<!-- Unit Test and Integration Test timeouts in seconds -->
+		<surefire.timeout>2400</surefire.timeout>
+		<surefire.itests.timeout>${surefire.timeout}</surefire.itests.timeout>
+		<!-- Where to put jacoco coverage report, basically in the target/ folder at the top-level for each component -->
+		<!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
+		<jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
+		<!-- Default properties for Java runtimes to be used and set during testing, eg., /qa/tools/opt/jdk1.8.0_last/ or /opt/jdk1.7.0_17/
+				 These properties will be set when running in Jenkins, but you can set them in your settings.xml too. 
+				 Not recommended that you set default values in your root or test poms as they are machine specific. -->
+		<jbosstools.test.jre.5></jbosstools.test.jre.5>
+		<jbosstools.test.jre.6></jbosstools.test.jre.6>
+		<jbosstools.test.jre.7></jbosstools.test.jre.7>
+		<jbosstools.test.jre.8></jbosstools.test.jre.8>
+		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
+		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
 
 
-        <profile>
-            <!-- JBIDE-12455 , necessary because of XulRunner doesn't support 64bits OSX -->
-            <id>applejdk</id>
-            <activation>
-                <property>
-                    <name>java.vendor.url</name>
-                    <value>http://www.apple.com/</value>
-                </property>
-            </activation>
-            <properties>
-                <applejdkProperties> -d32 -Dosgi.arch=x86 </applejdkProperties>
-            </properties>
-        </profile>
+		<!-- ======================== -->
+		<!-- JBOSS TOOLS DEPENDENCIES -->
+		<!-- ======================== -->
 
-        <profile>
-            <!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=388084 -->
-            <id>osx</id>
-            <activation>
-                <os>
-                    <family>mac</family>
-                </os>
-            </activation>
-            <properties>
-                <!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
-                <platformSystemProperties> -XstartOnFirstThread </platformSystemProperties>
-            </properties>
-        </profile>
+		<!-- 
+			Don't use dashes & periods in variables which need to be used in shell (eg., Jenkins), as they cannot be declared.
+			Use underscores or mixedCase instead! ref: http://unix.stackexchange.com/questions/23659/can-shell-variable-include-character
+		-->
+		<jbosstools_site_stream>master</jbosstools_site_stream> <!-- or 4.4.neon for example -->
+		<jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
+		<jbosstools-build-type>${eclipseReleaseName}/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
+		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
+		<jbosstools_site_suffix></jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
+		<!-- Sites with mutable content (eg snapshot builds) -->
+		<jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-base-site>
+		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-server-site>
+		<jbosstools-openshift-site>${jbosstools_site_baseurl}/jbosstools-openshift_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-openshift-site>
+		<jbosstools-jst-site>${jbosstools_site_baseurl}/jbosstools-jst_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-jst-site>
+		<jbosstools-aerogear-site>${jbosstools_site_baseurl}/jbosstools-aerogear_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-aerogear-site>
+		<jbosstools-hibernate-site>${jbosstools_site_baseurl}/jbosstools-hibernate_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-hibernate-site>
+		<jbosstools-javaee-site>${jbosstools_site_baseurl}/jbosstools-javaee_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-javaee-site>
+		<jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-webservices-site>
+		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-vpe-site>
+		<jbosstools-arquillian-site>${jbosstools_site_baseurl}/jbosstools-arquillian_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-arquillian-site>
+		<jbosstools-forge-site>${jbosstools_site_baseurl}/jbosstools-forge_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-forge-site>
+		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-livereload-site>
+		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-central-site>
+		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
+		<jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
 
-        <profile>
-            <id>hudson</id>
-            <activation>
-                <property>
-                    <name>BUILD_NUMBER</name>
-                </property>
-            </activation>
-            <properties>
-                <!-- to test p2StatsUrl, must pass in two vars: mvn clean install -DJOB_NAME=jbosstools-server_master -DBUILD_NUMBER=450002 -->
-                <p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${JOB_NAME}/${project.version}/${BUILD_ALIAS}/${buildQualifier}/</p2StatsUrl>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.tycho</groupId>
-                        <artifactId>tycho-packaging-plugin</artifactId>
-                        <version>${tychoVersion}</version>
-                        <configuration>
-                            <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
-                            <format>'v'yyyyMMdd-HHmm</format>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+		<!-- Static sites (should be moved into TP?) -->
+		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
+		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
+		<jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
 
-        <profile>
-            <id>sign</id>
-            <!--    guarantee that -Psign <=> -DskipSigning=false -->
-            <activation>
-                <property>
-                    <name>skipSigning</name>
-                    <value>false</value>
-                </property>
-            </activation>
-            <properties>
-                <skipSigning>false</skipSigning>
-            </properties>
-        </profile>
+		<!-- ================ -->
+		<!-- TARGET-PLATFORMS -->
+		<!-- ================ -->
 
-        <profile>
-            <id>pack200</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.tycho</groupId>
-                        <artifactId>target-platform-configuration</artifactId>
-                        <version>${tychoVersion}</version>
-                        <configuration>
-                            <includePackedArtifacts>true</includePackedArtifacts>
-                        </configuration>
-                    </plugin>
-                    <!-- first we normalize -->
-                    <plugin>
-                        <groupId>org.eclipse.tycho.extras</groupId>
-                        <artifactId>tycho-pack200a-plugin</artifactId>
-                        <version>${tychoExtrasVersion}</version>
-                        <executions>
-                            <execution>
-                                <id>pack200-normalize</id>
-                                <goals>
-                                    <goal>normalize</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- then we sign -->
-                    <plugin>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <version>1.2.1</version>
-                        <executions>
-                            <execution>
-                                <id>jarsign</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <configuration>
-                                    <executable>/home/hudson/bin/jarsign.sh</executable>
-                                    <arguments>
-                                        <argument>${project.basedir}</argument>
-                                    </arguments>
-                                    <skip>${skipSigning}</skip>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- then we pack -->
-                    <plugin>
-                        <groupId>org.eclipse.tycho.extras</groupId>
-                        <artifactId>tycho-pack200b-plugin</artifactId>
-                        <version>${tychoExtrasVersion}</version>
-                        <executions>
-                            <execution>
-                                <id>pack200-pack</id>
-                                <goals>
-                                    <goal>pack</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.eclipse.tycho</groupId>
-                        <artifactId>tycho-p2-plugin</artifactId>
-                        <version>${tychoVersion}</version>
-                        <executions>
-                            <execution>
-                                <id>p2-metadata</id>
-                                <goals>
-                                    <goal>p2-metadata</goal>
-                                </goals>
-                                <phase>package</phase>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <defaultP2Metadata>false</defaultP2Metadata>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+		<!-- JBoss Tools target platforms are versioned: <eclipseMajor>.<eclipseMinorAndMicro>.<revision>.<qualifier>
+				 Default version is the minimum API / Eclipse target used for the project
+				 In case no profile fits your requested TP version, directly override these next two properties -->
 
-        <profile>
-            <id>deploy-to-jboss.org</id>
-            <properties>
-                <deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
-                <deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
-                <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
-                <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
-                <deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
-                <deployNumbuildstokeep>2</deployNumbuildstokeep>
-                <deployNumbuildstolink>2</deployNumbuildstolink>
-                <deployThreshholdwhendelete>2</deployThreshholdwhendelete>
-                <!-- https://issues.jboss.org/browse/JBIDE-21012 by default, don't push an update site zip to JBoss Nexus, only to download.jboss.org or devstudio.redhat.com -->
-                <maven.deploy.skip>true</maven.deploy.skip>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>deploy-releng-scripts</id>
-                                <goals>
-                                    <goal>unpack</goal>
-                                </goals>
-                                <phase>deploy</phase>
-                                <configuration> 
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>org.jboss.tools.releng</groupId>       
-                                            <artifactId>jbosstools-releng-publish</artifactId>
-                                            <version>${jbosstoolsRelengPublishVersion}</version>
-                                            <type>tar.gz</type>
-                                            <outputDirectory>${deployScriptDir}</outputDirectory>
-                                        </artifactItem>
-                                    </artifactItems>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.3.2</version>
-                        <configuration>
-                            <executable>${deployScript}</executable>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>deploy-snapshot-build</id>
-                                <goals>
-                                    <goal>exec</goal>
-                                </goals>
-                                <phase>deploy</phase>
-                                <configuration>
-                                    <arguments>
-                                        <arg>-DESTINATION</arg>
-                                        <arg>${deployDestination}</arg>
-                                        <arg>-s</arg>
-                                        <arg>${deploySourceFolder}</arg>
-                                        <arg>-t</arg>
-                                        <arg>${deployTargetFolder}</arg>
-                                        <arg>-k</arg>
-                                        <arg>${deployNumbuildstokeep}</arg>
-                                        <arg>-l</arg>
-                                        <arg>${deployNumbuildstolink}</arg>
-                                        <arg>-a</arg>
-                                        <arg>${deployThreshholdwhendelete}</arg>
-                                    </arguments>    
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+		<!-- default value for the "minimum" profile -->
+		<TARGET_PLATFORM_VERSION>4.60.0.Final</TARGET_PLATFORM_VERSION>
+		<!-- default value for the "maximum" profile -->
+		<TARGET_PLATFORM_VERSION_MAXIMUM>4.60.1.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
+		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
+		<!-- when building/testing components, use minumum TP -->
 
-        <profile>
-          <id>deploy-pr</id>  
-          <properties>
-            <deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
-            <deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
-            <deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
-            <deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
-            <deployTargetFolder>${eclipseReleaseName}/snapshots/pulls/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}_PR${ghprbPullId}/all/repo/</deployTargetFolder>
-            <deployNumbuildstokeep>7</deployNumbuildstokeep>
-            <deployNumbuildstolink>1</deployNumbuildstolink>
-            <deployThreshholdwhendelete>7</deployThreshholdwhendelete>
-            <!-- Skip publishing to Nexus, since we don't use it and it takes a lot of time -->
-            <maven.deploy.skip>true</maven.deploy.skip>
-          </properties>
-          <build>
-            <plugins>
-              <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                  <execution>
-                    <id>deploy-releng-scripts</id>
-                    <goals>
-                      <goal>unpack</goal>
-                    </goals>
-                    <phase>deploy</phase>
-                    <configuration>
-                      <artifactItems>
-                        <artifactItem>
-                          <groupId>org.jboss.tools.releng</groupId>
-                          <artifactId>jbosstools-releng-publish</artifactId>
-                          <version>${jbosstoolsRelengPublishVersion}</version>
-                          <type>tar.gz</type>
-                          <outputDirectory>${deployScriptDir}</outputDirectory>
-                        </artifactItem>
-                      </artifactItems>
-                    </configuration>
-                  </execution>
-                </executions>
-              </plugin>
-              <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.3.2</version>
-                <configuration>
-                  <executable>${deployScript}</executable>
-                </configuration>
-                <executions>
-                  <execution>
-                    <id>deploy-snapshot-build</id>
-                    <goals>
-                      <goal>exec</goal>
-                    </goals>
-                    <phase>deploy</phase>
-                    <configuration>
-                      <arguments>
-                        <arg>-DESTINATION</arg>
-                        <arg>${deployDestination}</arg>
-                        <arg>-s</arg>
-                        <arg>${deploySourceFolder}</arg>
-                        <arg>-t</arg>
-                        <arg>${deployTargetFolder}</arg>
-                        <arg>-k</arg>
-                        <arg>${deployNumbuildstokeep}</arg>
-                        <arg>-l</arg>
-                        <arg>${deployNumbuildstolink}</arg>
-                        <arg>-a</arg>
-                        <arg>${deployThreshholdwhendelete}</arg>
-                      </arguments>
-                    </configuration>
-                  </execution>
-                </executions>
-              </plugin>
-            </plugins>
-          </build>
-        </profile>
+		<!-- This must be overriden when using other groups for TP, such as jbdevstudio -->
+		<targetPlatformGroup>jbosstools</targetPlatformGroup>
 
-        <!-- Multiple triggers to disable tests that depends on private requirements
-            These profiles are workaround for Maven to support minimal operations
-            http://jira.codehaus.org/browse/MNG-5347 -->
-        <profile>
-            <id>mavenTestSkip</id>
-            <activation>
-                <property>
-                    <name>maven.test.skip</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <properties>
-                <maven.test.skip>true</maven.test.skip>
-                <skipTestsWithPrivateRequirements>true</skipTestsWithPrivateRequirements>
-            </properties>
-        </profile>
+		<!-- ***************************************************************** -->
+		<!-- Use *target* profiles to select other values for those properties -->
+		<!-- ***************************************************************** -->
+		<!-- tpc.groupId is static but defined here to use a completely different target platform (i.e. for JBTIS) -->
+		<tpc.groupId>org.jboss.tools.targetplatforms</tpc.groupId>
+		<!-- tpc.group is one of ${targetPlatformGroup} or ${targetPlatformGroup-maximun} -->
+		<tpc.group>${targetPlatformGroup}</tpc.group>
+		<!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
+		<tpc.targetKind>unified</tpc.targetKind>
+		<tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
+		<!-- discovery.tpc.version usually is usually set to ${tpc.version} but it
+		can happen that they need to have different values, hence 2 properties -->
+		<discovery.tpc.version>${tpc.version}</discovery.tpc.version>
+	</properties>
 
-        <profile>
-            <id>test-on-installed-app</id>
-            <activation>
-                <property>
-                    <name>test.installPath</name>
-                </property>
-            </activation>
-            <properties>
-                <!-- Default is for JBDS. Override for other RCP apps: http://wiki.eclipse.org/Tycho/Testing_with_Surefire#p2Installed_on_provisioned_RCP_application -->
-                <test.profileName>jbds</test.profileName>
-                <test.installPath>/home/me/jbdevstudio-7.1.0.Final/studio</test.installPath>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.tycho</groupId>
-                        <artifactId>tycho-surefire-plugin</artifactId>
-                        <configuration>
-                            <testRuntime>p2Installed</testRuntime>
-                            <work>${test.installPath}</work>
-                            <profileName>${test.profileName}</profileName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<configuration>
+					<format>'v'yyyyMMdd-HHmm</format>
+					<strictBinIncludes>false</strictBinIncludes>
+					<timestampProvider>jgit</timestampProvider>
+					<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+					<jgit.ignore>pom.xml</jgit.ignore>
+					<sourceReferences>
+						<generate>true</generate>
+					</sourceReferences>
+					<archiveSite>true</archiveSite>
+					<environments>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-sourceref-jgit</artifactId>
+						<version>${tychoExtrasVersion}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-buildtimestamp-jgit</artifactId>
+						<version>${tychoExtrasVersion}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
-    <repositories>
-        <repository>
-            <id>jboss-releases</id>
-            <name>JBoss Releases Maven Repository</name>
-            <url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-        <repository>
-            <id>jboss-snapshots-repository</id>
-            <name>JBoss Snapshots Repository</name>
-            <url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>jboss-ga-repository</id>
-            <name>JBoss General Availability Maven Repository</name>
-            <url>http://maven.repository.redhat.com/ga/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<extensions>true</extensions>
+			</plugin>
 
-    <!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
-    <!-- JBoss Nexus repos are also added, but in settings.xml -->
-    <pluginRepositories>
-        <!-- staging tycho 0.25.0 -->
-<!--         <pluginRepository>
-            <id>tycho-0.25.0-staged</id>
-            <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1036/</url>
-        </pluginRepository> -->
-        <pluginRepository>
-            <id>tycho-snapshots</id>
-            <url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>sonatype-public-grid</id>
-            <url>https://repository.sonatype.org/content/groups/sonatype-public-grid</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>sonatype-public-repository</id>
-            <url>https://oss.sonatype.org/content/groups/public</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>jboss-snapshots-repository</id>
-            <name>JBoss Snapshots Repository</name>
-            <url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>jboss-releases</id>
-            <name>JBoss Releases Maven Repository</name>
-            <url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tychoVersion}</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<ignoreTychoRepositories>true</ignoreTychoRepositories>
+					<environments>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
 
-    <!-- To deploy parent to Nexus -->
-    <!--    Don't change "id" since it should match credentials entry in $M2_REPO/settings.xml -->
-    <distributionManagement>
-        <snapshotRepository>
-            <id>jboss-snapshots-repository</id>
-            <name>JBoss Snapshots Repository</name>
-            <url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
-            <uniqueVersion>false</uniqueVersion>
-        </snapshotRepository>
-        <repository>
-            <id>jboss-staging-repository</id>
-            <name>JBoss Staging Service</name>
-            <uniqueVersion>false</uniqueVersion>
-            <url>https://${jbossNexus}/nexus/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+			<!-- to skip running (and compiling) tests use commandline flag: -Dmaven.test.skip
+				To skip tests, but still compile them, use: -DskipTests
+				To allow all tests in a pom to pass/fail, use commandline flag: -fae (fail
+				at end) -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<configuration>
+					<useUIHarness>true</useUIHarness>
+					<useUIThread>true</useUIThread>
+					<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
+					<!-- tycho.testArgLine repeated to keep jacoco configuration for jacoco-maven-plugin -->
+					<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
+					<!-- https://docs.sonatype.org/display/TYCHO/How+to+run+SWTBot+tests+with+Tycho -->
+					<!-- set useUIThread=true for regular ui tests -->
+					<!-- set useUIThread=false for swtbot tests -->
+					<includes>
+						<include>**/AllTests.class</include>
+						<include>**/*AllTests*.class</include>
+						<include>**/*AllBotTests*.class</include>
+						<include>**/*TestSuite*.class</include>
+					</includes>
+					<!-- Workaround for JBIDE-16161/Eclipse bug 424104 -->
+					<dependencies>
+						<dependency>
+							<type>eclipse-feature</type>
+							<artifactId>org.eclipse.e4.rcp</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<!-- This feature is required for correct Installed JRE initialization on Mac OS X -->
+						<dependency>
+							<type>eclipse-feature</type>
+							<artifactId>org.eclipse.jdt</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+					</dependencies>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- source for bundles -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<encoding>ISO-8859-1</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.1.201405082137</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>${coverage.filter}</include>
+							</includes>
+							<!-- Merge reports from all executions -->
+							<append>true</append>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.jboss.tools.tycho-plugins</groupId>
+				<artifactId>repository-utils</artifactId>
+				<version>${jbossTychoPluginsVersion}</version>
+				<executions>
+					<execution>
+						<id>generate-facade</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-repository-facade</goal>
+						</goals>
+						<configuration>
+							<symbols>
+								<update.site.name>${update.site.name}</update.site.name>
+								<update.site.description>${update.site.description}</update.site.description>
+								<update.site.version>${project.version} (${buildQualifier})</update.site.version>
+								<target.eclipse.version>${targetEclipseVersion}</target.eclipse.version>
+							</symbols>
+							<p2StatsUrl>${p2StatsUrl}</p2StatsUrl>
+						</configuration>
+					</execution>
+					<!--<execution>
+						<id>generate-full-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>create-full-site</goal>
+						</goals>
+					</execution>-->
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>regex-property</id>
+						<goals>
+							<goal>regex-property</goal>
+						</goals>
+						<configuration>
+							<name>skipTestsOrITests</name>
+							<value>${skipTests}${skipITests}</value>
+							<regex>((..skipTests.)?(true)?((..skipITests.)|(null)|(true)|(false))?)</regex>
+							<replacement>$3</replacement>
+							<failIfNoMatch>false</failIfNoMatch>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<version>${tychoVersion}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compare-version-with-baselines</goal>
+						</goals>
+						<phase>verify</phase>
+						<configuration>
+							<skip>${skipBaselineComparison}</skip>
+							<baselines>
+								<repo>${lastStableRepository}</repo>
+							</baselines>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.4.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.jboss.tools.releng</groupId>
+						<artifactId>enforcer-rules</artifactId>
+						<version>${jbossTychoPluginsVersion}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>enforce-no-snapshots</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<noSnapshotsAllowed implementation="org.jboss.tools.releng.NoSnapshotsAllowed">
+									<!-- include AM3, Final, and GA when failing if SNAPSHOTs present -->
+									<buildAliasSearch>AM3|Final|GA</buildAliasSearch>
+									<!-- properties to include when searching for SNAPSHOT versions, eg., openshift-restclient-java.version -->
+									<includePattern>.*</includePattern>
+									<!-- properties to exclude when searching for SNAPSHOT versions, eg.,  jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM -->
+									<excludePattern>p2StatsUrl|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM</excludePattern>
+								</noSnapshotsAllowed>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!-- This plugin's configuration is used to store Eclipse m2e settings only. -->
+				<!-- It has no influence on the Maven build itself. -->
+				<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jacoco</groupId>
+										<artifactId>jacoco-maven-plugin</artifactId>
+										<versionRange>[0.5,)
+										</versionRange>
+										<goals>
+											<goal>prepare-agent</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<!-- m2e doesn't know what to do with jacoco, -->
+										<!-- let's ignore it or annoying error markers appear -->
+										<!-- see http://wiki.eclipse.org/M2E_plugin_execution_not_covered -->
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											build-helper-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.7,)
+										</versionRange>
+										<goals>
+											<goal>regex-property</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.5.4</version>
+					<executions>
+						<execution>
+							<id>create-zip</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+							<configuration>
+								<appendAssemblyId>false</appendAssemblyId>
+								<!-- JBIDE-19800 to use this, must specify path to an assembly.xml file. Examples in jbosstools-discovery and jbosstools-target-platforms
+								<descriptors><descriptor>publish-assembly.xml</descriptor></descriptors>
+								-->
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>net.ju-n.maven.plugins</groupId>
+					<artifactId>checksum-maven-plugin</artifactId>
+					<version>1.2</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>files</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<quiet>true</quiet>
+						<csvSummary>false</csvSummary>
+						<algorithms>
+							<algorithm>SHA-256</algorithm>
+						</algorithms>
+						<fileSets>
+							<fileSet>
+								<directory>${project.build.directory}</directory>
+								<includes>
+									<include>**/*.zip</include>
+									<include>**/*-installer-*.jar</include>
+								</includes>
+							</fileSet>
+						</fileSets>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>com.googlecode.maven-download-plugin</groupId>
+					<artifactId>maven-download-plugin</artifactId>
+					<version>1.1.0</version>
+					<configuration>
+						<skip>${skipRequirements}</skip>
+						<outputDirectory>${requirementsDirectory}</outputDirectory>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>com.googlecode.maven-download-plugin</groupId>
+					<artifactId>download-maven-plugin</artifactId>
+					<version>1.2.0</version>
+					<configuration>
+						<skip>${skipRequirements}</skip>
+						<outputDirectory>${requirementsDirectory}</outputDirectory>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.7</version>
+					<configuration>
+						<skip>${skipRequirements}</skip>
+						<outputDirectory>${requirementsDirectory}</outputDirectory>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>tycho-source-feature-plugin</artifactId>
+					<version>${tychoExtrasVersion}</version>
+					<executions>
+						<execution>
+							<id>source-feature</id>
+							<phase>package</phase>
+							<goals>
+								<goal>source-feature</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-plugin</artifactId>
+					<version>${tychoVersion}</version>
+					<executions>
+						<execution>
+							<id>attached-p2-metadata</id>
+							<phase>package</phase>
+							<goals>
+								<goal>p2-metadata</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<baselineRepositories>
+							<repository>
+								<url>${stagingBaselineRepository}</url>
+							</repository>
+						</baselineRepositories>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.6.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<scm>
+		<connection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</connection>
+		<developerConnection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</developerConnection>
+		<url>http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</url>
+	</scm>
+
+	<issueManagement>
+		<system>jira</system>
+		<url>https://jira.jboss.org/jira/secure/</url>
+	</issueManagement>
+
+	<profiles>
+		<!-- ************************************************************ -->
+		<!-- Profiles to manage target-platform and 3rd pary dependencies -->
+		<!-- ************************************************************ -->
+
+		<!-- enable actual using a target platform, can simply be disable with -Dno-target-platform -->
+		<profile>
+			<id>target-platform</id>
+			<activation>
+				<property>
+					<name>!no-target-platform</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<target>
+								<artifact>
+									<groupId>${tpc.groupId}</groupId>
+									<artifactId>${tpc.group}-${tpc.targetKind}</artifactId>
+									<version>${tpc.version}</version>
+									<classifier>${tpc.group}-${tpc.targetKind}</classifier>
+								</artifact>
+							</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Target platform file pointing at the composite target platform
+			AKA multiple.target -->
+		<profile>
+			<id>multiple.target</id>
+			<properties>
+				<tpc.targetKind>multiple</tpc.targetKind>
+			</properties>
+		</profile>
+		<!-- Target platform file pointing at a single update site from which to
+			resolve. See unified.site if you want to resolve against a site w/o using
+			the unified.target file -->
+		<profile>
+			<id>unified.target</id>
+			<properties>
+				<tpc.targetKind>unified</tpc.targetKind>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>maximum</id>
+			<properties>
+				<tpc.version>${TARGET_PLATFORM_VERSION_MAXIMUM}</tpc.version>
+			</properties>
+		</profile>
+
+
+		<profile>
+			<!-- JBIDE-12455 , necessary because of XulRunner doesn't support 64bits OSX -->
+			<id>applejdk</id>
+			<activation>
+				<property>
+					<name>java.vendor.url</name>
+					<value>http://www.apple.com/</value>
+				</property>
+			</activation>
+			<properties>
+				<applejdkProperties> -d32 -Dosgi.arch=x86 </applejdkProperties>
+			</properties>
+		</profile>
+
+		<profile>
+			<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=388084 -->
+			<id>osx</id>
+			<activation>
+				<os>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
+				<platformSystemProperties> -XstartOnFirstThread </platformSystemProperties>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>hudson</id>
+			<activation>
+				<property>
+					<name>BUILD_NUMBER</name>
+				</property>
+			</activation>
+			<properties>
+				<!-- to test p2StatsUrl, must pass in two vars: mvn clean install -DJOB_NAME=jbosstools-server_master -DBUILD_NUMBER=450002 -->
+				<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${JOB_NAME}/${project.version}/${BUILD_ALIAS}/${buildQualifier}/</p2StatsUrl>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-packaging-plugin</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
+							<format>'v'yyyyMMdd-HHmm</format>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>sign</id>
+			<!--	guarantee that -Psign <=> -DskipSigning=false -->
+			<activation>
+				<property>
+					<name>skipSigning</name>
+					<value>false</value>
+				</property>
+			</activation>
+			<properties>
+				<skipSigning>false</skipSigning>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>pack200</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<includePackedArtifacts>true</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<!-- first we normalize -->
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<version>${tychoExtrasVersion}</version>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- then we sign -->
+					<plugin>
+						<artifactId>exec-maven-plugin</artifactId>
+						<groupId>org.codehaus.mojo</groupId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<id>jarsign</id>
+								<phase>package</phase>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<configuration>
+									<executable>/home/hudson/bin/jarsign.sh</executable>
+									<arguments>
+										<argument>${project.basedir}</argument>
+									</arguments>
+									<skip>${skipSigning}</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- then we pack -->
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<version>${tychoExtrasVersion}</version>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<version>${tychoVersion}</version>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+						<configuration>
+							<defaultP2Metadata>false</defaultP2Metadata>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>deploy-to-jboss.org</id>
+			<properties>
+				<deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
+				<deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
+				<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
+				<deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
+				<deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
+				<deployNumbuildstokeep>2</deployNumbuildstokeep>
+				<deployNumbuildstolink>2</deployNumbuildstolink>
+				<deployThreshholdwhendelete>2</deployThreshholdwhendelete>
+				<!-- https://issues.jboss.org/browse/JBIDE-21012 by default, don't push an update site zip to JBoss Nexus, only to download.jboss.org or devstudio.redhat.com -->
+				<maven.deploy.skip>true</maven.deploy.skip>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>deploy-releng-scripts</id>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<phase>deploy</phase>
+								<configuration> 
+									<artifactItems>
+										<artifactItem>
+											<groupId>org.jboss.tools.releng</groupId>	   
+											<artifactId>jbosstools-releng-publish</artifactId>
+											<version>${jbosstoolsRelengPublishVersion}</version>
+											<type>tar.gz</type>
+											<outputDirectory>${deployScriptDir}</outputDirectory>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.3.2</version>
+						<configuration>
+							<executable>${deployScript}</executable>
+						</configuration>
+						<executions>
+							<execution>
+								<id>deploy-snapshot-build</id>
+								<goals>
+									<goal>exec</goal>
+								</goals>
+								<phase>deploy</phase>
+								<configuration>
+									<arguments>
+										<arg>-DESTINATION</arg>
+										<arg>${deployDestination}</arg>
+										<arg>-s</arg>
+										<arg>${deploySourceFolder}</arg>
+										<arg>-t</arg>
+										<arg>${deployTargetFolder}</arg>
+										<arg>-k</arg>
+										<arg>${deployNumbuildstokeep}</arg>
+										<arg>-l</arg>
+										<arg>${deployNumbuildstolink}</arg>
+										<arg>-a</arg>
+										<arg>${deployThreshholdwhendelete}</arg>
+									</arguments>	
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+		  <id>deploy-pr</id>  
+		  <properties>
+			<deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
+			<deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
+			<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
+			<deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
+			<deployTargetFolder>${eclipseReleaseName}/snapshots/pulls/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}_PR${ghprbPullId}/all/repo/</deployTargetFolder>
+			<deployNumbuildstokeep>7</deployNumbuildstokeep>
+			<deployNumbuildstolink>1</deployNumbuildstolink>
+			<deployThreshholdwhendelete>7</deployThreshholdwhendelete>
+			<!-- Skip publishing to Nexus, since we don't use it and it takes a lot of time -->
+			<maven.deploy.skip>true</maven.deploy.skip>
+		  </properties>
+		  <build>
+			<plugins>
+			  <plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+				  <execution>
+					<id>deploy-releng-scripts</id>
+					<goals>
+					  <goal>unpack</goal>
+					</goals>
+					<phase>deploy</phase>
+					<configuration>
+					  <artifactItems>
+						<artifactItem>
+						  <groupId>org.jboss.tools.releng</groupId>
+						  <artifactId>jbosstools-releng-publish</artifactId>
+						  <version>${jbosstoolsRelengPublishVersion}</version>
+						  <type>tar.gz</type>
+						  <outputDirectory>${deployScriptDir}</outputDirectory>
+						</artifactItem>
+					  </artifactItems>
+					</configuration>
+				  </execution>
+				</executions>
+			  </plugin>
+			  <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+				  <executable>${deployScript}</executable>
+				</configuration>
+				<executions>
+				  <execution>
+					<id>deploy-snapshot-build</id>
+					<goals>
+					  <goal>exec</goal>
+					</goals>
+					<phase>deploy</phase>
+					<configuration>
+					  <arguments>
+						<arg>-DESTINATION</arg>
+						<arg>${deployDestination}</arg>
+						<arg>-s</arg>
+						<arg>${deploySourceFolder}</arg>
+						<arg>-t</arg>
+						<arg>${deployTargetFolder}</arg>
+						<arg>-k</arg>
+						<arg>${deployNumbuildstokeep}</arg>
+						<arg>-l</arg>
+						<arg>${deployNumbuildstolink}</arg>
+						<arg>-a</arg>
+						<arg>${deployThreshholdwhendelete}</arg>
+					  </arguments>
+					</configuration>
+				  </execution>
+				</executions>
+			  </plugin>
+			</plugins>
+		  </build>
+		</profile>
+
+		<!-- Multiple triggers to disable tests that depends on private requirements
+			These profiles are workaround for Maven to support minimal operations
+			http://jira.codehaus.org/browse/MNG-5347 -->
+		<profile>
+			<id>mavenTestSkip</id>
+			<activation>
+				<property>
+					<name>maven.test.skip</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<properties>
+				<maven.test.skip>true</maven.test.skip>
+				<skipTestsWithPrivateRequirements>true</skipTestsWithPrivateRequirements>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>test-on-installed-app</id>
+			<activation>
+				<property>
+					<name>test.installPath</name>
+				</property>
+			</activation>
+			<properties>
+				<!-- Default is for JBDS. Override for other RCP apps: http://wiki.eclipse.org/Tycho/Testing_with_Surefire#p2Installed_on_provisioned_RCP_application -->
+				<test.profileName>jbds</test.profileName>
+				<test.installPath>/home/me/jbdevstudio-7.1.0.Final/studio</test.installPath>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-surefire-plugin</artifactId>
+						<configuration>
+							<testRuntime>p2Installed</testRuntime>
+							<work>${test.installPath}</work>
+							<profileName>${test.profileName}</profileName>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>jboss-releases</id>
+			<name>JBoss Releases Maven Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>jboss-snapshots-repository</id>
+			<name>JBoss Snapshots Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jboss-ga-repository</id>
+			<name>JBoss General Availability Maven Repository</name>
+			<url>http://maven.repository.redhat.com/ga/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
+	<!-- JBoss Nexus repos are also added, but in settings.xml -->
+	<pluginRepositories>
+		<!-- staging tycho 0.25.0 -->
+<!--		 <pluginRepository>
+			<id>tycho-0.25.0-staged</id>
+			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1036/</url>
+		</pluginRepository> -->
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>sonatype-public-grid</id>
+			<url>https://repository.sonatype.org/content/groups/sonatype-public-grid</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>sonatype-public-repository</id>
+			<url>https://oss.sonatype.org/content/groups/public</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-snapshots-repository</id>
+			<name>JBoss Snapshots Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-releases</id>
+			<name>JBoss Releases Maven Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- To deploy parent to Nexus -->
+	<!--	Don't change "id" since it should match credentials entry in $M2_REPO/settings.xml -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>jboss-snapshots-repository</id>
+			<name>JBoss Snapshots Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+		<repository>
+			<id>jboss-staging-repository</id>
+			<name>JBoss Staging Service</name>
+			<uniqueVersion>false</uniqueVersion>
+			<url>https://${jbossNexus}/nexus/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 </project>
