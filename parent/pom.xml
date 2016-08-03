@@ -436,7 +436,7 @@
 									<!-- properties to include when searching for SNAPSHOT versions, eg., openshift-restclient-java.version -->
 									<includePattern>.*</includePattern>
 									<!-- properties to exclude when searching for SNAPSHOT versions, eg.,  jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM -->
-									<excludePattern>BUILD_ALIAS|p2StatsUrl|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM|tpc.version|central.tpc.version|discovery.tpc.version|parsedVersion.qualifier|parsedVersion.osgiVersion</excludePattern>
+									<excludePattern>BUILD_ALIAS|p2StatsUrl|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|TARGET_PLATFORM_VERSION_MAXIMUM|tpc.version|central.tpc.version|angularjs.repo.url|discovery.tpc.version|parsedVersion.qualifier|parsedVersion.osgiVersion</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<fail>true</fail>
