@@ -26,9 +26,9 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>0.25.0</tychoVersion>
+		<tychoVersion>0.26.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>0.25.1-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>0.26.0-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.4.1.AM2-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:PermSize=256m</memoryOptions1>
 		<memoryOptions2>-XX:MaxPermSize=256m</memoryOptions2>
@@ -75,7 +75,8 @@
 		<jbosstools.test.jre.8></jbosstools.test.jre.8>
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
 		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
-
+		<!-- see org.jboss.tools.releng:enforcer-rules below -->
+		<enforceExcludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
 
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
@@ -438,13 +439,8 @@
 										openshift-restclient-java.version (openshift), angularjs.repo.url (jst), thym.version (aerogear)
 									 -->
 									<includePattern>.*</includePattern>
-									<!-- properties to exclude when searching for SNAPSHOT versions, eg., 
-										BUILD_ALIAS|parsedVersion.qualifier|parsedVersion.osgiVersion|
-										jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|
-										TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|
-										p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site
-									-->
-									<excludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</excludePattern>
+									<!-- properties to exclude when searching for SNAPSHOT versions -->
+									<excludePattern>${enforceExcludePattern}</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<!-- warn but continue the build -->
@@ -465,7 +461,7 @@
 									<!-- properties to include when searching for SNAPSHOT versions -->
 									<includePattern>.*</includePattern>
 									<!-- properties to exclude when searching for SNAPSHOT versions -->
-									<excludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</excludePattern>
+									<excludePattern>${enforceExcludePattern}</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<fail>true</fail>
@@ -1105,11 +1101,6 @@
 	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
 	<!-- JBoss Nexus repos are also added, but in settings.xml -->
 	<pluginRepositories>
-		<!-- staging tycho 0.25.0 -->
-<!--		 <pluginRepository>
-			<id>tycho-0.25.0-staged</id>
-			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1036/</url>
-		</pluginRepository> -->
 		<pluginRepository>
 			<id>tycho-snapshots</id>
 			<url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
