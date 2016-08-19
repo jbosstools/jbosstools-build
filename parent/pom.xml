@@ -441,10 +441,10 @@
 									<!-- properties to exclude when searching for SNAPSHOT versions, eg., 
 										BUILD_ALIAS|parsedVersion.qualifier|parsedVersion.osgiVersion|
 										jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|
-										TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|
+										TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|
 										p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site
 									-->
-									<excludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</excludePattern>
+									<excludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<!-- warn but continue the build -->
@@ -465,7 +465,7 @@
 									<!-- properties to include when searching for SNAPSHOT versions -->
 									<includePattern>.*</includePattern>
 									<!-- properties to exclude when searching for SNAPSHOT versions -->
-									<excludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</excludePattern>
+									<excludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<fail>true</fail>
