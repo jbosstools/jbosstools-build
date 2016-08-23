@@ -432,7 +432,7 @@
 						<configuration>
 							<rules>
 								<noSnapshotsAllowed implementation="org.jboss.tools.releng.NoSnapshotsAllowed">
-									<BUILD_ALIAS>${BUILD_ALIAS}</BUILD_ALIAS>
+									<buildAlias>${BUILD_ALIAS}</buildAlias>
 									<!-- if AM3, warn if SNAPSHOTs present -->
 									<buildAliasSearch>AM3</buildAliasSearch>
 									<!-- properties to include when searching for SNAPSHOT versions, eg., .* (all),
@@ -455,7 +455,7 @@
 						<configuration>
 							<rules>
 								<noSnapshotsAllowed implementation="org.jboss.tools.releng.NoSnapshotsAllowed">
-									<BUILD_ALIAS>${BUILD_ALIAS}</BUILD_ALIAS>
+									<buildAlias>${BUILD_ALIAS}</buildAlias>
 									<!-- if Final or GA, fail build if SNAPSHOTs present -->
 									<buildAliasSearch>Final|GA</buildAliasSearch>
 									<!-- properties to include when searching for SNAPSHOT versions -->
