@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.4.1.Final-SNAPSHOT</version>
+		<version>4.4.1.Alpha1-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -77,6 +77,8 @@
 		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
 		<!-- see org.jboss.tools.releng:enforcer-rules below -->
 		<enforceExcludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
+		<!-- more excludes; this lets individual projects add their own exclusions. Note, if using this, must start with a pipe (|) so these are appended as OR matches -->
+		<enforceExcludePatternExtras></enforceExcludePatternExtras>
 
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
@@ -440,7 +442,7 @@
 									 -->
 									<includePattern>.*</includePattern>
 									<!-- properties to exclude when searching for SNAPSHOT versions -->
-									<excludePattern>${enforceExcludePattern}</excludePattern>
+									<excludePattern>${enforceExcludePattern}${enforceExcludePatternExtras}</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<!-- warn but continue the build -->
@@ -461,7 +463,7 @@
 									<!-- properties to include when searching for SNAPSHOT versions -->
 									<includePattern>.*</includePattern>
 									<!-- properties to exclude when searching for SNAPSHOT versions -->
-									<excludePattern>${enforceExcludePattern}</excludePattern>
+									<excludePattern>${enforceExcludePattern}${enforceExcludePatternExtras}</excludePattern>
 								</noSnapshotsAllowed>
 							</rules>
 							<fail>true</fail>
