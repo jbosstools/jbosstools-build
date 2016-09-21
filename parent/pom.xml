@@ -1071,6 +1071,28 @@
 				</plugins>
 			</build>
 		</profile>
+
+		<!-- JBIDE-23206
+			 To force a local build of a pull request to use current date/time when generating plugins and features,
+			 instead of using jgit timestamps (which could be in the past, and therefore result in stuff that Eclipse
+			 thinks is OLDER that a current N build, use this "R" profile:
+			 mvn verify -PR
+		-->
+		<profile>
+			<id>R</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-packaging-plugin</artifactId>
+						<version>${tychoVersion}</version>
+						<configuration>
+							<timestampProvider>default</timestampProvider>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 
 	<repositories>
