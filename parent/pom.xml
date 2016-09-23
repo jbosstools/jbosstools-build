@@ -427,7 +427,7 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<id>warn-no-snapshots-AM3</id>
+						<id>warn-no-snapshots-AMx</id>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
@@ -436,7 +436,7 @@
 								<noSnapshotsAllowed implementation="org.jboss.tools.releng.NoSnapshotsAllowed">
 									<buildAlias>${BUILD_ALIAS}</buildAlias>
 									<!-- if AM3, warn if SNAPSHOTs present -->
-									<buildAliasSearch>AM3</buildAliasSearch>
+									<buildAliasSearch>AM1|AM2|AM3</buildAliasSearch>
 									<!-- properties to include when searching for SNAPSHOT versions, eg., .* (all),
 										openshift-restclient-java.version (openshift), angularjs.repo.url (jst), thym.version (aerogear)
 									 -->
