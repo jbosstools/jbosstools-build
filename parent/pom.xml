@@ -427,6 +427,21 @@
 				</dependencies>
 				<executions>
 					<execution>
+						<id>core-has-ui-deps</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<coreUIDependency implementation="org.jboss.tools.releng.CoreUIDependency">
+									<coreUIErrorOnFail>false</coreUIErrorOnFail>
+								</coreUIDependency>
+							</rules>
+							<!-- warn but continue the build -->
+							<fail>true</fail>
+						</configuration>
+					</execution>
+					<execution>
 						<id>warn-no-snapshots-AMx</id>
 						<goals>
 							<goal>enforce</goal>
