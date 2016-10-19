@@ -76,7 +76,7 @@
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
 		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
 		<!-- see org.jboss.tools.releng:enforcer-rules below -->
-		<enforceExcludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MAXIMUM|JBTCENTRALTARGET_VERSION|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
+		<enforceExcludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MIN|TARGET_PLATFORM_VERSION_MAXIMUM|TARGET_PLATFORM_VERSION_MAX|JBTCENTRALTARGET_VERSION|TARGET_PLATFORM_CENTRAL_MAX|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
 		<!-- more excludes; this lets individual projects add their own exclusions. Note, if using this, must start with a pipe (|) so these are appended as OR matches -->
 		<enforceExcludePatternExtras></enforceExcludePatternExtras>
 
@@ -88,27 +88,27 @@
 			Don't use dashes & periods in variables which need to be used in shell (eg., Jenkins), as they cannot be declared.
 			Use underscores or mixedCase instead! ref: http://unix.stackexchange.com/questions/23659/can-shell-variable-include-character
 		-->
-		<jbosstools_site_stream>master</jbosstools_site_stream> <!-- or 4.4.neon for example -->
-		<jbosstools-site-stream>${jbosstools_site_stream}</jbosstools-site-stream> <!-- jbosstools-site-stream is DEPRECATED because cannot be used in shell scripts: do not use -->
+		<stream_jbt>master</stream_jbt> <!-- or 4.4.neon for example -->
+		<jbosstools_site_stream>${stream_jbt}</jbosstools_site_stream> <!-- deprecated: do not use -->
 		<jbosstools-build-type>${eclipseReleaseName}/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl> 
 		<jbosstools_site_suffix></jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
 		<!-- Sites with mutable content (eg snapshot builds) -->
-		<jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-base-site>
-		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-server-site>
-		<jbosstools-openshift-site>${jbosstools_site_baseurl}/jbosstools-openshift_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-openshift-site>
-		<jbosstools-jst-site>${jbosstools_site_baseurl}/jbosstools-jst_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-jst-site>
-		<jbosstools-aerogear-site>${jbosstools_site_baseurl}/jbosstools-aerogear_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-aerogear-site>
-		<jbosstools-hibernate-site>${jbosstools_site_baseurl}/jbosstools-hibernate_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-hibernate-site>
-		<jbosstools-javaee-site>${jbosstools_site_baseurl}/jbosstools-javaee_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-javaee-site>
-		<jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-webservices-site>
-		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-vpe-site>
-		<jbosstools-arquillian-site>${jbosstools_site_baseurl}/jbosstools-arquillian_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-arquillian-site>
-		<jbosstools-forge-site>${jbosstools_site_baseurl}/jbosstools-forge_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-forge-site>
-		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-livereload-site>
-		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-central-site>
-		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
-		<jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${jbosstools_site_stream}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
+		<jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-base-site>
+		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-server-site>
+		<jbosstools-openshift-site>${jbosstools_site_baseurl}/jbosstools-openshift_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-openshift-site>
+		<jbosstools-jst-site>${jbosstools_site_baseurl}/jbosstools-jst_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-jst-site>
+		<jbosstools-aerogear-site>${jbosstools_site_baseurl}/jbosstools-aerogear_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-aerogear-site>
+		<jbosstools-hibernate-site>${jbosstools_site_baseurl}/jbosstools-hibernate_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-hibernate-site>
+		<jbosstools-javaee-site>${jbosstools_site_baseurl}/jbosstools-javaee_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-javaee-site>
+		<jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-webservices-site>
+		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-vpe-site>
+		<jbosstools-arquillian-site>${jbosstools_site_baseurl}/jbosstools-arquillian_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-arquillian-site>
+		<jbosstools-forge-site>${jbosstools_site_baseurl}/jbosstools-forge_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-forge-site>
+		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-livereload-site>
+		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-central-site>
+		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
+		<jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
@@ -120,15 +120,19 @@
 		<!-- ================ -->
 
 		<!-- JBoss Tools target platforms are versioned: <eclipseMajor>.<eclipseMinorAndMicro>.<revision>.<qualifier>
-				 Default version is the minimum API / Eclipse target used for the project
-				 In case no profile fits your requested TP version, directly override these next two properties -->
+				 Default version is the minimum API / Eclipse target used for the project -->
+		<!-- current values for target platforms:
+			 minimum (build / compilation) & 
+			 maximum (installation / running tests)
 
-		<!-- default value for the "minimum" profile -->
-		<TARGET_PLATFORM_VERSION>4.60.2.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION>
-		<!-- default value for the "maximum" profile -->
-		<TARGET_PLATFORM_VERSION_MAXIMUM>4.61.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAXIMUM>
-		<!-- to build with the minimum TP, use -Punified.target (on by default); to build with the maximum TP, use -Pmaximum -->
-		<!-- when building/testing components, use minumum TP -->
+			 to build with the maximum TP instead of the default minimum one, use -Pmaximum
+		-->
+		<TARGET_PLATFORM_VERSION_MIN>4.60.2.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN>
+		<TARGET_PLATFORM_VERSION_MAX>4.61.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+
+		<!-- deprecated variables -->
+		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
+		<TARGET_PLATFORM_VERSION_MAXIMUM>${TARGET_PLATFORM_VERSION_MAX}</TARGET_PLATFORM_VERSION_MAXIMUM>
 
 		<!-- This must be overriden when using other groups for TP, such as jbdevstudio -->
 		<targetPlatformGroup>jbosstools</targetPlatformGroup>
@@ -142,7 +146,7 @@
 		<tpc.group>${targetPlatformGroup}</tpc.group>
 		<!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
 		<tpc.targetKind>unified</tpc.targetKind>
-		<tpc.version>${TARGET_PLATFORM_VERSION}</tpc.version>
+		<tpc.version>${TARGET_PLATFORM_VERSION_MIN}</tpc.version>
 		<!-- discovery.tpc.version usually is usually set to ${tpc.version} but it
 		can happen that they need to have different values, hence 2 properties -->
 		<discovery.tpc.version>${tpc.version}</discovery.tpc.version>
@@ -718,7 +722,7 @@
 		<profile>
 			<id>maximum</id>
 			<properties>
-				<tpc.version>${TARGET_PLATFORM_VERSION_MAXIMUM}</tpc.version>
+				<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
 			</properties>
 		</profile>
 
