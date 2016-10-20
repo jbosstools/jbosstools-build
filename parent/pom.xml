@@ -79,6 +79,8 @@
 		<enforceExcludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MIN|TARGET_PLATFORM_VERSION_MAXIMUM|TARGET_PLATFORM_VERSION_MAX|JBTCENTRALTARGET_VERSION|TARGET_PLATFORM_CENTRAL_MAX|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
 		<!-- more excludes; this lets individual projects add their own exclusions. Note, if using this, must start with a pipe (|) so these are appended as OR matches -->
 		<enforceExcludePatternExtras></enforceExcludePatternExtras>
+		<!-- set to true to cause build to fail for UI dependencies in a core plugin -->
+		<enforceFailOnUIDependencyInCore>false</enforceFailOnUIDependencyInCore>
 
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
@@ -440,7 +442,7 @@
 								<coreUIDependency implementation="org.jboss.tools.releng.CoreUIDependency"/>
 							</rules>
 							<!-- warn but continue the build when fail = false -->
-							<fail>false</fail>
+							<fail>${enforceFailOnUIDependencyInCore}</fail>
 						</configuration>
 					</execution>
 					<execution>
