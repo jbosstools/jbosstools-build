@@ -129,8 +129,9 @@
 
 			 to build with the maximum TP instead of the default minimum one, use -Pmaximum
 		-->
-		<TARGET_PLATFORM_VERSION_MIN>4.60.2.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN>
-		<TARGET_PLATFORM_VERSION_MAX>4.61.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_VERSION_MIN>4.60.2.AM2-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN>
+		<TARGET_PLATFORM_VERSION_MAX>4.61.0.AM2-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_CENTRAL_MAX>4.61.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
 
 		<!-- deprecated variables -->
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
@@ -151,7 +152,7 @@
 		<tpc.version>${TARGET_PLATFORM_VERSION_MIN}</tpc.version>
 		<!-- discovery.tpc.version usually is usually set to ${tpc.version} but it
 		can happen that they need to have different values, hence 2 properties -->
-		<discovery.tpc.version>${tpc.version}</discovery.tpc.version>
+		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 	</properties>
 
 	<build>
