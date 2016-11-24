@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.4.2.AM1-SNAPSHOT</version>
+		<version>4.4.2.Final-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -129,9 +129,9 @@
 
 			 to build with the maximum TP instead of the default minimum one, use -Pmaximum
 		-->
-		<TARGET_PLATFORM_VERSION_MIN>4.60.2.AM3-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN>
-		<TARGET_PLATFORM_VERSION_MAX>4.61.0.AM3-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
-		<TARGET_PLATFORM_CENTRAL_MAX>4.61.0.AM2-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
+		<TARGET_PLATFORM_VERSION_MIN>4.60.2.Final</TARGET_PLATFORM_VERSION_MIN>
+		<TARGET_PLATFORM_VERSION_MAX>4.61.0.Final</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_CENTRAL_MAX>4.61.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
 
 		<!-- deprecated variables -->
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
