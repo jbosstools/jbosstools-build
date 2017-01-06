@@ -19,6 +19,9 @@
 		<lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
 		<stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
+		
+		<testProduct>com.jboss.devstudio.core.product</testProduct>
+		<devstudioRepository>https://devstudio.redhat.com/10.0/snapshots/updates/</devstudioRepository>
 
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
 		<jbossNexus>repository.jboss.org</jbossNexus>
@@ -768,6 +771,8 @@
 			<properties>
 				<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
 				<platformSystemProperties> -XstartOnFirstThread </platformSystemProperties>
+				<!-- devstudio install path on OSX -->
+				<testInstallPathOSX>/devstudio.app/Contents/Eclipse/</testInstallPathOSX>
 			</properties>
 		</profile>
 
@@ -1066,33 +1071,6 @@
 			</properties>
 		</profile>
 
-		<profile>
-			<id>test-on-installed-app</id>
-			<activation>
-				<property>
-					<name>test.installPath</name>
-				</property>
-			</activation>
-			<properties>
-				<!-- Default is for JBDS. Override for other RCP apps: http://wiki.eclipse.org/Tycho/Testing_with_Surefire#p2Installed_on_provisioned_RCP_application -->
-				<test.profileName>jbds</test.profileName>
-				<test.installPath>/home/me/jbdevstudio-7.1.0.Final/studio</test.installPath>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-surefire-plugin</artifactId>
-						<configuration>
-							<testRuntime>p2Installed</testRuntime>
-							<work>${test.installPath}</work>
-							<profileName>${test.profileName}</profileName>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
 		<!-- JBIDE-23206
 			 To force a local build of a pull request to use current date/time when generating plugins and features,
 			 instead of using jgit timestamps (which could be in the past, and therefore result in stuff that Eclipse
@@ -1113,6 +1091,116 @@
 					</plugin>
 				</plugins>
 			</build>
+		</profile>
+		
+		
+		<!-- ITests profiles -->
+		<profile>
+			<id>ITests</id>
+			<properties>
+				<surefire.timeout>7200</surefire.timeout>		
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>download-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>download-pluginCustomization</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://raw.githubusercontent.com/jbosstools/jbosstools-build/master/itests/pluginCustomization.ini</url>
+									<unpack>false</unpack>
+									<outputDirectory>${requirementsDirectory}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-surefire-plugin</artifactId>
+						<configuration>
+							<useUIThread>false</useUIThread>
+							<appArgLine>-pluginCustomization ${requirementsDirectory}/pluginCustomization.ini</appArgLine>
+							<systemProperties>
+								<org.eclipse.update.reconcile>false</org.eclipse.update.reconcile>
+								<!-- JBDS-4077 this should be passed in from Jenkins or commandline -->
+								<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
+								<integrationTestsSystemProperties>-Dusage_reporting_enabled=false</integrationTestsSystemProperties>
+							</systemProperties>
+							<explodedBundles>
+								<bundle>org.mozilla.xulrunner.cocoa.macosx</bundle>
+								<bundle>org.mozilla.xulrunner.gtk.linux.x86</bundle>
+								<bundle>org.mozilla.xulrunner.gtk.linux.x86_64</bundle>
+								<bundle>org.mozilla.xulrunner.win32.win32.x86</bundle>
+							</explodedBundles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>preinstalled-devstudio</id>
+			<activation>
+				<property>
+					<name>testInstallBase</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-surefire-plugin</artifactId>
+						<configuration>
+							<work>${testInstallBase}${testInstallPathOSX}</work>
+							<product>${testProduct}</product>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>download-devstudio</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-surefire-plugin</artifactId>
+						<configuration>
+							<product>${testProduct}</product>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<configuration>
+      							<dependency-resolution>
+           							<extraRequirements>
+										<requirement>
+											<type>p2-installable-unit</type>
+											<id>com.jboss.devstudio.core.feature.feature.group</id>
+											<versionRange>0.0.0</versionRange>
+										</requirement>
+         							</extraRequirements>
+    							</dependency-resolution>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<repositories>
+				<repository>
+					<id>devstudio-repo</id>
+					<name>devstudio-repo</name>
+					<layout>p2</layout>
+					<url>${devstudioRepository}</url>
+				</repository>
+			</repositories>
 		</profile>
 	</profiles>
 
