@@ -77,6 +77,8 @@
 		<jbosstools.test.jre.6></jbosstools.test.jre.6>
 		<jbosstools.test.jre.7></jbosstools.test.jre.7>
 		<jbosstools.test.jre.8></jbosstools.test.jre.8>
+		<!-- Default property for testInstallBase. It has to be empty for testInstallBase to work on non OSX systems. -->
+		<testInstallPathOSX></testInstallPathOSX>
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
 		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
 		<!-- see org.jboss.tools.releng:enforcer-rules below -->
