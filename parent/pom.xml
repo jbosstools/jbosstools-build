@@ -1101,6 +1101,7 @@
 			<id>ITests</id>
 			<properties>
 				<surefire.timeout>7200</surefire.timeout>
+				<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
 			</properties>
 			<build>
 				<plugins>
@@ -1132,7 +1133,6 @@
 							<appArgLine>-pluginCustomization ${requirementsDirectory}/pluginCustomization.ini</appArgLine>
 							<systemProperties>
 								<org.eclipse.update.reconcile>false</org.eclipse.update.reconcile>
-								<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
 								<integrationTestsSystemProperties>-Dusage_reporting_enabled=false</integrationTestsSystemProperties>
 							</systemProperties>
 							<explodedBundles>
