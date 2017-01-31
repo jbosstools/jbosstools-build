@@ -117,6 +117,7 @@
 		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-central-site>
 		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
 		<jbosstools-freemarker-site>${jbosstools_site_baseurl}/jbosstools-freemarker_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-freemarker-site>
+		<jbosstools-tests-site>http://download.jboss.org/jbosstools/${eclipseReleaseName}/snapshots/updates/coretests/${stream_jbt}/</jbosstools-tests-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
@@ -1145,6 +1146,13 @@
 					</plugin>
 				</plugins>
 			</build>
+			<repositories>
+				<repository>
+					<id>jbosstools-tests</id>
+					<url>${jbosstools-tests-site}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
 		</profile>
 
 		<!-- ITests profile #2 of 3: won't run if -DskipITests=true -->
