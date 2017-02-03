@@ -428,6 +428,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- to disable all enforcer checks, build with -Denforcer.skip=true -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
