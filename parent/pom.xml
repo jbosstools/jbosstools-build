@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.4.3.Final-SNAPSHOT</version>
+	<version>4.5.0.AM1-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
 
@@ -12,17 +12,17 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<targetEclipseVersion>4.6 (Neon)</targetEclipseVersion>
-		<eclipseReleaseName>neon</eclipseReleaseName>
-		<devstudioReleaseVersion>10.0</devstudioReleaseVersion>
+		<BUILD_ALIAS>AM1</BUILD_ALIAS>
+		<targetEclipseVersion>4.7 (Oxygen)</targetEclipseVersion>
+		<eclipseReleaseName>oxygen</eclipseReleaseName>
+		<devstudioReleaseVersion>11</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
 		<testProduct>com.jboss.devstudio.core.product</testProduct>
-		<devstudioRepository>https://devstudio.redhat.com/10.0/snapshots/updates/</devstudioRepository>
+		<devstudioRepository>https://devstudio.redhat.com/11/snapshots/updates/</devstudioRepository>
 		<!-- baseline check URLs -->
-		<lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
+		<lastStableRepository>http://download.jboss.org/jbosstools/${eclipseReleaseName}/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-		<stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
+		<stagingBaselineRepository>http://download.jboss.org/jbosstools/${eclipseReleaseName}/staging/updates/</stagingBaselineRepository>
 
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
 		<jbossNexus>repository.jboss.org</jbossNexus>
@@ -30,7 +30,7 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>0.26.0</tychoVersion>
+		<tychoVersion>1.0.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>0.26.1</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.4.3.Final</jbosstoolsRelengPublishVersion>
@@ -96,7 +96,7 @@
 			Don't use dashes & periods in variables which need to be used in shell (eg., Jenkins), as they cannot be declared.
 			Use underscores or mixedCase instead! ref: http://unix.stackexchange.com/questions/23659/can-shell-variable-include-character
 		-->
-		<stream_jbt>4.4.neon</stream_jbt> <!-- master or 4.4.neon -->
+		<stream_jbt>master</stream_jbt> <!-- or 4.5.oxygen for example -->
 		<jbosstools_site_stream>${stream_jbt}</jbosstools_site_stream> <!-- deprecated: do not use -->
 		<jbosstools-build-type>${eclipseReleaseName}/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
 		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl>
@@ -1279,10 +1279,6 @@
 				<enabled>true</enabled>
 			</releases>
 		</pluginRepository>
-		 <pluginRepository>
-		  <id>tycho-staged</id>
-		  <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1041</url>
-		 </pluginRepository>
 	</pluginRepositories>
 
 	<!-- To deploy parent to Nexus -->
