@@ -32,8 +32,8 @@
 		<!-- ==================================================== -->
 		<tychoVersion>0.26.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>0.26.1-SNAPSHOT</jbossTychoPluginsVersion>
-		<jbosstoolsRelengPublishVersion>4.4.1.AM2-SNAPSHOT</jbosstoolsRelengPublishVersion>
+		<jbossTychoPluginsVersion>0.26.1</jbossTychoPluginsVersion>
+		<jbosstoolsRelengPublishVersion>4.4.3.Final</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
 		<systemProperties></systemProperties>
@@ -137,8 +137,8 @@
 			 to build with the maximum TP instead of the default minimum one, use -Pmaximum
 		-->
 		<TARGET_PLATFORM_VERSION_MIN>4.60.2.Final</TARGET_PLATFORM_VERSION_MIN>
-		<TARGET_PLATFORM_VERSION_MAX>4.62.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
-		<TARGET_PLATFORM_CENTRAL_MAX>4.62.0.AM2-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
+		<TARGET_PLATFORM_VERSION_MAX>4.62.0.Final</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_CENTRAL_MAX>4.62.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
 
 		<!-- deprecated variables -->
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
