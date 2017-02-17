@@ -26,6 +26,8 @@
 
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
 		<jbossNexus>repository.jboss.org</jbossNexus>
+		<!-- https://issues.jboss.org/browse/JBIDE-23965 performance tuning for filemgmt.jboss.org - use IP as it's 3x faster (but subject to change) -->
+		<filemgmtJbossOrg>10.4.129.39</filemgmtJbossOrg>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
@@ -912,8 +914,7 @@
 				<deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
 				<deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
 				<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
-				<!-- use filemgmt.jboss.org IP instead of 10.5.105.197 because it's 3x faster -->
-				<deployDestination>tools@10.5.105.197:downloads_htdocs/jbosstools</deployDestination>
+				<deployDestination>tools@${filemgmtJbossOrg}:downloads_htdocs/jbosstools</deployDestination>
 				<deployTargetFolder>${jbosstools-build-type}/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}/all/repo/</deployTargetFolder>
 				<deployNumbuildstokeep>2</deployNumbuildstokeep>
 				<deployNumbuildstolink>2</deployNumbuildstolink>
@@ -989,7 +990,7 @@
 			<deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
 			<deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
 			<deploySourceFolder>${project.build.directory}/repository</deploySourceFolder>
-			<deployDestination>tools@filemgmt.jboss.org:downloads_htdocs/jbosstools</deployDestination>
+			<deployDestination>tools@${filemgmtJbossOrg}:downloads_htdocs/jbosstools</deployDestination>
 			<deployTargetFolder>${eclipseReleaseName}/snapshots/pulls/${JOB_NAME}/${BUILD_TIMESTAMP}-B${BUILD_NUMBER}_PR${ghprbPullId}/all/repo/</deployTargetFolder>
 			<deployNumbuildstokeep>7</deployNumbuildstokeep>
 			<deployNumbuildstolink>1</deployNumbuildstolink>
