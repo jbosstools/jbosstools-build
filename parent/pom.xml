@@ -18,11 +18,11 @@
 		<devstudioReleaseVersion>11</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
 		<testProduct>com.jboss.devstudio.core.product</testProduct>
-		<devstudioRepository>https://devstudio.redhat.com/${devstudioReleaseVersion}/snapshots/updates/</devstudioRepository>
+		<devstudioRepository>https://devstudio.redhat.com/10.0/snapshots/updates/</devstudioRepository>
 		<!-- baseline check URLs -->
-		<lastStableRepository>http://download.jboss.org/jbosstools/${eclipseReleaseName}/stable/updates/</lastStableRepository>
+		<lastStableRepository>http://download.jboss.org/jbosstools/neon/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-		<stagingBaselineRepository>http://download.jboss.org/jbosstools/${eclipseReleaseName}/staging/updates/</stagingBaselineRepository>
+		<stagingBaselineRepository>http://download.jboss.org/jbosstools/neon/staging/updates/</stagingBaselineRepository>
 
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
 		<jbossNexus>repository.jboss.org</jbossNexus>
