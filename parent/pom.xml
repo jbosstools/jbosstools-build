@@ -7,6 +7,8 @@
 	<version>4.3.2.Final-SNAPSHOT</version>
 	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
+	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
+	<url>https://developers.redhat.com/products/devstudio/overview/</url>
 
 	<properties>
 		<!-- ==================================================== -->
@@ -572,17 +574,6 @@
 		</pluginManagement>
 	</build>
 
-	<scm>
-		<connection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</connection>
-		<developerConnection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</developerConnection>
-		<url>http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</url>
-	</scm>
-
-	<issueManagement>
-		<system>jira</system>
-		<url>https://jira.jboss.org/jira/secure/</url>
-	</issueManagement>
-
 	<profiles>
 		<!-- ************************************************************ -->
 		<!-- Profiles to manage target-platform and 3rd pary dependencies -->
@@ -944,11 +935,10 @@
 	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
 	<!-- JBoss Nexus repos are also added, but in settings.xml -->
 	<pluginRepositories>
-		<!-- staging tycho 0.23.1 -->
-	 <pluginRepository>
-	  <id>tycho-staged</id>
-	  <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1022/</url>
-	 </pluginRepository>
+		<pluginRepository>
+			<id>tycho-snapshots</id>
+			<url>https://repo.eclipse.org/content/repositories/tycho-snapshots/</url>
+		</pluginRepository>
 		<pluginRepository>
 			<id>sonatype-public-grid</id>
 			<url>https://repository.sonatype.org/content/groups/sonatype-public-grid</url>
@@ -957,14 +947,6 @@
 			<id>sonatype-public-repository</id>
 			<url>https://oss.sonatype.org/content/groups/public</url>
 		</pluginRepository>
- 		<pluginRepository>
-			<id>jboss-releases</id>
-			<name>JBoss Releases Maven Repository</name>
-			<url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</pluginRepository>
 		<pluginRepository>
 			<id>jboss-snapshots-repository</id>
 			<name>JBoss Snapshots Repository</name>
@@ -972,6 +954,14 @@
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss-releases</id>
+			<name>JBoss Releases Maven Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -985,10 +975,39 @@
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 		<repository>
-			<id>jboss-staging-repository</id>
-			<name>JBoss Staging Service</name>
+			<id>jboss-releases-repository</id>
+			<name>JBoss Release Staging Repository</name>
 			<uniqueVersion>false</uniqueVersion>
 			<url>https://${jbossNexus}/nexus/service/local/staging/deploy/maven2/</url>
+			<layout>default</layout>
 		</repository>
 	</distributionManagement>
+
+	<scm>
+		<connection>scm:git:git://git@github.com:jbosstools/jbosstools-build.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:jbosstools/jbosstools-build.git</developerConnection>
+		<url>git://github.com/jbosstools/jbosstools-build.git</url>
+	</scm>
+
+	<issueManagement>
+		<system>jira</system>
+		<url>https://jira.jboss.org/jira/secure/</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License</name>
+			<url>http://www.eclipse.org/legal/epl-v10.html</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>tools.jboss.org</id>
+			<name>JBoss Tools</name>
+			<organization>jboss.org/tools</organization>
+			<organizationUrl>http://jboss.org/tools</organizationUrl>
+		</developer>
+	</developers>
+
 </project>
