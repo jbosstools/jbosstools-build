@@ -5,8 +5,10 @@
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
 	<version>4.4.3.Final</version>
-	<name>JBoss Tools Parent</name>
 	<packaging>pom</packaging>
+	<name>JBoss Tools and Red Hat JBoss Developer Studio Parent</name>
+	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
+	<url>https://developers.redhat.com/products/devstudio/overview/</url>
 
 	<properties>
 		<!-- ==================================================== -->
@@ -682,17 +684,6 @@
 		</pluginManagement>
 	</build>
 
-	<scm>
-		<connection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</connection>
-		<developerConnection>scm:svn:http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</developerConnection>
-		<url>http://anonsvn.jboss.org/repos/jbosstools/${scmBranch}</url>
-	</scm>
-
-	<issueManagement>
-		<system>jira</system>
-		<url>https://jira.jboss.org/jira/secure/</url>
-	</issueManagement>
-
 	<profiles>
 		<!-- ************************************************************ -->
 		<!-- Profiles to manage target-platform and 3rd pary dependencies -->
@@ -1281,8 +1272,8 @@
 			</releases>
 		</pluginRepository>
 		 <pluginRepository>
-		  <id>tycho-staged</id>
-		  <url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1041</url>
+			<id>tycho-staged</id>
+			<url>https://oss.sonatype.org/content/repositories/orgeclipsetycho-1041</url>
 		 </pluginRepository>
 	</pluginRepositories>
 
@@ -1303,4 +1294,32 @@
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
+
+	<scm>
+		<connection>scm:git:git://git@github.com:jbosstools/jbosstools-build.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:jbosstools/jbosstools-build.git</developerConnection>
+		<url>git://github.com/jbosstools/jbosstools-build.git</url>
+	</scm>
+
+	<issueManagement>
+		<system>jira</system>
+		<url>https://jira.jboss.org/jira/secure/</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Eclipse Public License</name>
+			<url>http://www.eclipse.org/legal/epl-v10.html</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>tools.jboss.org</id>
+			<name>JBoss Tools</name>
+			<organization>jboss.org/tools</organization>
+			<organizationUrl>http://jboss.org/tools</organizationUrl>
+		</developer>
+	</developers>
+
 </project>
