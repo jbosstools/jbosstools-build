@@ -34,7 +34,7 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>0.26.0</tychoVersion>
+		<tychoVersion>1.0.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>0.26.1</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.4.3.Final</jbosstoolsRelengPublishVersion>
