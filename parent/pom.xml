@@ -419,10 +419,11 @@
 				<version>${tychoVersion}</version>
 				<executions>
 					<execution>
+						<id>compare-version-with-baselines</id>
+						<phase>package</phase>
 						<goals>
 							<goal>compare-version-with-baselines</goal>
 						</goals>
-						<phase>verify</phase>
 						<configuration>
 							<skip>${skipBaselineComparison}</skip>
 							<baselines>
@@ -447,6 +448,7 @@
 				<executions>
 					<execution>
 						<id>core-has-ui-deps</id>
+						<phase>package</phase>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
@@ -460,6 +462,7 @@
 					</execution>
 					<execution>
 						<id>warn-no-snapshots-AMx</id>
+						<phase>package</phase>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
@@ -483,6 +486,7 @@
 					</execution>
 					<execution>
 						<id>enforce-no-snapshots-Final</id>
+						<phase>package</phase>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
@@ -680,6 +684,8 @@
 						</execution>
 					</executions>
 					<configuration>
+						<!-- disable warning with -Dtycho.baseline=disable -->
+						<baselineMode>warn</baselineMode>
 						<baselineRepositories>
 							<repository>
 								<url>${stagingBaselineRepository}</url>
@@ -847,10 +853,10 @@
 						<executions>
 							<execution>
 								<id>pack200-normalize</id>
+								<phase>package</phase>
 								<goals>
 									<goal>normalize</goal>
 								</goals>
-								<phase>package</phase>
 							</execution>
 						</executions>
 					</plugin>
@@ -884,10 +890,10 @@
 						<executions>
 							<execution>
 								<id>pack200-pack</id>
+								<phase>package</phase>
 								<goals>
 									<goal>pack</goal>
 								</goals>
-								<phase>package</phase>
 							</execution>
 						</executions>
 					</plugin>
@@ -898,10 +904,10 @@
 						<executions>
 							<execution>
 								<id>p2-metadata</id>
+								<phase>package</phase>
 								<goals>
 									<goal>p2-metadata</goal>
 								</goals>
-								<phase>package</phase>
 							</execution>
 						</executions>
 						<configuration>
