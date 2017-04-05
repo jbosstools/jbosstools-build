@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>AM2</BUILD_ALIAS>
+		<BUILD_ALIAS>AM3</BUILD_ALIAS>
 		<targetEclipseVersion>4.6.3 (Neon.3)</targetEclipseVersion>
 		<eclipseReleaseName>neon</eclipseReleaseName>
 		<devstudioReleaseVersion>10.0</devstudioReleaseVersion>
