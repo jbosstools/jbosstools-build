@@ -138,7 +138,9 @@
 			 minimum (build / compilation) &
 			 maximum (installation / running tests)
 
-			 to build with the maximum TP instead of the default minimum one, use -Pmaximum
+			 To build with the maximum TP instead of the default minimum one, use -Pmaximum
+
+			 To build against locally built target platform, use -Dtpc.targetKind=multiple -Dtpc.version=4.63.0.Final-SNAPSHOT
 		-->
 		<TARGET_PLATFORM_VERSION_MIN>4.60.2.Final</TARGET_PLATFORM_VERSION_MIN>
 		<TARGET_PLATFORM_VERSION_MAX>4.63.0.Final-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
