@@ -927,6 +927,7 @@
 				<deployThreshholdwhendelete>2</deployThreshholdwhendelete>
 				<!-- https://issues.jboss.org/browse/JBIDE-21012 by default, don't push an update site zip to JBoss Nexus, only to download.jboss.org or devstudio.redhat.com -->
 				<maven.deploy.skip>true</maven.deploy.skip>
+				<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
 			</properties>
 			<build>
 				<plugins>
