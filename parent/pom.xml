@@ -36,8 +36,8 @@
 		<!-- ==================================================== -->
 		<tychoVersion>1.0.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>1.0.0-SNAPSHOT</jbossTychoPluginsVersion>
-		<jbosstoolsRelengPublishVersion>4.4.3.Final</jbosstoolsRelengPublishVersion>
+		<jbossTychoPluginsVersion>1.0.0</jbossTychoPluginsVersion>
+		<jbosstoolsRelengPublishVersion>4.4.4.Final</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
 		<systemProperties></systemProperties>
@@ -1180,7 +1180,7 @@
 		</repository>
 	</repositories>
 
-	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
+	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin -->
 	<!-- JBoss Nexus repos are also added, but in settings.xml -->
 	<pluginRepositories>
 		<pluginRepository>
