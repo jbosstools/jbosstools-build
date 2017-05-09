@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.4.4.Final-SNAPSHOT</version>
+	<version>4.4.4.Final</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat JBoss Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
@@ -36,8 +36,8 @@
 		<!-- ==================================================== -->
 		<tychoVersion>1.0.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>1.0.0-SNAPSHOT</jbossTychoPluginsVersion>
-		<jbosstoolsRelengPublishVersion>4.4.3.Final</jbosstoolsRelengPublishVersion>
+		<jbossTychoPluginsVersion>1.0.0</jbossTychoPluginsVersion>
+		<jbosstoolsRelengPublishVersion>4.4.4.Final</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
 		<systemProperties></systemProperties>
@@ -140,10 +140,10 @@
 
 			 To build with the maximum TP instead of the default minimum one, use -Pmaximum
 
-			 To build against locally built target platform, use -Dtpc.targetKind=multiple -Dtpc.version=4.63.0.Final-SNAPSHOT
+			 To build against locally built target platform, use -Dtpc.targetKind=multiple -Dtpc.version=4.63.0.Final
 		-->
-		<TARGET_PLATFORM_VERSION_MIN>4.60.3.Final-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN>
-		<TARGET_PLATFORM_VERSION_MAX>4.63.0.Final-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_VERSION_MIN>4.60.3.Final</TARGET_PLATFORM_VERSION_MIN>
+		<TARGET_PLATFORM_VERSION_MAX>4.63.0.Final</TARGET_PLATFORM_VERSION_MAX>
 		<TARGET_PLATFORM_CENTRAL_MAX>4.63.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
 
 		<!-- deprecated variables -->
@@ -1255,7 +1255,7 @@
 		</repository>
 	</repositories>
 
-	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin:0.16.0-SNAPSHOT -->
+	<!-- Additional m2 repos to resolve things like org.eclipse.tycho:tycho-maven-plugin -->
 	<!-- JBoss Nexus repos are also added, but in settings.xml -->
 	<pluginRepositories>
 		<pluginRepository>
