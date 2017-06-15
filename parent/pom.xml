@@ -67,7 +67,7 @@
 		<requirementsDirectory>${project.build.directory}/requirements</requirementsDirectory>
 		<skipTestsWithPrivateRequirements>${skipPrivateRequirements}</skipTestsWithPrivateRequirements>
 		<!-- if you have integration tests, you can skip them using this -->
-		<skipITests>false</skipITests>
+		<skipITests>true</skipITests>
 		<!-- Unit Test and Integration Test timeouts in seconds -->
 		<surefire.timeout>2400</surefire.timeout>
 		<surefire.itests.timeout>${surefire.timeout}</surefire.itests.timeout>
@@ -1034,7 +1034,13 @@
 		<!-- ITests profile #1 of 3: won't run if -DskipITests=true -->
 		<profile>
 			<id>ITests</id>
+			<activation>
+				<property>
+					<name>!skipITests</name>
+				</property>
+			</activation>
 			<properties>
+				<skipITests>false</skipITests>
 				<surefire.timeout>7200</surefire.timeout>
 				<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
 			</properties>
@@ -1051,7 +1057,6 @@
 									<goal>wget</goal>
 								</goals>
 								<configuration>
-									<skip>${skipITests}</skip>
 									<url>https://raw.githubusercontent.com/jbosstools/jbosstools-build/master/itests/pluginCustomization.ini</url>
 									<unpack>false</unpack>
 									<outputDirectory>${requirementsDirectory}</outputDirectory>
@@ -1063,12 +1068,9 @@
 						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>tycho-surefire-plugin</artifactId>
 						<configuration>
-							<skip>${skipITests}</skip>
-							<useUIThread>false</useUIThread>
-							<appArgLine>-pluginCustomization ${requirementsDirectory}/pluginCustomization.ini</appArgLine>
+							<!--  useUIThread=false needs to be set in itests/pom.xml -->
 							<systemProperties>
 								<org.eclipse.update.reconcile>false</org.eclipse.update.reconcile>
-								<integrationTestsSystemProperties>-Dusage_reporting_enabled=false</integrationTestsSystemProperties>
 							</systemProperties>
 							<explodedBundles>
 								<bundle>org.mozilla.xulrunner.cocoa.macosx</bundle>
