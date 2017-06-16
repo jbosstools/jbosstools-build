@@ -310,6 +310,26 @@
 					</dependencies>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>download-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>download-pluginCustomization</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<skip>${skipITests}</skip>
+							<url>https://raw.githubusercontent.com/jbosstools/jbosstools-build/master/itests/pluginCustomization.ini</url>
+							<unpack>false</unpack>
+							<outputDirectory>${requirementsDirectory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
@@ -1031,65 +1051,7 @@
 			</build>
 		</profile>
 
-		<!-- ITests profile #1 of 3: won't run if -DskipITests=true -->
-		<profile>
-			<id>ITests</id>
-			<properties>
-				<surefire.timeout>7200</surefire.timeout>
-				<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>com.googlecode.maven-download-plugin</groupId>
-						<artifactId>download-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>download-pluginCustomization</id>
-								<phase>pre-integration-test</phase>
-								<goals>
-									<goal>wget</goal>
-								</goals>
-								<configuration>
-									<skip>${skipITests}</skip>
-									<url>https://raw.githubusercontent.com/jbosstools/jbosstools-build/master/itests/pluginCustomization.ini</url>
-									<unpack>false</unpack>
-									<outputDirectory>${requirementsDirectory}</outputDirectory>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-surefire-plugin</artifactId>
-						<configuration>
-							<skip>${skipITests}</skip>
-							<useUIThread>false</useUIThread>
-							<appArgLine>-pluginCustomization ${requirementsDirectory}/pluginCustomization.ini</appArgLine>
-							<systemProperties>
-								<org.eclipse.update.reconcile>false</org.eclipse.update.reconcile>
-								<integrationTestsSystemProperties>-Dusage_reporting_enabled=false</integrationTestsSystemProperties>
-							</systemProperties>
-							<explodedBundles>
-								<bundle>org.mozilla.xulrunner.cocoa.macosx</bundle>
-								<bundle>org.mozilla.xulrunner.gtk.linux.x86</bundle>
-								<bundle>org.mozilla.xulrunner.gtk.linux.x86_64</bundle>
-								<bundle>org.mozilla.xulrunner.win32.win32.x86</bundle>
-							</explodedBundles>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-			<repositories>
-				<repository>
-					<id>jbosstools-tests</id>
-					<url>${jbosstools-tests-site}</url>
-					<layout>p2</layout>
-				</repository>
-			</repositories>
-		</profile>
-
-		<!-- ITests profile #2 of 3: won't run if -DskipITests=true -->
+		<!-- ITests profile #1 of 2: won't run if -DskipITests=true -->
 		<profile>
 			<id>preinstalled-devstudio</id>
 			<activation>
