@@ -151,7 +151,8 @@
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
 		<TARGET_PLATFORM_VERSION_MAXIMUM>${TARGET_PLATFORM_VERSION_MAX}</TARGET_PLATFORM_VERSION_MAXIMUM>
 
-		<!-- This must be overriden when using other groups for TP, such as jbdevstudio -->
+		<!-- This must be overriden when using other groups for TP, such as jbdevstudio; 
+		however, as of devstudio 11, jbosstools and devstudio TPs are the same. See JBDS-4440 -->
 		<targetPlatformGroup>jbosstools</targetPlatformGroup>
 
 		<!-- ***************************************************************** -->
