@@ -1061,6 +1061,7 @@
 									<url>https://raw.githubusercontent.com/jbosstools/jbosstools-build/master/itests/pluginCustomization.ini</url>
 									<unpack>false</unpack>
 									<outputDirectory>${requirementsDirectory}</outputDirectory>
+									<md5>db44a474b1380353c7f48846c8527c25</md5>
 								</configuration>
 							</execution>
 						</executions>
