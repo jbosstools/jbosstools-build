@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.5.0.AM2-SNAPSHOT</version>
+		<version>4.5.0.Final-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat JBoss Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
