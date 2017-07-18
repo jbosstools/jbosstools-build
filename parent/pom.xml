@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>AM2</BUILD_ALIAS>
+		<BUILD_ALIAS>Final</BUILD_ALIAS>
 		<targetEclipseVersion>4.7 (Oxygen)</targetEclipseVersion>
 		<eclipseReleaseName>oxygen</eclipseReleaseName>
 		<devstudioReleaseVersion>11</devstudioReleaseVersion>
