@@ -56,6 +56,8 @@
 		<!-- ===================================================== -->
 		<!-- SWITCHES can be overriden by command-line -Dkey=value -->
 		<!-- ===================================================== -->
+		<!-- by default, don't run the deploy-to-jboss.org profile for all poms; set this to false in site/pom.xml -->
+		<skipDeployToJBossOrg>true</skipDeployToJBossOrg>
 		<swtbot.test.skip>true</swtbot.test.skip>
 		<!-- Used to install 3rd-party runtimes for testing -->
 		<skipRequirements>${skipTests}</skipRequirements>
@@ -920,6 +922,12 @@ hs_err_pid*.log</jgit.ignore>
 
 		<profile>
 			<id>deploy-to-jboss.org</id>
+			<activation>
+				<property>
+					<name>skipDeployToJBossOrg</name>
+					<value>false</value>
+				</property>
+			</activation>
 			<properties>
 				<deployScriptDir>${project.build.directory}/releng-scripts</deployScriptDir>
 				<deployScript>${deployScriptDir}/publish/rsync.sh</deployScript>
@@ -954,6 +962,7 @@ hs_err_pid*.log</jgit.ignore>
 											<outputDirectory>${deployScriptDir}</outputDirectory>
 										</artifactItem>
 									</artifactItems>
+									<skip>${skipDeployToJBossOrg}</skip>
 								</configuration>
 							</execution>
 						</executions>
@@ -987,6 +996,7 @@ hs_err_pid*.log</jgit.ignore>
 										<arg>-a</arg>
 										<arg>${deployThreshholdwhendelete}</arg>
 									</arguments>
+									<skip>${skipDeployToJBossOrg}</skip>
 								</configuration>
 							</execution>
 						</executions>
