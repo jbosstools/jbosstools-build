@@ -93,6 +93,12 @@
 		<enforceExcludePatternExtras></enforceExcludePatternExtras>
 		<!-- set to true to cause build to fail for UI dependencies in a core plugin -->
 		<enforceFailOnUIDependencyInCore>false</enforceFailOnUIDependencyInCore>
+		<!-- 
+			want to allow a dirty working tree in your Jenkins because your build generates files 
+			that maven doesn't know it should ignore? set this property:
+			  -DjgitDirtyWorkingTree=warning
+			instead of error (default) -->
+		<jgitDirtyWorkingTree>error</jgitDirtyWorkingTree>
 
 		<!-- ======================== -->
 		<!-- JBOSS TOOLS DEPENDENCIES -->
@@ -813,7 +819,7 @@ hs_err_pid*.log</jgit.ignore>
 						<artifactId>tycho-packaging-plugin</artifactId>
 						<version>${tychoVersion}</version>
 						<configuration>
-							<jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
+							<jgit.dirtyWorkingTree>${jgitDirtyWorkingTree}</jgit.dirtyWorkingTree>
 							<format>'v'yyyyMMdd-HHmm</format>
 						</configuration>
 					</plugin>
