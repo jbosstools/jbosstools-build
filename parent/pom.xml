@@ -1055,7 +1055,8 @@ hs_err_pid*.log</jgit.ignore>
 			<id>ITests</id>
 			<activation>
 				<property>
-					<name>!skipITests</name>
+					<name>skipITests</name>
+					<value>false</value>
 				</property>
 			</activation>
 			<properties>
@@ -1080,6 +1081,7 @@ hs_err_pid*.log</jgit.ignore>
 									<unpack>false</unpack>
 									<outputDirectory>${requirementsDirectory}</outputDirectory>
 									<md5>db44a474b1380353c7f48846c8527c25</md5>
+									<skip>${skipITests}</skip>
 								</configuration>
 							</execution>
 						</executions>
@@ -1098,6 +1100,7 @@ hs_err_pid*.log</jgit.ignore>
 								<bundle>org.mozilla.xulrunner.gtk.linux.x86_64</bundle>
 								<bundle>org.mozilla.xulrunner.win32.win32.x86</bundle>
 							</explodedBundles>
+							<skip>${skipITests}</skip>
 						</configuration>
 					</plugin>
 				</plugins>
