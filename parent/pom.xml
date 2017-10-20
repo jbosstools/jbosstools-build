@@ -127,6 +127,7 @@
 		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-livereload-site>
 		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-central-site>
 		<jbosstools-browsersim-site>${jbosstools_site_baseurl}/jbosstools-browsersim_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-browsersim-site>
+		<jbosstools-fabric8analytics-site>${jbosstools_site_baseurl}/jbosstools-fabric8analytics_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-fabric8analytics-site>
 		<jbosstools-fuse-site>${jbosstools_site_baseurl}/jbosstools-fuse_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-fuse-site>
 		<jbosstools-fuse-extras-site>${jbosstools_site_baseurl}/jbosstools-fuse-extras_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-fuse-extras-site>
 		<jbosstools-tests-site>http://download.jboss.org/jbosstools/${eclipseReleaseName}/snapshots/updates/coretests/${stream_jbt}/</jbosstools-tests-site>
