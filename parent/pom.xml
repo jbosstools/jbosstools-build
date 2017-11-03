@@ -15,7 +15,7 @@
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>AM1</BUILD_ALIAS>
-		<targetEclipseVersion>4.7.1a (Oxygen)</targetEclipseVersion>
+		<targetEclipseVersion>4.7.1a (Oxygen.1a)</targetEclipseVersion>
 		<eclipseReleaseName>oxygen</eclipseReleaseName>
 		<devstudioReleaseVersion>11</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
