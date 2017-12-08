@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.5.2.AM1-SNAPSHOT</version>
+		<version>4.5.2.AM3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat JBoss Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>AM2</BUILD_ALIAS>
+		<BUILD_ALIAS>AM3</BUILD_ALIAS>
 		<targetEclipseVersion>4.7.2 (Oxygen.2)</targetEclipseVersion>
 		<eclipseReleaseName>oxygen</eclipseReleaseName>
 		<devstudioReleaseVersion>11</devstudioReleaseVersion>
@@ -179,6 +179,10 @@
 		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 		
 		<sonar.maven.plugin.version>3.3.0.603</sonar.maven.plugin.version>
+
+		<!-- properties used by jdeps profile -->
+		<jdeps-jdk-version>1.8</jdeps-jdk-version>
+		<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
 	</properties>
 
 	<build>
@@ -848,6 +852,57 @@ hs_err_pid*.log</jgit.ignore>
 							<jgit.dirtyWorkingTree>${jgitDirtyWorkingTree}</jgit.dirtyWorkingTree>
 							<format>'v'yyyyMMdd-HHmm</format>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>jdeps</id>
+			<build>
+				<plugins>
+					<plugin>
+					  <groupId>org.apache.maven.plugins</groupId>
+					  <artifactId>maven-toolchains-plugin</artifactId>
+					  <version>1.1</version>
+					  <executions>
+					    <execution>
+					      <goals>
+					        <goal>toolchain</goal>
+					      </goals>
+					    </execution>
+					  </executions>
+					  <configuration>
+					    <toolchains>
+					      <jdk>
+					        <version>${jdeps-jdk-version}</version>
+					        <vendor>${jdeps-jdk-vendor}</vendor>
+					      </jdk>
+					    </toolchains>
+					  </configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jdeps-plugin</artifactId>
+						<version>3.1.0</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>jdkinternals</goal> <!-- verify main classes -->
+									<goal>test-jdkinternals</goal> <!-- verify test classes -->
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+						</configuration>
+						<dependencies>
+							<dependency>
+							  <groupId>org.apache.maven.plugins</groupId>
+							  <artifactId>maven-jdeps-plugin</artifactId>
+							  <version>3.1.0</version>
+							  <type>maven-plugin</type>
+							</dependency>
+						</dependencies>
 					</plugin>
 				</plugins>
 			</build>
