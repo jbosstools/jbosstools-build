@@ -858,6 +858,16 @@ hs_err_pid*.log</jgit.ignore>
 		</profile>
 
 		<profile>
+			<id>jdk9</id>
+			<properties>
+				<tychoVersion>1.1.0-SNAPSHOT</tychoVersion>
+				<tychoExtrasVersion>1.1.0-SNAPSHOT</tychoExtrasVersion>
+				<jdeps-jdk-version>9</jdeps-jdk-version>
+				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+			</properties>
+		</profile>
+
+		<profile>
 			<id>jdeps</id>
 			<build>
 				<plugins>
