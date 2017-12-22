@@ -43,6 +43,7 @@
 		<systemProperties></systemProperties>
 		<platformSystemProperties></platformSystemProperties>
 		<applejdkProperties></applejdkProperties>
+		<moduleProperties></moduleProperties>
 		<maven.antrun.plugin.version>1.3</maven.antrun.plugin.version>
 		<!-- Default coverage filter, to be overriden when necessary -->
 		<coverage.filter>org.jboss.tools.*</coverage.filter>
@@ -179,6 +180,7 @@
 		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 		
 		<sonar.maven.plugin.version>3.3.0.603</sonar.maven.plugin.version>
+		<jacoco.version>0.7.1.201405082137</jacoco.version>
 
 		<!-- properties used by jdeps profile -->
 		<jdeps-jdk-version>1.8</jdeps-jdk-version>
@@ -301,7 +303,7 @@ hs_err_pid*.log</jgit.ignore>
 					<useUIThread>true</useUIThread>
 					<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
 					<!-- tycho.testArgLine repeated to keep jacoco configuration for jacoco-maven-plugin -->
-					<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
+					<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} ${moduleProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
 					<!-- https://docs.sonatype.org/display/TYCHO/How+to+run+SWTBot+tests+with+Tycho -->
 					<!-- set useUIThread=true for regular ui tests -->
 					<!-- set useUIThread=false for swtbot tests -->
@@ -364,7 +366,7 @@ hs_err_pid*.log</jgit.ignore>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.1.201405082137</version>
+				<version>${jacoco.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -864,6 +866,8 @@ hs_err_pid*.log</jgit.ignore>
 				<tychoExtrasVersion>1.1.0-SNAPSHOT</tychoExtrasVersion>
 				<jdeps-jdk-version>9</jdeps-jdk-version>
 				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
+				<jacoco.version>0.7.9</jacoco.version>
 			</properties>
 		</profile>
 
