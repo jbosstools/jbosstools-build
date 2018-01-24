@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.5.2.Final-SNAPSHOT</version>
+		<version>4.5.3.AM1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat JBoss Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
@@ -14,8 +14,8 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<targetEclipseVersion>4.7.2 (Oxygen.2)</targetEclipseVersion>
+		<BUILD_ALIAS>AM1</BUILD_ALIAS>
+		<targetEclipseVersion>4.7.3 (Oxygen.3)</targetEclipseVersion>
 		<eclipseReleaseName>oxygen</eclipseReleaseName>
 		<devstudioReleaseVersion>11</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
