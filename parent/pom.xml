@@ -34,9 +34,9 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>1.0.0</tychoVersion>
+		<tychoVersion>1.1.0-SNAPSHOT</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>1.0.0</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>1.1.0-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.5.1.Final</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
@@ -88,7 +88,7 @@
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
 		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
 		<!-- see org.jboss.tools.releng:enforcer-rules below -->
-		<enforceExcludePattern>BUILD_ALIAS|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MIN|TARGET_PLATFORM_VERSION_MAXIMUM|TARGET_PLATFORM_VERSION_MAX|JBTCENTRALTARGET_VERSION|TARGET_PLATFORM_CENTRAL_MAX|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
+		<enforceExcludePattern>BUILD_ALIAS|tychoVersion|tychoExtrasVersion|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MIN|TARGET_PLATFORM_VERSION_MAXIMUM|TARGET_PLATFORM_VERSION_MAX|JBTCENTRALTARGET_VERSION|TARGET_PLATFORM_CENTRAL_MAX|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
 		<!-- more excludes; this lets individual projects add their own exclusions. Note, if using this, must start with a pipe (|) so these are appended as OR matches -->
 		<enforceExcludePatternExtras></enforceExcludePatternExtras>
 		<!-- set to true to cause build to fail for UI dependencies in a core plugin -->
