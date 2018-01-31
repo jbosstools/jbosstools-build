@@ -383,7 +383,7 @@ hs_err_pid*.log</jgit.ignore>
 				</executions>
 			</plugin>
 
-			<!-- <plugin>
+			<plugin>
 				<groupId>org.jboss.tools.tycho-plugins</groupId>
 				<artifactId>repository-utils</artifactId>
 				<version>${jbossTychoPluginsVersion}</version>
@@ -404,8 +404,15 @@ hs_err_pid*.log</jgit.ignore>
 							<p2StatsUrl>${p2StatsUrl}</p2StatsUrl>
 						</configuration>
 					</execution>
+					<!--<execution>
+						<id>generate-full-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>create-full-site</goal>
+						</goals>
+					</execution>-->
 				</executions>
-			</plugin> -->
+			</plugin>
 
 			<!-- test these regex replacements with:
 				for d in -DskipTests=true -DskipTests=false -DskipITests=true -DskipITests=false -DskipPrivateRequirements=true -DskipPrivateRequirements=false; do echo "-DskipITests=false $d"; mvn install -X -DskipITests=false ${d} | egrep -B6 -A1 "Setting property" | egrep "name|value|INFO"; echo ""; done
