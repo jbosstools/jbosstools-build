@@ -861,6 +861,9 @@ hs_err_pid*.log</jgit.ignore>
 
 		<profile>
 			<id>jdk9</id>
+			<activation>
+				<jdk>[9</jdk>
+			</activation>
 			<properties>
 				<jdeps-jdk-version>9</jdeps-jdk-version>
 				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
