@@ -123,7 +123,6 @@
 		<jbosstools-javaee-site>${jbosstools_site_baseurl}/jbosstools-javaee_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-javaee-site>
 		<jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-webservices-site>
 		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-vpe-site>
-		<jbosstools-arquillian-site>${jbosstools_site_baseurl}/jbosstools-arquillian_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-arquillian-site>
 		<jbosstools-forge-site>${jbosstools_site_baseurl}/jbosstools-forge_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-forge-site>
 		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-livereload-site>
 		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-central-site>
@@ -137,7 +136,6 @@
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 		<jbosstools-portlet-site>http://download.jboss.org/jbosstools/updates/stable/luna/core/portlet/</jbosstools-portlet-site>
-		<jbosstools-freemarker-site>http://download.jboss.org/jbosstools/neon/stable/updates/core/freemarker/</jbosstools-freemarker-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
