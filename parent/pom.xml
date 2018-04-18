@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.5.3.Final-SNAPSHOT</version>
+		<version>4.6.0.AM1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat JBoss Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat JBoss Developer Studio Parent</description>
@@ -14,10 +14,10 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<targetEclipseVersion>4.7.3a (Oxygen.3a)</targetEclipseVersion>
-		<eclipseReleaseName>oxygen</eclipseReleaseName>
-		<devstudioReleaseVersion>11</devstudioReleaseVersion>
+		<BUILD_ALIAS>AM1</BUILD_ALIAS>
+		<targetEclipseVersion>4.8 (Photon)</targetEclipseVersion>
+		<eclipseReleaseName>photon</eclipseReleaseName>
+		<devstudioReleaseVersion>12</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
 		<testProduct>com.jboss.devstudio.core.product</testProduct>
 		<devstudioRepository>https://devstudio.redhat.com/11/snapshots/updates/</devstudioRepository>
@@ -27,7 +27,7 @@
 		<stagingBaselineRepository>http://download.jboss.org/jbosstools/oxygen/staging/updates/</stagingBaselineRepository>
 
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
-		<jbossNexus>origin-repository.jboss.org</jbossNexus>
+		<jbossNexus>repository.jboss.org</jbossNexus>
 		<!-- https://issues.jboss.org/browse/JBIDE-23965 performance tuning for filemgmt.jboss.org - use IP as it's 3x faster (but subject to change) -->
 		<filemgmtJbossOrg>10.5.105.197</filemgmtJbossOrg>
 
@@ -36,8 +36,8 @@
 		<!-- ==================================================== -->
 		<tychoVersion>1.1.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>1.1.0</jbossTychoPluginsVersion>
-		<jbosstoolsRelengPublishVersion>4.5.3.Final</jbosstoolsRelengPublishVersion>
+		<jbossTychoPluginsVersion>1.1.1-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbosstoolsRelengPublishVersion>4.6.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
 		<systemProperties></systemProperties>
@@ -154,6 +154,9 @@
 		<TARGET_PLATFORM_VERSION_MIN>4.71.1.Final</TARGET_PLATFORM_VERSION_MIN>
 		<TARGET_PLATFORM_VERSION_MAX>4.73.1.Final</TARGET_PLATFORM_VERSION_MAX>
 		<TARGET_PLATFORM_CENTRAL_MAX>4.73.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
+		<!-- <TARGET_PLATFORM_VERSION_MIN>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN> -->
+		<!-- <TARGET_PLATFORM_VERSION_MAX>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX> -->
+		<!-- <TARGET_PLATFORM_CENTRAL_MAX>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX> -->
 
 		<!-- deprecated variables -->
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
