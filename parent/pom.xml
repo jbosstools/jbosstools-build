@@ -36,8 +36,7 @@
 		<!-- ==================================================== -->
 		<tychoVersion>1.1.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>1.1.0</jbossTychoPluginsVersion>
-		<!-- <jbossTychoPluginsVersion>1.1.1-SNAPSHOT</jbossTychoPluginsVersion> -->
+		<jbossTychoPluginsVersion>1.1.1-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.6.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
@@ -152,12 +151,9 @@
 
 			 To build against locally built target platform, use -Dtpc.targetKind=multiple -Dtpc.version=4.70.2.Final
 		-->
-		<TARGET_PLATFORM_VERSION_MIN>4.71.1.Final</TARGET_PLATFORM_VERSION_MIN>
-		<TARGET_PLATFORM_VERSION_MAX>4.73.1.Final</TARGET_PLATFORM_VERSION_MAX>
-		<TARGET_PLATFORM_CENTRAL_MAX>4.73.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
-		<!-- <TARGET_PLATFORM_VERSION_MIN>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN> -->
-		<!-- <TARGET_PLATFORM_VERSION_MAX>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX> -->
-		<!-- <TARGET_PLATFORM_CENTRAL_MAX>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX> -->
+		<TARGET_PLATFORM_VERSION_MIN>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MIN>
+		<TARGET_PLATFORM_VERSION_MAX>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_CENTRAL_MAX>4.80.0.AM1-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
 
 		<!-- deprecated variables -->
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
