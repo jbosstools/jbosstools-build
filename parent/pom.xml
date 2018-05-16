@@ -123,6 +123,7 @@
 		<jbosstools-hibernate-site>${jbosstools_site_baseurl}/jbosstools-hibernate_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-hibernate-site>
 		<jbosstools-javaee-site>${jbosstools_site_baseurl}/jbosstools-javaee_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-javaee-site>
 		<jbosstools-jst-site>${jbosstools_site_baseurl}/jbosstools-jst_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-jst-site>
+		<jbosstools-livereload-site>${jbosstools_site_baseurl}/jbosstools-livereload_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-livereload-site>
 		<jbosstools-openshift-site>${jbosstools_site_baseurl}/jbosstools-openshift_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-openshift-site>
 		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-server-site>
 		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-vpe-site>
@@ -131,7 +132,6 @@
 
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
-		<jbosstools-livereload-site>http://download.jboss.org/jbosstools/oxygen/stable/updates/core/livereload/</jbosstools-livereload-site>
 		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 
 		<!-- ================ -->
