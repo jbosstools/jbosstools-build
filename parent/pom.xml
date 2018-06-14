@@ -20,7 +20,7 @@
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
 		<testProduct>com.jboss.devstudio.core.product</testProduct>
-		<devstudioRepository>https://devstudio.redhat.com/11/snapshots/updates/</devstudioRepository>
+		<devstudioRepository>https://devstudio.redhat.com/12/snapshots/updates/</devstudioRepository>
 		<!-- baseline check URLs -->
 		<lastStableRepository>http://download.jboss.org/jbosstools/oxygen/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
