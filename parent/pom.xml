@@ -868,6 +868,32 @@ hs_err_pid*.log</jgit.ignore>
 		</profile>
 
 		<profile>
+			<id>jdk10</id>
+			<activation>
+				<jdk>[10</jdk>
+			</activation>
+			<properties>
+				<jdeps-jdk-version>10</jdeps-jdk-version>
+				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
+				<jacoco.version>0.8.0</jacoco.version>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>jdk11</id>
+			<activation>
+				<jdk>[11</jdk>
+			</activation>
+			<properties>
+				<jdeps-jdk-version>11</jdeps-jdk-version>
+				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
+				<jacoco.version>0.8.0</jacoco.version>
+			</properties>
+		</profile>
+
+		<profile>
 			<id>jdeps</id>
 			<build>
 				<plugins>
