@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.6.0.Final-SNAPSHOT</version>
+		<version>4.9.0.AM1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat Developer Studio Parent</description>
@@ -14,8 +14,8 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<targetEclipseVersion>4.8 (Photon)</targetEclipseVersion>
+		<BUILD_ALIAS>AM1</BUILD_ALIAS>
+		<targetEclipseVersion>4.9 (2018-09)</targetEclipseVersion>
 		<eclipseReleaseName>photon</eclipseReleaseName>
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
@@ -34,7 +34,7 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>1.1.0</tychoVersion>
+		<tychoVersion>1.2.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
 		<jbossTychoPluginsVersion>1.1.0</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.6.0</jbosstoolsRelengPublishVersion>
