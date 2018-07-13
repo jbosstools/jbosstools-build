@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-		<version>4.9.0.AM1-SNAPSHOT</version>
+	<version>4.9.0.AM1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat Developer Studio Parent</name>
 	<description>JBoss Tools and Red Hat Developer Studio Parent</description>
@@ -874,7 +874,9 @@ hs_err_pid*.log</jgit.ignore>
 			</activation>
 			<properties>
 				<jdeps-jdk-version>10</jdeps-jdk-version>
-				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+				<!-- having some issues with the openjdk 10 install on CCI, so switch to oraclejdk for now -->
+				<!-- https://redhat.service-now.com/surl.do?n=PNT0276816 -->
+				<jdeps-jdk-vendor>oraclejdk</jdeps-jdk-vendor>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
 				<jacoco.version>0.8.0</jacoco.version>
 			</properties>
