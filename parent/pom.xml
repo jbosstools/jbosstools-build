@@ -26,6 +26,10 @@
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
 		<stagingBaselineRepository>http://download.jboss.org/jbosstools/photon/staging/updates/</stagingBaselineRepository>
 
+		<!-- JBIDE-26283 externalize properties for baseline comparisons to support overriding if needed -->
+		<baselineCompareReplace>all</baselineCompareReplace> <!-- or "none" -->
+		<baselineCompareOnIllegalVersion>fail</baselineCompareOnIllegalVersion> <!-- or "warn" -->
+
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
 		<jbossNexus>repository.jboss.org</jbossNexus>
 		<!-- https://issues.jboss.org/browse/JBIDE-23965 performance tuning for filemgmt.jboss.org - use IP as it's 3x faster (but subject to change) -->
@@ -462,6 +466,7 @@ hs_err_pid*.log</jgit.ignore>
 							<baselines>
 								<repo>${lastStableRepository}</repo>
 							</baselines>
+							<onIllegalVersion>${baselineCompareOnIllegalVersion}</onIllegalVersion>
 						</configuration>
 					</execution>
 				</executions>
@@ -714,6 +719,8 @@ hs_err_pid*.log</jgit.ignore>
 						</execution>
 					</executions>
 					<configuration>
+						<baselineMode>${baselineCompareOnIllegalVersion}</baselineMode>
+						<baselineReplace>${baselineCompareReplace}</baselineReplace>
 						<baselineRepositories>
 							<repository>
 								<url>${stagingBaselineRepository}</url>
