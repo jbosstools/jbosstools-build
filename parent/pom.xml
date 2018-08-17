@@ -24,7 +24,7 @@
 		<!-- baseline check URLs -->
 		<lastStableRepository>http://download.jboss.org/jbosstools/photon/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-		<stagingBaselineRepository>${lastStableRepository}</stagingBaselineRepository>
+		<stagingBaselineRepository>http://download.jboss.org/jbosstools/photon/staging/updates/</stagingBaselineRepository>
 
 		<!-- JBIDE-26283 externalize properties for baseline comparisons to support overriding if needed -->
 		<baselineCompareReplace>all</baselineCompareReplace> <!-- or "none" -->
@@ -719,7 +719,8 @@ hs_err_pid*.log</jgit.ignore>
 						</execution>
 					</executions>
 					<configuration>
-						<baselineMode>${baselineCompareOnIllegalVersion}</baselineMode>
+						<!-- See JBIDE-26283 and https://www.eclipse.org/tycho/sitedocs/tycho-p2/tycho-p2-plugin/p2-metadata-default-mojo.html -->
+						<baselineMode>warn</baselineMode>
 						<baselineReplace>${baselineCompareReplace}</baselineReplace>
 						<baselineRepositories>
 							<repository>
