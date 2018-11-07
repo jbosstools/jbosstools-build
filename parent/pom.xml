@@ -48,7 +48,7 @@
 		<platformSystemProperties></platformSystemProperties>
 		<applejdkProperties></applejdkProperties>
 		<moduleProperties></moduleProperties>
-		<maven.antrun.plugin.version>1.3</maven.antrun.plugin.version>
+		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
 		<!-- Default coverage filter, to be overriden when necessary -->
 		<coverage.filter>org.jboss.tools.*</coverage.filter>
 		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
