@@ -923,7 +923,7 @@ hs_err_pid*.log</jgit.ignore>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-jdeps-plugin</artifactId>
-						<version>3.1.0</version>
+						<version>3.1.1</version>
 						<executions>
 							<execution>
 								<goals>
@@ -933,6 +933,7 @@ hs_err_pid*.log</jgit.ignore>
 							</execution>
 						</executions>
 						<configuration>
+							<multiRelease>base</multiRelease>
 						</configuration>
 						<dependencies>
 							<dependency>
