@@ -81,12 +81,13 @@
 		<!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
 		<jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
 		<!-- Default properties for Java runtimes to be used and set during testing, eg., /qa/tools/opt/jdk1.8.0_last/ or /opt/jdk1.7.0_17/
-				 These properties will be set when running in Jenkins, but you can set them in your settings.xml too.
-				 Not recommended that you set default values in your root or test poms as they are machine specific. -->
+				These properties will be set when running in Jenkins, but you can set them in your settings.xml too.
+				Not recommended that you set default values in your root or test poms as they are machine specific. -->
 		<jbosstools.test.jre.5>${JAVA_HOME}</jbosstools.test.jre.5>
 		<jbosstools.test.jre.6>${JAVA_HOME}</jbosstools.test.jre.6>
 		<jbosstools.test.jre.7>${JAVA_HOME}</jbosstools.test.jre.7>
 		<jbosstools.test.jre.8>${JAVA_HOME}</jbosstools.test.jre.8>
+		<jbosstools.test.jre.11>${JAVA_HOME}</jbosstools.test.jre.11>
 		<!-- Default property for testInstallBase. It has to be empty for testInstallBase to work on non OSX systems. -->
 		<testInstallPathOSX></testInstallPathOSX>
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
