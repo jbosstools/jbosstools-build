@@ -448,6 +448,7 @@ hs_err_pid*.log</jgit.ignore>
 								<repo>${lastStableRepository}</repo>
 							</baselines>
 							<onIllegalVersion>${baselineCompareOnIllegalVersion}</onIllegalVersion>
+							<comparator>zip</comparator>
 						</configuration>
 					</execution>
 				</executions>
