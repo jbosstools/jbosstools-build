@@ -24,7 +24,7 @@
 		<!-- baseline check URLs -->
 		<lastStableRepository>http://download.jboss.org/jbosstools/photon/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-		<stagingBaselineRepository>http://download.jboss.org/jbosstools/photon/staging/updates/</stagingBaselineRepository>
+		<stagingBaselineRepository>http://download.jboss.org/jbosstools/photon/stable/updates/</stagingBaselineRepository>
 
 		<!-- JBIDE-26283 externalize properties for baseline comparisons to support overriding if needed -->
 		<baselineCompareReplace>all</baselineCompareReplace> <!-- or "none" -->
