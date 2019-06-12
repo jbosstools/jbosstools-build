@@ -22,9 +22,9 @@
 		<testProduct>com.jboss.devstudio.core.product</testProduct>
 		<devstudioRepository>https://devstudio.redhat.com/12/snapshots/updates/</devstudioRepository>
 		<!-- baseline check URLs -->
-		<lastStableRepository>http://download.jboss.org/jbosstools/photon/stable/updates/</lastStableRepository>
+		<lastStableRepository>https://download.jboss.org/jbosstools/photon/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
-		<stagingBaselineRepository>http://download.jboss.org/jbosstools/photon/stable/updates/</stagingBaselineRepository>
+		<stagingBaselineRepository>https://download.jboss.org/jbosstools/photon/stable/updates/</stagingBaselineRepository>
 
 		<!-- JBIDE-26283 externalize properties for baseline comparisons to support overriding if needed -->
 		<baselineCompareReplace>all</baselineCompareReplace> <!-- or "none" -->
@@ -91,7 +91,7 @@
 		<!-- Default property for testInstallBase. It has to be empty for testInstallBase to work on non OSX systems. -->
 		<testInstallPathOSX></testInstallPathOSX>
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
-		<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
+		<p2StatsUrl>https://download.jboss.org/jbosstools/usage/installs/${project.groupId}-site/${project.version}/${BUILD_ALIAS}/${buildQualifier}</p2StatsUrl>
 		<!-- see org.jboss.tools.releng:enforcer-rules below -->
 		<enforceExcludePattern>BUILD_ALIAS|tychoVersion|tychoExtrasVersion|jbossTychoPluginsVersion|jbosstoolsRelengPublishVersion|parsedVersion.qualifier|parsedVersion.osgiVersion|TARGET_PLATFORM_VERSION|TARGET_PLATFORM_VERSION_MIN|TARGET_PLATFORM_VERSION_MAXIMUM|TARGET_PLATFORM_VERSION_MAX|JBTCENTRALTARGET_VERSION|TARGET_PLATFORM_CENTRAL_MAX|tpc.version|central.tpc.version|discovery.tpc.version|p2StatsUrl|angularjs.repo.url|targetplatform.url|jbosstools-target-site</enforceExcludePattern>
 		<!-- more excludes; this lets individual projects add their own exclusions. Note, if using this, must start with a pipe (|) so these are appended as OR matches -->
@@ -116,7 +116,7 @@
 		<stream_jbt>master</stream_jbt> <!-- or 4.5.oxygen for example -->
 		<jbosstools_site_stream>${stream_jbt}</jbosstools_site_stream> <!-- deprecated: do not use -->
 		<jbosstools-build-type>${eclipseReleaseName}/snapshots/builds</jbosstools-build-type> <!-- path under which snapshot builds get published -->
-		<jbosstools_site_baseurl>http://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl>
+		<jbosstools_site_baseurl>https://download.jboss.org/jbosstools/${jbosstools-build-type}</jbosstools_site_baseurl>
 		<jbosstools_site_suffix>latest/all/repo</jbosstools_site_suffix> <!-- for a single build [stable branch], use latest/all/repo; for a composite of current builds [master branch], use "" -->
 		<!-- Sites with mutable content (eg snapshot builds) -->
 		<jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-base-site>
@@ -133,11 +133,11 @@
 		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-server-site>
 		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-vpe-site>
 		<jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-webservices-site>
-		<jbosstools-tests-site>http://download.jboss.org/jbosstools/${eclipseReleaseName}/snapshots/updates/coretests/${stream_jbt}/</jbosstools-tests-site>
+		<jbosstools-tests-site>https://download.jboss.org/jbosstools/${eclipseReleaseName}/snapshots/updates/coretests/${stream_jbt}/</jbosstools-tests-site>
 
 		<!-- Static sites (should be moved into TP?) -->
 		<!-- TODO: when changing these stable or integration URLs, be sure to ALSO change the URLs in download.jboss.org/jbosstools/builds/staging/_composite_/core/* or else composite builds will fail and no aggregates will happen in Jenkins! -->
-		<jbosstools-xulrunner-site>http://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
+		<jbosstools-xulrunner-site>https://download.jboss.org/jbosstools/updates/requirements/xulrunner-1.9.2/</jbosstools-xulrunner-site>
 
 		<!-- ================ -->
 		<!-- TARGET-PLATFORMS -->
@@ -249,7 +249,6 @@ hs_err_pid*.log</jgit.ignore>
 				<version>${tychoVersion}</version>
 				<configuration>
 					<resolver>p2</resolver>
-					<ignoreTychoRepositories>true</ignoreTychoRepositories>
 					<environments>
 						<environment>
 							<os>macosx</os>
@@ -827,7 +826,7 @@ hs_err_pid*.log</jgit.ignore>
 			</activation>
 			<properties>
 				<!-- to test p2StatsUrl, must pass in two vars: mvn clean install -DJOB_NAME=jbosstools-server_master -DBUILD_NUMBER=450002 -->
-				<p2StatsUrl>http://download.jboss.org/jbosstools/usage/installs/${JOB_NAME}/${project.version}/${BUILD_ALIAS}/${buildQualifier}/</p2StatsUrl>
+				<p2StatsUrl>https://download.jboss.org/jbosstools/usage/installs/${JOB_NAME}/${project.version}/${BUILD_ALIAS}/${buildQualifier}/</p2StatsUrl>
 			</properties>
 			<build>
 				<plugins>
@@ -1403,7 +1402,7 @@ hs_err_pid*.log</jgit.ignore>
 			<id>tools.jboss.org</id>
 			<name>JBoss Tools</name>
 			<organization>jboss.org/tools</organization>
-			<organizationUrl>http://jboss.org/tools</organizationUrl>
+			<organizationUrl>https://jboss.org/tools</organizationUrl>
 		</developer>
 	</developers>
 
