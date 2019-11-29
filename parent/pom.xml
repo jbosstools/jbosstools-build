@@ -49,8 +49,6 @@
 		<applejdkProperties></applejdkProperties>
 		<moduleProperties></moduleProperties>
 		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
-		<!-- Default coverage filter, to be overriden when necessary -->
-		<coverage.filter>org.jboss.tools.*</coverage.filter>
 		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
 		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
 				 you can override this value to be Nightly Build, Development Milestone, or Stable Release, or set to &amp;shy; (soft hyphen) to leave blank -->
@@ -77,9 +75,6 @@
 		<!-- Unit Test and Integration Test timeouts in seconds -->
 		<surefire.timeout>2400</surefire.timeout>
 		<surefire.itests.timeout>${surefire.timeout}</surefire.itests.timeout>
-		<!-- Where to put jacoco coverage report, basically in the target/ folder at the top-level for each component -->
-		<!-- For multi-modules "chunks", set it to '../../../target/jacoco.exec' in their root pom -->
-		<jacoco.destFile>../../target/jacoco.exec</jacoco.destFile>
 		<!-- Default properties for Java runtimes to be used and set during testing, eg., /qa/tools/opt/jdk1.8.0_last/ or /opt/jdk1.7.0_17/
 				These properties will be set when running in Jenkins, but you can set them in your settings.xml too.
 				Not recommended that you set default values in your root or test poms as they are machine specific. -->
@@ -180,8 +175,8 @@
 		can happen that they need to have different values, hence 2 properties -->
 		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 		
-		<sonar.maven.plugin.version>3.3.0.603</sonar.maven.plugin.version>
-		<jacoco.version>0.7.1.201405082137</jacoco.version>
+		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
+		<jacoco.version>0.8.4</jacoco.version>
 
 		<!-- properties used by jdeps profile -->
 		<jdeps-jdk-version>1.8</jdeps-jdk-version>
@@ -353,9 +348,6 @@ hs_err_pid*.log</jgit.ignore>
 							<goal>prepare-agent</goal>
 						</goals>
 						<configuration>
-							<includes>
-								<include>${coverage.filter}</include>
-							</includes>
 							<!-- Merge reports from all executions -->
 							<append>true</append>
 						</configuration>
@@ -853,7 +845,6 @@ hs_err_pid*.log</jgit.ignore>
 				<jdeps-jdk-version>9</jdeps-jdk-version>
 				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-				<jacoco.version>0.8.0</jacoco.version>
 			</properties>
 		</profile>
 
@@ -868,7 +859,6 @@ hs_err_pid*.log</jgit.ignore>
 				<!-- https://redhat.service-now.com/surl.do?n=PNT0276816 -->
 				<jdeps-jdk-vendor>oraclejdk</jdeps-jdk-vendor>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-				<jacoco.version>0.8.1</jacoco.version>
 			</properties>
 		</profile>
 
@@ -881,7 +871,6 @@ hs_err_pid*.log</jgit.ignore>
 				<jdeps-jdk-version>11</jdeps-jdk-version>
 				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-				<jacoco.version>0.8.2</jacoco.version>
 			</properties>
 		</profile>
 
@@ -894,7 +883,6 @@ hs_err_pid*.log</jgit.ignore>
 				<jdeps-jdk-version>12</jdeps-jdk-version>
 				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-				<jacoco.version>0.8.2</jacoco.version>
 			</properties>
 		</profile>
 
