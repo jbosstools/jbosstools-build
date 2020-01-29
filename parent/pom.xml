@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>AM1</BUILD_ALIAS>
+		<BUILD_ALIAS>GA</BUILD_ALIAS>
 		<targetEclipseVersion>4.14 (2019-12)</targetEclipseVersion>
 		<eclipseReleaseName>photon</eclipseReleaseName>
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
