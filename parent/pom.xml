@@ -149,9 +149,9 @@
 
 			 To build against locally built target platform, use -Dtpc.targetKind=multiple -Dtpc.version=4.70.2.Final
 		-->
-		<TARGET_PLATFORM_VERSION_MAX>4.15.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_VERSION_MAX>4.15.0.Final-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
 		<TARGET_PLATFORM_VERSION_MIN>${TARGET_PLATFORM_VERSION_MAX}</TARGET_PLATFORM_VERSION_MIN>
-		<TARGET_PLATFORM_CENTRAL_MAX>4.15.0.AM1-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
+		<TARGET_PLATFORM_CENTRAL_MAX>4.15.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
 
 		<!-- deprecated variables -->
 		<TARGET_PLATFORM_VERSION>${TARGET_PLATFORM_VERSION_MIN}</TARGET_PLATFORM_VERSION>
@@ -176,7 +176,7 @@
 		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 		
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
-		<jacoco.version>0.8.4</jacoco.version>
+		<jacoco.version>0.8.5</jacoco.version>
 
 		<!-- properties used by jdeps profile -->
 		<jdeps-jdk-version>1.8</jdeps-jdk-version>
