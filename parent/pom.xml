@@ -176,7 +176,7 @@
 		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 		
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
-		<jacoco.version>0.8.4</jacoco.version>
+		<jacoco.version>0.8.5</jacoco.version>
 
 		<!-- properties used by jdeps profile -->
 		<jdeps-jdk-version>1.8</jdeps-jdk-version>
