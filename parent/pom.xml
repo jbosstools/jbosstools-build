@@ -1309,6 +1309,14 @@ hs_err_pid*.log</jgit.ignore>
 			</releases>
 		</repository>
 		<repository>
+			<id>jboss-releases</id>
+			<name>JBoss Third Party Releases Maven Repository</name>
+			<url>https://${jbossNexus}/nexus/content/repositories/thirdparty-releases/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
 			<id>jboss-snapshots-repository</id>
 			<name>JBoss Snapshots Repository</name>
 			<url>https://${jbossNexus}/nexus/content/repositories/snapshots/</url>
