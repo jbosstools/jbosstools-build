@@ -894,6 +894,18 @@ hs_err_pid*.log</jgit.ignore>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
 			</properties>
 		</profile>
+        
+		<profile>
+			<id>jdk15</id>
+			<activation>
+				<jdk>[15</jdk>
+			</activation>
+			<properties>
+				<jdeps-jdk-version>15</jdeps-jdk-version>
+				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
+			</properties>
+		</profile>
 
 		<profile>
 			<id>jdeps</id>
