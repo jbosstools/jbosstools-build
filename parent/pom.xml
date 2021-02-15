@@ -38,9 +38,9 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>1.7.0</tychoVersion>
+		<tychoVersion>2.2.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>1.7.0</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>2.2.0</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.6.0</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
@@ -146,7 +146,7 @@
 
 			 To build against locally built target platform, use -Dtpc.targetKind=multiple -Dtpc.version=4.70.2.Final
 		-->
-		<TARGET_PLATFORM_VERSION_MAX>4.18.0.Final-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
+		<TARGET_PLATFORM_VERSION_MAX>4.19.0.AM1-SNAPSHOT</TARGET_PLATFORM_VERSION_MAX>
 		<TARGET_PLATFORM_VERSION_MIN>${TARGET_PLATFORM_VERSION_MAX}</TARGET_PLATFORM_VERSION_MIN>
 		<TARGET_PLATFORM_CENTRAL_MAX>4.17.0.Final-SNAPSHOT</TARGET_PLATFORM_CENTRAL_MAX>
 
