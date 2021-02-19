@@ -329,7 +329,7 @@ hs_err_pid*.log</jgit.ignore>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.4.1</version>
+				<version>3.2.0</version>
 				<configuration>
 					<encoding>ISO-8859-1</encoding>
 				</configuration>
@@ -389,7 +389,7 @@ hs_err_pid*.log</jgit.ignore>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>regex-property1</id>
@@ -661,15 +661,15 @@ hs_err_pid*.log</jgit.ignore>
 				</plugin>
 
 				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-source-feature-plugin</artifactId>
-					<version>${tychoExtrasVersion}</version>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-source-plugin</artifactId>
+					<version>${tychoVersion}</version>
 					<executions>
 						<execution>
-							<id>source-feature</id>
+							<id>feature-source</id>
 							<phase>package</phase>
 							<goals>
-								<goal>source-feature</goal>
+								<goal>feature-source</goal>
 							</goals>
 						</execution>
 					</executions>
