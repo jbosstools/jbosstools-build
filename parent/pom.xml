@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.19.0.Final-SNAPSHOT</version>
+	<version>4.19.1.AM1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools and Red Hat CodeReady Studio Parent</name>
 	<description>JBoss Tools and Red Hat CodeReady Studio Parent</description>
@@ -14,7 +14,7 @@
 		<!-- ==================================================== -->
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
-		<BUILD_ALIAS>Final</BUILD_ALIAS>
+		<BUILD_ALIAS>AM1</BUILD_ALIAS>
 		<targetEclipseVersion>4.19 (2021-03)</targetEclipseVersion>
 		<eclipseReleaseName>photon</eclipseReleaseName>
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
