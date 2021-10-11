@@ -38,9 +38,9 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>2.2.0</tychoVersion>
+		<tychoVersion>2.5.0</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>2.2.0</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>2.5.0</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.6.0</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
