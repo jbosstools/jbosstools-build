@@ -80,6 +80,7 @@
 				Not recommended that you set default values in your root or test poms as they are machine specific. -->
 		<jbosstools.test.jre.8>${JAVA_HOME}</jbosstools.test.jre.8>
 		<jbosstools.test.jre.11>${JAVA_HOME}</jbosstools.test.jre.11>
+		<jbosstools.test.jre.17>${JAVA_HOME}</jbosstools.test.jre.17>
 		<!-- Default property for testInstallBase. It has to be empty for testInstallBase to work on non OSX systems. -->
 		<testInstallPathOSX></testInstallPathOSX>
 		<!-- default when building locally; see hudson profile for when building in Jenkins CI -->
