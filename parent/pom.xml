@@ -19,8 +19,9 @@
 		<eclipseReleaseName>photon</eclipseReleaseName>
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
-		<testProduct>com.jboss.devstudio.core.product</testProduct>
+		<testProduct>org.eclipse.ui.ide.workbench</testProduct>
 		<devstudioRepository>https://devstudio.redhat.com/12/snapshots/updates/</devstudioRepository>
+		<jbtRepository>https://download.jboss.org/jbosstools/photon/snapshots/updates/</jbtRepository>
 		<!-- baseline check URLs -->
 		<lastStableRepository>https://download.jboss.org/jbosstools/photon/stable/updates/</lastStableRepository>
 		<!-- JBIDE-22689 to skip this check, use -Dtycho.baseline=disable, NOT -DskipBaselineComparison=true -->
@@ -1272,7 +1273,7 @@ hs_err_pid*.log</jgit.ignore>
 
 		<!-- ITests profile #3 of 3: won't run if -DskipITests=true -->
 		<profile>
-			<id>download-devstudio</id>
+			<id>download-jbt</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -1288,25 +1289,16 @@ hs_err_pid*.log</jgit.ignore>
 						<artifactId>target-platform-configuration</artifactId>
 						<configuration>
 							<skip>${skipITests}</skip>
-							<dependency-resolution>
-		 						<extraRequirements>
-									<requirement>
-										<type>p2-installable-unit</type>
-										<id>com.jboss.devstudio.core.feature.feature.group</id>
-										<versionRange>0.0.0</versionRange>
-									</requirement>
-		 						</extraRequirements>
-							</dependency-resolution>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 			<repositories>
 				<repository>
-					<id>devstudio-repo</id>
-					<name>devstudio-repo</name>
+					<id>jbt-repo</id>
+					<name>jbt-repo</name>
 					<layout>p2</layout>
-					<url>${devstudioRepository}</url>
+					<url>${jbtRepository}</url>
 				</repository>
 			</repositories>
 		</profile>
