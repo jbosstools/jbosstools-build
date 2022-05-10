@@ -805,7 +805,7 @@ hs_err_pid*.log</jgit.ignore>
 				<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
 				<platformSystemProperties> -XstartOnFirstThread </platformSystemProperties>
 				<!-- devstudio install path on OSX -->
-				<testInstallPathOSX>/devstudio.app/Contents/Eclipse/</testInstallPathOSX>
+				<testInstallPathOSX>/Eclipse JEE.app/Contents/Eclipse/</testInstallPathOSX>
 			</properties>
 		</profile>
 
