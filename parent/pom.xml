@@ -49,6 +49,7 @@
 		<platformSystemProperties></platformSystemProperties>
 		<applejdkProperties></applejdkProperties>
 		<moduleProperties></moduleProperties>
+		<exportProperties></exportProperties>
 		<maven.antrun.plugin.version>1.8</maven.antrun.plugin.version>
 		<update.site.name>JBoss Tools - ${project.artifactId}</update.site.name>
 		<!-- In the update site's site/pom.xml (that calls jbosstools-maven-plugins/tycho-plugins/repository-utils)
@@ -277,7 +278,7 @@ hs_err_pid*.log</jgit.ignore>
 					<useUIThread>true</useUIThread>
 					<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
 					<!-- tycho.testArgLine repeated to keep jacoco configuration for jacoco-maven-plugin -->
-					<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} ${moduleProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
+					<argLine>${tycho.testArgLine} ${memoryOptions1} ${memoryOptions2} ${applejdkProperties} ${platformSystemProperties} ${systemProperties} ${moduleProperties} ${exportProperties} -Dusage_reporting_enabled=false -Dorg.jboss.tools.tests.skipPrivateRequirements=${skipPrivateRequirements} -Dorg.eclipse.ui.testsDisableWorkbenchAutoSave=true</argLine>
 					<!-- https://docs.sonatype.org/display/TYCHO/How+to+run+SWTBot+tests+with+Tycho -->
 					<!-- set useUIThread=true for regular ui tests -->
 					<!-- set useUIThread=false for swtbot tests -->
@@ -906,6 +907,19 @@ hs_err_pid*.log</jgit.ignore>
 				<jdeps-jdk-version>15</jdeps-jdk-version>
 				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
 				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>jdk17</id>
+			<activation>
+				<jdk>[17</jdk>
+			</activation>
+			<properties>
+				<jdeps-jdk-version>17</jdeps-jdk-version>
+				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
+				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
+				<exportProperties>--add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED</exportProperties>
 			</properties>
 		</profile>
 
