@@ -117,7 +117,6 @@
 		<jbosstools-base-site>${jbosstools_site_baseurl}/jbosstools-base_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-base-site>
 		<jbosstools-central-site>${jbosstools_site_baseurl}/jbosstools-central_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-central-site>
 		<jbosstools-fabric8analytics-site>${jbosstools_site_baseurl}/jbosstools-fabric8analytics_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-fabric8analytics-site>
-		<jbosstools-forge-site>${jbosstools_site_baseurl}/jbosstools-forge_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-forge-site>
 		<jbosstools-fuse-extras-site>${jbosstools_site_baseurl}/jbosstools-fuse-extras_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-fuse-extras-site>
 		<jbosstools-fuse-site>${jbosstools_site_baseurl}/jbosstools-fuse_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-fuse-site>
 		<jbosstools-hibernate-site>${jbosstools_site_baseurl}/jbosstools-hibernate_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-hibernate-site>
