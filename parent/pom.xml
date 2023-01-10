@@ -299,6 +299,11 @@ hs_err_pid*.log</jgit.ignore>
 							<artifactId>org.eclipse.jdt</artifactId>
 							<version>0.0.0</version>
 						</dependency>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.eclipse.m2e.logback</artifactId>
+							<version>0.0.0</version>
+						</dependency>
 					</dependencies>
 				</configuration>
 			</plugin>
