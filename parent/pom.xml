@@ -19,7 +19,7 @@
 		<eclipseReleaseName>photon</eclipseReleaseName>
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
-		<testProduct>org.eclipse.ui.ide.workbench</testProduct>
+		<testProduct>org.eclipse.epp.package.java.product</testProduct>
 		<devstudioRepository>https://devstudio.redhat.com/12/snapshots/updates/</devstudioRepository>
 		<jbtRepository>https://download.jboss.org/jbosstools/photon/snapshots/updates/</jbtRepository>
 		<!-- baseline check URLs -->
