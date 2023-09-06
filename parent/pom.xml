@@ -6,9 +6,9 @@
 	<artifactId>parent</artifactId>
 	<version>4.29.0.Final-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>JBoss Tools and Red Hat CodeReady Studio Parent</name>
-	<description>JBoss Tools and Red Hat CodeReady Studio Parent</description>
-	<url>https://developers.redhat.com/products/devstudio/overview/</url>
+	<name>JBoss Tools Parent</name>
+	<description>JBoss Tools Parent</description>
+	<url>https://tools.jboss.org/</url>
 
 	<properties>
 		<!-- ==================================================== -->
@@ -167,7 +167,7 @@
 		<!-- tpc.group is one of ${targetPlatformGroup} or ${targetPlatformGroup-maximun} -->
 		<tpc.group>${targetPlatformGroup}</tpc.group>
 		<!-- Is one of "unified" or "multiple" (other values "jenkins" & "local" are deprecated -->
-		<tpc.targetKind>unified</tpc.targetKind>
+		<tpc.targetKind>multiple</tpc.targetKind>
 		<tpc.version>${TARGET_PLATFORM_VERSION_MIN}</tpc.version>
 		<!-- discovery.tpc.version usually is usually set to ${tpc.version} but it
 		can happen that they need to have different values, hence 2 properties -->
@@ -176,9 +176,6 @@
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
 		<jacoco.version>0.8.7</jacoco.version>
 
-		<!-- properties used by jdeps profile -->
-		<jdeps-jdk-version>1.8</jdeps-jdk-version>
-		<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
 	</properties>
 
 	<build>
@@ -379,13 +376,6 @@ hs_err_pid*.log</jgit.ignore>
 							<p2StatsUrl>${p2StatsUrl}</p2StatsUrl>
 						</configuration>
 					</execution>
-					<!--<execution>
-						<id>generate-full-site</id>
-						<phase>package</phase>
-						<goals>
-							<goal>create-full-site</goal>
-						</goals>
-					</execution>-->
 				</executions>
 			</plugin>
 
@@ -840,132 +830,6 @@ hs_err_pid*.log</jgit.ignore>
 		</profile>
 
 		<profile>
-			<id>jdk9</id>
-			<activation>
-				<jdk>[9</jdk>
-			</activation>
-			<properties>
-				<jdeps-jdk-version>9</jdeps-jdk-version>
-				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
-				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>jdk10</id>
-			<activation>
-				<jdk>[10</jdk>
-			</activation>
-			<properties>
-				<jdeps-jdk-version>10</jdeps-jdk-version>
-				<!-- having some issues with the openjdk 10 install on CCI, so switch to oraclejdk for now -->
-				<!-- https://redhat.service-now.com/surl.do?n=PNT0276816 -->
-				<jdeps-jdk-vendor>oraclejdk</jdeps-jdk-vendor>
-				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>jdk11</id>
-			<activation>
-				<jdk>[11</jdk>
-			</activation>
-			<properties>
-				<jdeps-jdk-version>11</jdeps-jdk-version>
-				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
-				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>jdk12</id>
-			<activation>
-				<jdk>[12</jdk>
-			</activation>
-			<properties>
-				<jdeps-jdk-version>12</jdeps-jdk-version>
-				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
-				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>jdk14</id>
-			<activation>
-				<jdk>[14</jdk>
-			</activation>
-			<properties>
-				<jdeps-jdk-version>14</jdeps-jdk-version>
-				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
-				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-			</properties>
-		</profile>
-        
-		<profile>
-			<id>jdk15</id>
-			<activation>
-				<jdk>[15</jdk>
-			</activation>
-			<properties>
-				<jdeps-jdk-version>15</jdeps-jdk-version>
-				<jdeps-jdk-vendor>openjdk</jdeps-jdk-vendor>
-				<moduleProperties>--add-modules=ALL-SYSTEM</moduleProperties>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>jdeps</id>
-			<build>
-				<plugins>
-					<plugin>
-					  <groupId>org.apache.maven.plugins</groupId>
-					  <artifactId>maven-toolchains-plugin</artifactId>
-					  <version>1.1</version>
-					  <executions>
-					    <execution>
-					      <goals>
-					        <goal>toolchain</goal>
-					      </goals>
-					    </execution>
-					  </executions>
-					  <configuration>
-					    <toolchains>
-					      <jdk>
-					        <version>${jdeps-jdk-version}</version>
-					        <vendor>${jdeps-jdk-vendor}</vendor>
-					      </jdk>
-					    </toolchains>
-					  </configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jdeps-plugin</artifactId>
-						<version>3.1.1</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>jdkinternals</goal> <!-- verify main classes -->
-									<goal>test-jdkinternals</goal> <!-- verify test classes -->
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<multiRelease>base</multiRelease>
-						</configuration>
-						<dependencies>
-							<dependency>
-							  <groupId>org.apache.maven.plugins</groupId>
-							  <artifactId>maven-jdeps-plugin</artifactId>
-							  <version>3.1.0</version>
-							  <type>maven-plugin</type>
-							</dependency>
-						</dependencies>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-		<profile>
 			<id>sign</id>
 			<!--	guarantee that -Psign <=> -DskipSigning=false -->
 			<activation>
@@ -977,91 +841,6 @@ hs_err_pid*.log</jgit.ignore>
 			<properties>
 				<skipSigning>false</skipSigning>
 			</properties>
-		</profile>
-
-		<profile>
-			<id>pack200</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>target-platform-configuration</artifactId>
-						<version>${tychoVersion}</version>
-						<configuration>
-							<includePackedArtifacts>true</includePackedArtifacts>
-						</configuration>
-					</plugin>
-					<!-- first we normalize -->
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200a-plugin</artifactId>
-						<version>${tychoExtrasVersion}</version>
-						<executions>
-							<execution>
-								<id>pack200-normalize</id>
-								<goals>
-									<goal>normalize</goal>
-								</goals>
-								<phase>package</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<!-- then we sign -->
-					<plugin>
-						<artifactId>exec-maven-plugin</artifactId>
-						<groupId>org.codehaus.mojo</groupId>
-						<version>1.2.1</version>
-						<executions>
-							<execution>
-								<id>jarsign</id>
-								<phase>package</phase>
-								<goals>
-									<goal>exec</goal>
-								</goals>
-								<configuration>
-									<executable>/home/hudson/bin/jarsign.sh</executable>
-									<arguments>
-										<argument>${project.basedir}</argument>
-									</arguments>
-									<skip>${skipSigning}</skip>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<!-- then we pack -->
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200b-plugin</artifactId>
-						<version>${tychoExtrasVersion}</version>
-						<executions>
-							<execution>
-								<id>pack200-pack</id>
-								<goals>
-									<goal>pack</goal>
-								</goals>
-								<phase>package</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-p2-plugin</artifactId>
-						<version>${tychoVersion}</version>
-						<executions>
-							<execution>
-								<id>p2-metadata</id>
-								<goals>
-									<goal>p2-metadata</goal>
-								</goals>
-								<phase>package</phase>
-							</execution>
-						</executions>
-						<configuration>
-							<defaultP2Metadata>false</defaultP2Metadata>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 
 		<profile>
