@@ -39,9 +39,9 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>4.0.2</tychoVersion>
+		<tychoVersion>2.7.5</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>4.0.2</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>2.7.5</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.9.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
@@ -194,6 +194,24 @@ hs_err_pid*.log</jgit.ignore>
 					<sourceReferences>
 						<generate>true</generate>
 					</sourceReferences>
+					<archiveSite>true</archiveSite>
+					<environments>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -202,7 +220,7 @@ hs_err_pid*.log</jgit.ignore>
 						<version>${tychoExtrasVersion}</version>
 					</dependency>
 					<dependency>
-						<groupId>org.eclipse.tycho</groupId>
+						<groupId>org.eclipse.tycho.extras</groupId>
 						<artifactId>tycho-buildtimestamp-jgit</artifactId>
 						<version>${tychoExtrasVersion}</version>
 					</dependency>
@@ -221,6 +239,7 @@ hs_err_pid*.log</jgit.ignore>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tychoVersion}</version>
 				<configuration>
+					<resolver>p2</resolver>
 					<environments>
 						<environment>
 							<os>macosx</os>
@@ -299,6 +318,7 @@ hs_err_pid*.log</jgit.ignore>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tychoVersion}</version>
 				<executions>
 					<execution>
 						<id>plugin-source</id>
@@ -422,7 +442,7 @@ hs_err_pid*.log</jgit.ignore>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>3.4.1</version>
+				<version>1.4.1</version>
 				<dependencies>
 					<dependency>
 						<groupId>org.jboss.tools.releng</groupId>
@@ -506,6 +526,57 @@ hs_err_pid*.log</jgit.ignore>
 
 		<pluginManagement>
 			<plugins>
+				<!-- This plugin's configuration is used to store Eclipse m2e settings only. -->
+				<!-- It has no influence on the Maven build itself. -->
+				<!-- Workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=350414 -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jacoco</groupId>
+										<artifactId>jacoco-maven-plugin</artifactId>
+										<versionRange>[0.5,)
+										</versionRange>
+										<goals>
+											<goal>prepare-agent</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<!-- m2e doesn't know what to do with jacoco, -->
+										<!-- let's ignore it or annoying error markers appear -->
+										<!-- see http://wiki.eclipse.org/M2E_plugin_execution_not_covered -->
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.codehaus.mojo
+										</groupId>
+										<artifactId>
+											build-helper-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.7,)
+										</versionRange>
+										<goals>
+											<goal>regex-property</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>2.5.4</version>
@@ -700,6 +771,7 @@ hs_err_pid*.log</jgit.ignore>
 				<tpc.version>${TARGET_PLATFORM_VERSION_MAX}</tpc.version>
 			</properties>
 		</profile>
+
 
 		<profile>
 			<!-- JBIDE-12455 , necessary because of XulRunner doesn't support 64bits OSX -->
@@ -995,6 +1067,13 @@ hs_err_pid*.log</jgit.ignore>
 							<product>${testProduct}</product>
 						</configuration>
 					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<configuration>
+							<skip>${skipITests}</skip>
+						</configuration>
+					</plugin>
 				</plugins>
 			</build>
 			<repositories>
@@ -1101,6 +1180,7 @@ hs_err_pid*.log</jgit.ignore>
 	</scm>
 
 	<issueManagement>
+		<system>jira</system>
 		<url>https://jira.jboss.org/jira/secure/</url>
 	</issueManagement>
 
