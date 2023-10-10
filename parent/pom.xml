@@ -41,7 +41,7 @@
 		<!-- ==================================================== -->
 		<tychoVersion>4.0.3</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>4.0.3</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>4.0.4-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.9.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
@@ -174,7 +174,7 @@
 		<discovery.tpc.version>${TARGET_PLATFORM_CENTRAL_MAX}</discovery.tpc.version>
 		
 		<sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
-		<jacoco.version>0.8.7</jacoco.version>
+		<jacoco.version>0.8.10</jacoco.version>
 
 	</properties>
 
