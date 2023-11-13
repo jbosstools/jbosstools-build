@@ -34,14 +34,14 @@
 		<!-- if https://issues.jboss.org/browse/JBIDE-22248 comes back, use <jbossNexus>origin-repository.jboss.org</jbossNexus> -->
 		<jbossNexus>repository.jboss.org</jbossNexus>
 		
-		<filemgmtJbossOrg>filemgmt-prod-sync.jboss.org</filemgmtJbossOrg>
+		<filemgmtJbossOrg>filemgmt.jboss.org</filemgmtJbossOrg>
 
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>4.0.3</tychoVersion>
+		<tychoVersion>4.0.4</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>4.0.4-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>4.0.4</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.9.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
@@ -125,7 +125,6 @@
 		<jbosstools-openshift-site>${jbosstools_site_baseurl}/jbosstools-openshift_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-openshift-site>
 		<jbosstools-server-site>${jbosstools_site_baseurl}/jbosstools-server_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-server-site>
 		<jbosstools-vpe-site>${jbosstools_site_baseurl}/jbosstools-vpe_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-vpe-site>
-		<jbosstools-webservices-site>${jbosstools_site_baseurl}/jbosstools-webservices_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-webservices-site>
 		<jbosstools-tests-site>https://download.jboss.org/jbosstools/${eclipseReleaseName}/snapshots/updates/coretests/${stream_jbt}/</jbosstools-tests-site>
 		<jbosstools-quarkus-site>${jbosstools_site_baseurl}/jbosstools-quarkus_${stream_jbt}/${jbosstools_site_suffix}</jbosstools-quarkus-site>
 
