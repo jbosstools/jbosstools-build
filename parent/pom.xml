@@ -41,7 +41,7 @@
 		<!-- ==================================================== -->
 		<tychoVersion>4.0.4</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>4.0.4</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>4.0.5-SNAPSHOT</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.9.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
