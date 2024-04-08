@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.tools</groupId>
 	<artifactId>parent</artifactId>
-	<version>4.30.0.Final-SNAPSHOT</version>
+	<version>4.29.1.Final-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JBoss Tools Parent</name>
 	<description>JBoss Tools Parent</description>
@@ -15,7 +15,7 @@
 		<!-- Build properties, to be updated with every milestone or new Eclipse release -->
 		<!-- ==================================================== -->
 		<BUILD_ALIAS>Final</BUILD_ALIAS>
-		<targetEclipseVersion>4.30 (2023-12)</targetEclipseVersion>
+		<targetEclipseVersion>4.29 (2023-09)</targetEclipseVersion>
 		<eclipseReleaseName>photon</eclipseReleaseName>
 		<devstudioReleaseVersion>12</devstudioReleaseVersion>
 		<!-- Integration Test (ITest) parameters -->
@@ -39,9 +39,9 @@
 		<!-- ==================================================== -->
 		<!-- General properties, not meant to be tweaked by users -->
 		<!-- ==================================================== -->
-		<tychoVersion>4.0.4</tychoVersion>
+		<tychoVersion>4.0.6</tychoVersion>
 		<tychoExtrasVersion>${tychoVersion}</tychoExtrasVersion>
-		<jbossTychoPluginsVersion>4.0.5-SNAPSHOT</jbossTychoPluginsVersion>
+		<jbossTychoPluginsVersion>4.0.6</jbossTychoPluginsVersion>
 		<jbosstoolsRelengPublishVersion>4.9.0-SNAPSHOT</jbosstoolsRelengPublishVersion>
 		<memoryOptions1>-Xms512m -Xmx1024m -XX:MetaspaceSize=256m</memoryOptions1>
 		<memoryOptions2></memoryOptions2>
